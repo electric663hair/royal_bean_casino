@@ -149,6 +149,12 @@ input::placeholder {
     padding: 1rem;
 }
 
+input{
+    height: 3rem; 
+    width: 15rem; 
+    border-radius: 5rem; 
+    border: black .3rem solid;
+}
 /*Page Changing Buttons*/
 .section {display: none;}
 .section.active {display: block;}
