@@ -1,0 +1,149 @@
+html{
+    font-size: 1vw;
+}
+/* Mobil-skjerm */
+@media (min-width: 319px) and (max-width: 480px ){
+
+}
+/* Ipad-skjerm */
+@media (min-width: 481px) and (max-width: 1200px){
+
+}
+/* Laptop-Skjerm */
+@media (min-width: 1201px) and (max-width: 1600px ){
+
+}
+/* Veldig stor skjerm (Desktop-skjerm) */
+@media (min-width: 1601px){
+
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    background: #af3449;
+    padding: 0;
+}
+header {
+    background: #28445a ;
+}
+
+h2{
+    font-size: 1.5rem;
+}
+
+nav div {
+    margin: 1% 5% 1% 5%;
+}
+
+nav{
+    display: flex;
+    flex-direction:row;
+    justify-content:end;
+}
+
+button.nav-button{
+    width: 8rem; 
+    height: 4rem; 
+    margin: 1%;
+    background-color:#d7dce8 ;
+    border: solid #0f1a20 ;
+    border-width: 2px ;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+
+button.nav-button:hover{
+    position: relative;
+    width: 9rem; 
+    height: 5rem; 
+    transition: all 0.5s;
+}
+
+div.navigation-bar{
+    display: flex;
+    flex-direction: row;
+}
+
+#pageTitle{
+    font-family:Bungee Tint ;
+    position: absolute;
+    font-size: 4rem;
+    margin: 0%;
+    margin-left:5vw ;
+    display: inline-block;
+}
+
+.cpsDiv {
+    font-family: Bungee Tint;
+    width: auto;
+    height: 20rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 5rem;
+    margin: 2%;
+}
+
+.cpsBtn {
+    font-family: Bungee Tint;
+    font-size: 2rem;
+    width: 15rem;
+    height: 7rem;
+    border: black solid 0rem;
+    border-radius: 5rem;
+    background-color: #ea5d4d;
+}
+
+.cpsBtn:hover {
+    border: #28445a solid .5rem;
+    font-size: 2.5rem;
+    transition: all 0.5s;
+}
+
+.cpsStats {
+    background-color: #ea5d4d;
+    border-radius: 5rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+    margin: 2rem;
+    border: #28445a solid .5rem;
+}
+
+.cpsStats div {
+    margin: 5%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.cpsStats div p {
+    font-size: 3rem;
+    margin: 2%;
+}
+
+.cpsStats div h3 {
+    margin: 2%;
+}
+
+.flexCenter {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    margin-top: 25%;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/*Page Changing Buttons*/
+.section {display: none;}
+.section.active {display: block;}
+/*End Page Changing Buttons*/
