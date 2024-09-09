@@ -42,6 +42,10 @@ nav{
     justify-content:end;
 }
 
+h1 {
+    font-family:Bungee Tint ;
+}
+
 button.nav-button{
     width: 8rem; 
     height: 4rem; 
@@ -144,17 +148,44 @@ div.navigation-bar{
     flex-direction: column;
 }
 
+input{
+    height: 3rem;
+    width: 15rem;
+    border-radius: 5rem;
+    border: #28445a .3rem solid;
+    text-align: center;
+    background: #28445a;
+    color: #ea5d4d;
+    font-weight: bold;
+}
+
 input::placeholder {
-    color: blue;
+    color: #ea5d4d;
     padding: 1rem;
 }
 
-input{
-    height: 3rem; 
-    width: 15rem; 
-    border-radius: 5rem; 
-    border: black .3rem solid;
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem 2.5rem 2.5rem;
+    margin-top: 3rem;
+    border-radius: 3rem;
+    border: #86313f solid .3rem;
+    background-color: #ea5d4d;
 }
+
+.formDiv {
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    justify-content: space-around;
+}
+
+form.signUp {height: 25rem;}
+form.logIn {height: 25rem;}
+
 /*Page Changing Buttons*/
 .section {display: none;}
 .section.active {display: block;}
