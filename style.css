@@ -19,7 +19,6 @@ html{
 }
 
 body {
-    overflow: hidden;
     margin: 0;
     background: #af3449;
     padding: 0;
@@ -149,14 +148,14 @@ div.navigation-bar{
 }
 
 input{
-    height: 3rem;
-    width: 15rem;
+
     border-radius: 5rem;
     border: #28445a .3rem solid;
     text-align: center;
     background: #28445a;
     color: #ea5d4d;
     font-weight: bold;
+    padding: 0.5rem 3rem 0.5rem 3rem;
 }
 
 input::placeholder {
@@ -178,13 +177,14 @@ form {
 
 .formDiv {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 50%;
     justify-content: space-around;
+    align-items: center;
 }
 
-form.signUp {height: 25rem;}
-form.logIn {height: 25rem;}
+form.signUp {height: 25rem; width: 20rem;}
+form.logIn {height:20rem; width: 20rem;}
 
 /*Page Changing Buttons*/
 .section {display: none;}
