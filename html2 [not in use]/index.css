@@ -1,0 +1,53 @@
+html{
+    font-size: 1vw;
+    background: #af3449;
+}
+
+nav {
+    background: #28445a;
+    height: 5rem;
+}
+
+body {
+    border: solid blue .1rem;
+    height: 99.8vh;
+    width: 99.vw;
+    margin: 0;
+    overflow: hidden;
+}
+
+#nav-logo {
+    height: 5rem;
+    width: 5rem;
+    background: white;
+}
+
+.navElements {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.navDiv {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#navTitle {
+    background: green;
+    width: 60%;
+    height: 100%;
+}
+
+.nav-buttons {
+    background: yellow;
+    width: 50%;
+    height: 100%;
+}
+
+#nav-margin-block {
+    background: pink;
+    width: 5%;
+    height: 100%;
+}
