@@ -4,6 +4,54 @@ html{
 /* Mobil-skjerm */
 @media (min-width: 319px) and (max-width: 480px ){
 
+    #pageTitle{
+        font-family:Bungee Tint ;
+        margin: 0 0 0 0;
+        font-size: 11rem;
+        width: 100%;
+        text-align: center;
+        
+    }
+
+    button.nav-button{
+        width: 100%; 
+        height: 60%; 
+        margin: 1%;
+        background-color:#d7dce8 ;
+        border: solid #0f1a20 .2rem;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.5s;
+    }
+
+    nav{
+        display: flex;
+        flex-direction:row;
+        justify-content:end;
+        width: 100%;
+    }
+
+    h2{
+        font-size: 3rem;
+    }
+
+    button.nav-button:hover{
+        display: flex;
+        position: relative;
+        width: 120%; 
+        height: 75%; 
+        transition: all 0.5s;
+    }
+
+    header {
+        background: #28445a ;
+        display: flex;
+        flex-direction:column;
+        justify-content:start;
+        width: 100vw;
+    }
 }
 
 /* Small Ipad-skjerm */
