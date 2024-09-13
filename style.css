@@ -245,7 +245,7 @@ nav{
     height: 7rem;
     border: black solid 0rem;
     border-radius: 5rem;
-    
+    background-color: #ea5d4d;
     transition: all 0.5s;
 }
 
@@ -256,7 +256,7 @@ nav{
 }
 
 .cpsStats {
-    
+    background-color: #ea5d4d;
     border-radius: 5rem;
     display: flex;
     flex-direction: row;
