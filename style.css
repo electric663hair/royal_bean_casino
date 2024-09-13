@@ -170,6 +170,7 @@ html{
     #pageTitle{
         font-family:Bungee Tint ;
         margin: 0 0 0 0;
+        padding: 0 0 0 4%;
         font-size: 4rem;
         width: 70%;
         text-align: justify;   
@@ -187,7 +188,6 @@ html{
         align-items: center;
         transition: all 0.5s;
     }
-    
     
     nav{
         display: flex;
