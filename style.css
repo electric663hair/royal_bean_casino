@@ -87,7 +87,7 @@ html{
     }
 
     h2{
-        font-size: 2rem;
+        font-size: 3rem;
     }
 
     button.nav-button:hover{
@@ -161,7 +161,7 @@ html{
     }
 }
 /* Laptop-Skjerm */
-@media (min-width: 1201px) and (max-width: 1600px ){
+@media (min-width: 1201px) and (max-width: 1580px ){
 
     #pageTitle{
         font-family:Bungee Tint ;
@@ -213,7 +213,7 @@ html{
     }
 }
 /* Veldig stor skjerm (Desktop-skjerm) */
-@media (min-width: 1601px){
+@media (min-width: 1581px){
 
     #pageTitle{
         font-family:Bungee Tint ;
