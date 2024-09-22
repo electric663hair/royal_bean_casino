@@ -10,3 +10,8 @@
     }
 
 }
+
+.games{
+    display: flex;
+    justify-content: space-between;
+}
