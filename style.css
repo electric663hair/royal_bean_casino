@@ -1,3 +1,21 @@
+.gradient-background {
+    background: linear-gradient(300deg, #FFB000, #FFCF9D, #F5F5DC);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
 .hero{
     display:flex;
     justify-content: center;
@@ -15,3 +33,17 @@
     display: flex;
     justify-content: space-between;
 }
+
+#Overskrift{
+    font-family: Arvo;
+}
+
+.hero-text{
+    font-weight: 600;
+}
+
+h3{
+    margin-bottom: 0;
+}
+
+
