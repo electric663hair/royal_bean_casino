@@ -1,0 +1,1 @@
+document.querySelector("#copyright").innerHTML = '©' + new Date().getFullYear() + ' Edging Studios, Inc'
