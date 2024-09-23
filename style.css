@@ -113,3 +113,11 @@ a{
     display: flex;
     justify-content: end;
 }
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
