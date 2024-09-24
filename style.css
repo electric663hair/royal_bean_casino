@@ -27,12 +27,51 @@
         width: 700px;
     }
 
+    .games{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
 }
 
-.games{
-    display: flex;
-    justify-content: space-between;
+@media (max-width:1200px){
+    .games{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+    }
+
 }
+
+@media (min-width:1201px){
+    .games{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+    }
+
+}
+
+@media (max-width:991px){
+    .Navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Logo > h3{
+        position: relative;
+        left: 5%; 
+    }
+
+    .Logo > img{
+        position: relative;
+        left: 5%; 
+    }
+ 
+}
+
 
 #Overskrift{
     font-family: Arvo;
@@ -86,4 +125,12 @@ li{
 .login-buttons{
     display: flex;
     justify-content: end;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
 }
