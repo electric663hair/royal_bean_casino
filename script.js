@@ -22,7 +22,7 @@ function showSection(section) {
     }
 
     // Change color on the text of the nav buttons so that the name of the subpage you are on are in the text-secondary color
-    var buttons = document.querySelectorAll('ul.nav > li > a');
+    var buttons = document.querySelectorAll('ul.nav > li > a, button');
     buttons.forEach(function(btn) {
         if (document.getElementById(window.location.hash.substring(1) + "Btn") == btn) {
             btn.classList.remove('text-white');
@@ -37,9 +37,10 @@ function showSection(section) {
 // Handle page load with hash
 window.addEventListener('load', function() {
     var currentHash = window.location.hash.substring(1); // Remove the '#' from the hash
-    if (currentHash) {
+    if (currentHash != "#" && currentHash) {
         showSection(currentHash);
     } else {
+        window.location.hash = "#home";
         showSection('home');  // Default to home section if no hash
     }
 });
@@ -50,7 +51,7 @@ window.addEventListener('hashchange', function() {
     showSection(currentHash);
 });
 
-// Add this function in buttons that is going to chagne hash
+// Add this function in buttons that is going to change hash
 function changeHashTo(section) {
     window.location.hash = section;
     showSection(section);

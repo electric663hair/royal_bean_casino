@@ -30,10 +30,10 @@
 
               <div>
                 <ul class="nav justify-content-center mb-md-0 mx-0">
-                  <li><a href="#home" id="homeBtn" class="nav-link px-2 text-secondary">Home</a></li>
-                  <li><a href="#play" id="playBtn" class="nav-link px-2 text-white">Play</a></li>
-                  <li><a href="#stats" id="statsBtn" class="nav-link px-2 text-white">Stats</a></li>
-                  <li><a href="#about" id="aboutBtn" class="nav-link px-2 text-white">About Us</a></li>
+                  <li><button onclick="changeHashTo('home')" id="homeBtn" class="nav-link px-2 text-secondary">Home</button></li>
+                  <li><button onclick="changeHashTo('play')" id="playBtn" class="nav-link px-2 text-white">Play</button></li>
+                  <li><button onclick="changeHashTo('stats')" id="statsBtn" class="nav-link px-2 text-white">Stats</button></li>
+                  <li><button onclick="changeHashTo('about')" id="aboutBtn" class="nav-link px-2 text-white">About Us</button></li>
                 </ul>
               </div>
 
@@ -187,9 +187,10 @@
         </form>
       </div>
 
-  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making example: id="play"; and you also have to add this: class="section";
-  then you can write all of your code inside the subpage tags like this:
-  <subpage id="play" class="section">
+  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making + "Page" at the end like a suffix, example: id="playPage";
+  and you also have to add this: class="section"; then you can write all of your code inside the subpage tags like this:
+
+  <subpage id="playPage" class="section">
     <h1>This is code!</h1>
   </subpage>;
   
@@ -201,11 +202,11 @@
     <section>
       <footer class="py-3 mt-4 footer-text text-bg-dark">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3" >
-          <li class="nav-item"><a href="#home" id="homeBtn" class="nav-link px-2 text-secondary">Home</a></li>
-          <li class="nav-item"><a href="#play" id="playBtn" class="nav-link px-2 text-white">Play</a></li>
-          <li class="nav-item"><a href="#stats" id="statsBtn" class="nav-link px-2 text-white">Stats</a></li>
-          <li class="nav-item"><a href="#about" id="aboutBtn" class="nav-link px-2 text-white">About Us</a></li>
-        </ul>
+            <li><button onclick="changeHashTo('home')" id="homeBtn" class="nav-link px-2 text-secondary">Home</button></li>
+            <li><button onclick="changeHashTo('play')" id="playBtn" class="nav-link px-2 text-white">Play</button></li>
+            <li><button onclick="changeHashTo('stats')" id="statsBtn" class="nav-link px-2 text-white">Stats</button></li>
+            <li><button onclick="changeHashTo('about')" id="aboutBtn" class="nav-link px-2 text-white">About Us</button></li>
+          </ul>
         <p class="text-center text-white" id="copyright">© 2010 Edging Studios, Inc</p>
       </footer>
     </section>
