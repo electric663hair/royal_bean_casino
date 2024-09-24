@@ -10,7 +10,7 @@ function signup() {
 
 function showSection(section) {
     // Hide all sections
-    var sections = document.querySelectorAll('subpage.section');
+    var sections = document.querySelectorAll('.section');
     sections.forEach(function(sec) {
         sec.classList.remove('active');
     });
