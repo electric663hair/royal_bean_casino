@@ -22,13 +22,13 @@ function showSection(section) {
     }
 
     // Change color on the text of the nav buttons so that the name of the subpage you are on are in the text-secondary color
-    var buttons = document.querySelectorAll('ul.nav > li > a, button');
+    var buttons = document.querySelectorAll('ul.nav > li > a, ul.nav > li > button');
     buttons.forEach(function(btn) {
         if (document.getElementById(window.location.hash.substring(1) + "Btn") == btn) {
             btn.classList.remove('text-white');
-            btn.classList.add('text-secondary');
+            btn.classList.add('text-warning');
         } else {
-            btn.classList.remove('text-secondary');
+            btn.classList.remove('text-warning');
             btn.classList.add('text-white');
         }
     })
