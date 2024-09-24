@@ -132,7 +132,7 @@ li{
 }
 
 header{
-    background-color: #004225;
+    background-color: #0f3a27;
 }
 
 .bean{
@@ -140,5 +140,14 @@ header{
     border-radius: 50%;
 }
 
+footer{
+    background-color:rgb(48, 48, 48) ;
+}
 
+.Feature-bg{
+    background-color:#0f3a27;
+}
 
+.border-footer{
+    border-bottom: solid #ffffff 2px;
+}
