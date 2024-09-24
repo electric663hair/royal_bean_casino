@@ -48,9 +48,18 @@ h3{
     font-optical-sizing: auto;
     font-weight: 600;
     font-style: normal;
+    
 }
 
 a{
+    margin-bottom: 0;
+    font-family: "Cinzel", serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+p{
     margin-bottom: 0;
     font-family: "Cinzel", serif;
     font-optical-sizing: auto;
@@ -58,6 +67,10 @@ a{
     font-style: normal;
 }
 
+
+li{
+    font-size: 130%;
+}
 
 .Logo{
     display: flex;
