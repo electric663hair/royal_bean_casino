@@ -81,7 +81,7 @@
     font-weight: 600;
 }
 
-h3{
+h3, button{
     margin-bottom: 0;
     font-family: "Cinzel", serif;
     font-optical-sizing: auto;
@@ -97,15 +97,6 @@ a{
     font-weight: 500;
     font-style: normal;
 }
-
-p{
-    margin-bottom: 0;
-    font-family: "Cinzel", serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-}
-
 
 li{
     font-size: 130%;
