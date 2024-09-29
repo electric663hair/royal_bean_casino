@@ -32,8 +32,74 @@
         justify-content: space-between;
         flex-direction: column;
     }
+}
+
+@media (max-width:768px){
+
+    .Logo > h3{
+        font-size:4vw !important;
+    }
+}
+
+@media (max-width:576px){
+
+    .Logo > h3{
+        font-size:5vw !important;
+    }
+}
+
+@media (max-width:991px){
+
+    .gradient-background{
+        padding-top: 20vh;
+    }
+
+    .Navbar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .Logo > h3{
+        position: relative;
+        left: 5%; 
+        font-size:3vw;
+    }
+
+    .Logo > img{
+        position: relative;
+        left: 5%; 
+    }
 
 }
+
+@media (max-width:991px) and (max-width:992px){
+
+    .gradient-background{
+        padding-top: 20vh;
+    }
+}
+
+@media (min-width:992px){
+     
+    .Logo > h3{
+        font-size:2vw;
+    }
+    
+    .gradient-background{
+        padding-top:80px;
+    }
+}
+
+@media (min-width:1001px) {
+
+
+    img.mx-3.bean{
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
+
 
 @media (max-width:1200px){
     .games{
@@ -51,25 +117,10 @@
         flex-direction: row;
     }
 
-}
-
-@media (max-width:991px){
-    .Navbar{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .gradient-background{
+        padding-top: 100px;
     }
 
-    .Logo > h3{
-        position: relative;
-        left: 5%; 
-    }
-
-    .Logo > img{
-        position: relative;
-        left: 5%; 
-    }
- 
 }
 
 
@@ -105,6 +156,7 @@ li{
 .Logo{
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
     color: white;
 }
@@ -133,6 +185,10 @@ li{
 
 header{
     background-color: #0f3a27;
+    position: fixed;
+    width: 100%;
+    display: block;
+    z-index: 9999;
 }
 
 .bean{
@@ -160,7 +216,7 @@ footer{
 }
 
 .About-us img{
-    width: 350px;
+    width: 45%;
 }
 
 .about-person{
@@ -184,4 +240,12 @@ footer{
     flex-direction: column;
     justify-content: center;
     width: 50%;
+}
+
+.about-person button{
+    background-color: #FFB000;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
+    padding-top: 1%;
+    padding-bottom: 1%;
 }
