@@ -1,4 +1,22 @@
 .gradient-background {
+    background: linear-gradient(300deg, #FFB000, #FFCF9D, #F5F5DC);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.hero-background {
    background-color: #0e2f20;
    border-top: #ffffff solid 2px;
   }
@@ -198,7 +216,7 @@ header{
 }
 
 footer{
-    background-color:rgb(48, 48, 48) ;
+    background-color: #0e2f20 ;
 }
 
 .border-footer{
@@ -224,13 +242,24 @@ footer{
 }
 
 .Feature{
-    border-radius: 3%;
-    background-color:#ffcb5b;
+    border-radius:3%;
+    background-color: #f6f6cf;
     border: black solid;
 }
 
+.Feature .btn{
+   background-color:#164932 !important;
+   border: none;
+}
+
+.Feature h3{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 600;
+}
+
 .Feature-bg{
-    background-color:#FFCF9D;
+    background-color:#ffe0bf;
+    color: black;
 }
 .games-bg{
     background-color: #f6f6cf;
@@ -281,4 +310,15 @@ footer{
     background-color: #f6f6cf;
     color: #0e2f20;
     transition: all 0.1s;
+}
+
+.card-body{
+    background-color:#0e2f20;
+    color: white;
+}
+
+.card-body > .btn{
+    background-color: #FFB000;
+    border: none;
+    color:#0e2f20;
 }
