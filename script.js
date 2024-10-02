@@ -1,4 +1,4 @@
-document.querySelector("#copyright").innerHTML = '©' + new Date().getFullYear() + ' Edging Studios, Inc'
+document.querySelector("#copyright").innerHTML = '©' + new Date().getFullYear() + ' Royal Bean Studios, Inc'
 
 function signin() {
     window.alert("Login")

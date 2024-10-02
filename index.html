@@ -18,11 +18,9 @@
     </head>
     <body>
       <!--Navbar-->
-      <section>
         <header class="py-3 px-0 mx-0">
-          <div class=" mx-0">
+          <div class=" mx-4">
             <div class="flex-wrap align-items-center Navbar mx-0 col-12">
-              
               <div class="Logo mx-0 px-lg-0 col-lg-4">
                 <h3>Royal Bean Casino</h3>
                 <button onclick="changeHashTo('home')" id="homeBtn" class="nav-link px-2 text-secondary mx-2">
@@ -45,8 +43,6 @@
             </div>
           </div>
         </header>
-      </section>
-
       <!--Alt inni div-en med id="home" er på forsiden-->
       <subpage id="home" class="section">
         <!--Hero-->
@@ -54,8 +50,8 @@
           <div class="container px-4 pt-5 ">
             <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
               <div class="col-12 col-lg-6 my-2">
-                <div id="carouselExampleIndicators" class="carousel slide">
-                  <div class="carousel-indicators">
+                <div id="carouselExampleIndicators" class="carousel slide carousel-bg">
+                  <div class="carousel-indicators ">
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
@@ -86,7 +82,7 @@
                 <p class="lead hero-text">In addition to the games showcased here, we are working on a 3D Casino in Unity. If you wish to check it out, we would appreciate it. Download buttons below are for the Unity version of the casino. </p>
                 <div class="d-grid gap-2 d-md-flex justify-content-md-start">
                   <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Download</button>
-                  <button type="button" class="btn btn-outline-secondary btn-lg px-4 brn">Download</button>
+                  <button type="button" class="btn btn-outline-light btn-lg px-4 brn">Download</button>
                 </div>
               </div>
             </div>
@@ -94,9 +90,9 @@
         </section>
 
         <!--Games-->
-        <section>
+        <div class="games-bg">
           <div class="container px-4 py-3" id="hanging-icons">
-            <h2 class="pb-2 border-bottom">Our Games</h2>
+            <h2 class="pb-2 games-heading-border">Our Games</h2>
             <div class="games py-4">
               <div class="card col-xl-3 my-xl-0 my-4">
                 <img src="./Recources/Casino-dealer.png" class="card-img-top" alt="...">
@@ -124,21 +120,21 @@
               </div>
             </div>
           </div>
-        </section>
+        </div>
 
 
       <!--Features-->
       <section class="Feature-bg">
         <div class="container py-3" id="hanging-icons">
-          <h2 class="pb-2 border-bottom text-white">Features</h2>
+          <h2 class="pb-2 feature-heading-border">Features</h2>
 
           <div class="row g-4 py-5 justify-content-between ">
-            <div class="col-lg-3 d-flex align-items-start text-bg-dark py-4 mx-lg-3 Feature">
+            <div class="col-lg-3 d-flex align-items-start py-4 mx-lg-3 Feature">
               <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+              <!--Icon goes here:-->
               </div>
               <div>
-                <h3 class="fs-2 text-white">Featured title</h3>
+                <h3 class="fs-2 text-dark">Featured title</h3>
                 <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                 <a href="#" class="btn btn-primary">
                   Primary button
@@ -146,12 +142,12 @@
               </div>
             </div>
 
-            <div class="col-lg-3 d-flex align-items-start text-bg-dark py-4 mx-lg-3 Feature">
+            <div class="col-lg-3 d-flex align-items-start  py-4 mx-lg-3 Feature">
               <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+              <!--Icon goes here:-->
               </div>
               <div>
-                <h3 class="fs-2 text-white">Featured title</h3>
+                <h3 class="fs-2 text-dark">Featured title</h3>
                 <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                 <a href="#" class="btn btn-primary">
                   Primary button
@@ -159,12 +155,12 @@
               </div>
             </div>
 
-            <div class="col-lg-3 d-flex align-items-start text-bg-dark py-4 mx-lg-3 Feature">
+            <div class="col-lg-3 d-flex align-items-start py-4 mx-lg-3 Feature">
               <div class="icon-square text-body-emphasis bg-body-secondary d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3">
-                <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+               <!--Icon goes here:-->
               </div>
               <div>
-                <h3 class="fs-2 text-white">Featured title</h3>
+                <h3 class="fs-2 text-dark">Featured title</h3>
                 <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
                 <a href="#" class="btn btn-primary">
                   Primary button
@@ -178,41 +174,9 @@
 
     <!--About us-->
     <subpage id="about" class="section">
-        <div class="About-us">  
-            <div class="about-person">
-              <div class="img-person">
-                <img src="./Recources/CasinoBean.png" alt="">
-                <h3>Aron</h3>
-              </div>
-              <div class="person-text">
-                <h4>About me</h4>
-                <p>Hello, I am Aron and I like programming also yap yap yap yap Rubix Cube yap yap yap and running yap yap yap. You can visit my personal website by clicking the button below.</p>
-                <Button>My Website!</Button>
-              </div>
-            </div>        
-            <div class="about-person">
-              <div class="img-person">
-                <img src="./Recources/CasinoBean.png" alt="">
-                <h3>Aron</h3>
-              </div>
-              <div class="person-text">
-                <h4>About me</h4>
-                <p>Hello, I am Aron and I like programming also yap yap yap yap Rubix Cube yap yap yap and running yap yap yap. You can visit my personal website by clicking the button below.</p>
-                <Button>My Website!</Button>
-              </div>
-            </div>     
-            <div class="about-person">
-              <div class="img-person">
-                <img src="./Recources/CasinoBean.png" alt="">
-                <h3>Aron</h3>
-              </div>
-              <div class="person-text">
-                <h4>About me</h4>
-                <p>Hello, I am Aron and I like programming also yap yap yap yap Rubix Cube yap yap yap and running yap yap yap. You can visit my personal website by clicking the button below.</p>
-                <Button>My Website!</Button>
-              </div>
-            </div>     
-        </div>
+      <div>
+
+      </div> 
     </subpage>
 
       <!--Alt som er inni div-en med id="login" vises når man trykker på login knappen på navbaren-->
@@ -241,14 +205,14 @@
 
     <!--Footer-->
     <section>
-      <footer class="py-3 mt-4 footer-text">
+      <footer class="py-3 footer-text">
         <ul class="nav justify-content-center border-footer pb-3 mb-3" >
             <li><button onclick="changeHashTo('home')" class="nav-link px-2 text-secondary">Home</button></li>
             <li><button onclick="changeHashTo('play')" class="nav-link px-2 text-white">Play</button></li>
             <li><button onclick="changeHashTo('stats')" class="nav-link px-2 text-white">Stats</button></li>
             <li><button onclick="changeHashTo('about')" class="nav-link px-2 text-white">About Us</button></li>
           </ul>
-        <p class="text-center text-white" id="copyright">© 2010 Edging Studios, Inc</p>
+        <p class="text-center text-white" id="copyright">© 2010 Royal Bean Studios, Inc</p>
       </footer>
     </section>
 

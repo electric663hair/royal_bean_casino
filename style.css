@@ -1,21 +1,8 @@
 .gradient-background {
-    background: linear-gradient(300deg, #FFB000, #FFCF9D, #F5F5DC);
-    background-size: 180% 180%;
-    animation: gradient-animation 18s ease infinite;
+   background-color: #0e2f20;
+   border-top: #ffffff solid 2px;
   }
   
-  @keyframes gradient-animation {
-    0% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
-    100% {
-      background-position: 0% 50%;
-    }
-  }
-
 .hero{
     display:flex;
     justify-content: center;
@@ -50,9 +37,6 @@
 
 @media (max-width:991px){
 
-    .gradient-background{
-        padding-top: 20vh;
-    }
 
     .Navbar{
         display: flex;
@@ -73,22 +57,13 @@
 
 }
 
-@media (max-width:991px) and (max-width:992px){
-
-    .gradient-background{
-        padding-top: 20vh;
-    }
-}
 
 @media (min-width:992px){
      
     .Logo > h3{
         font-size:2vw;
     }
-    
-    .gradient-background{
-        padding-top:80px;
-    }
+
 }
 
 @media (min-width:1001px) {
@@ -116,20 +91,17 @@
         justify-content: space-between;
         flex-direction: row;
     }
-
-    .gradient-background{
-        padding-top: 100px;
-    }
-
 }
 
 
 #Overskrift{
     font-family: Arvo;
+    color: #ffffff !important;
 }
 
 .hero-text{
-    font-weight: 600;
+    font-weight:500;
+    color: #ffffff !important;
 }
 
 h3, button{
@@ -179,13 +151,11 @@ li{
     display: block;
 }
 
-.Feature{
-    border-radius: 3%;
-}
 
 header{
-    background-color: #0f3a27;
-    position: fixed;
+    background-color: #0e2f20;
+    position: sticky;
+    top: 0;
     width: 100%;
     display: block;
     z-index: 9999;
@@ -200,52 +170,37 @@ footer{
     background-color:rgb(48, 48, 48) ;
 }
 
-.Feature-bg{
-    background-color:#0f3a27;
-}
-
 .border-footer{
     border-bottom: solid #ffffff 2px;
 }
 
-.About-us{
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    margin-top: 50px;
+.carousel-bg{
+    padding: 10px;
+    background-color: #f6f6cf;
+    border-radius: 8px;
 }
 
-.About-us img{
-    width: 45%;
+.carousel-item > img{
+    border-radius: 8px;
 }
 
-.about-person{
- display: grid;
- grid-template-columns: 2fr 3fr;
- grid-template-rows: 1fr;
+.games-heading-border{
+    border-bottom: black solid;
 }
 
-.img-person > h3{
-    margin-top: 2%;
+.feature-heading-border{
+    border-bottom: black solid;
 }
 
-.img-person{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.Feature{
+    border-radius: 3%;
+    background-color:#ffcb5b;
+    border: black solid;
 }
 
-.person-text{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 50%;
+.Feature-bg{
+    background-color:#FFCF9D;
 }
-
-.about-person button{
-    background-color: #FFB000;
-    font-family: Arial, Helvetica, sans-serif;
-    border-radius: 10px;
-    padding-top: 1%;
-    padding-bottom: 1%;
+.games-bg{
+    background-color: #F5F5DC;
 }
