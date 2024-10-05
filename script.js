@@ -37,7 +37,7 @@ function showSection(section) {
 // Handle page load with hash
 window.addEventListener('load', function() {
     var currentHash = window.location.hash.substring(1); // Remove the '#' from the hash
-    if (currentHash != "#" && currentHash) {
+    if (currentHash) {
         showSection(currentHash);
     } else {
         window.location.hash = "#home";
