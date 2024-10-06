@@ -105,6 +105,30 @@
         font-size:6vw !important;
     }
 
+    .about{
+        width: 80%;
+        border-radius: 20px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    .about1{
+        display: grid;
+        grid-template-rows: 400px 2fr;
+        background-color: #f6f6cf;
+        color: #0e2f20;
+    }
+    
+    .about2{
+        display: grid;
+        grid-template-rows: 400px 2fr;
+        background-color: #0e2f20;
+        color: #f6f6cf;
+    }
+
+    .about-text{
+        order: 1;
+    }
+
 }
 
 
