@@ -27,13 +27,14 @@
             <div class="flex-wrap align-items-center Navbar mx-0 col-12">
               <div class="Logo mx-0 px-lg-0 col-lg-4">
                 <h3>Royal Bean Casino</h3>
-                <button onclick="changeHashTo('home')" id="homeBtn" class="nav-link text-secondary mx-2">
-                <img src="./Recources/CasinoBean.png" height="60" class="mx-3 bean" alt="Logo with Bean"></button>
+                <button onclick="changeHashTo('home')" class="nav-link mx-2">
+                  <img src="./Recources/CasinoBean.png" height="60" class="mx-3 bean" alt="Logo with Bean">
+                </button>
               </div>
 
               <div>
                 <ul class="nav justify-content-center mb-md-0 mx-0 ">
-                  <li><button onclick="changeHashTo('home')" id="homeBtn" class="nav-link px-2 text-secondary mx-xl-2 mx-lg-1">Home</button></li>
+                  <li><button onclick="changeHashTo('home')" id="homeBtn" class="nav-link px-2 text-warning mx-xl-2 mx-lg-1">Home</button></li>
                   <li><button onclick="changeHashTo('play')" id="playBtn" class="nav-link px-2 text-white mx-xl-2 mx-lg-1">Play</button></li>
                   <li><button onclick="changeHashTo('stats')" id="statsBtn" class="nav-link px-2 text-white mx-xl-2 mx-lg-1">Stats</button></li>
                   <li><button onclick="changeHashTo('about')" id="aboutBtn" class="nav-link px-2 text-white mx-xl-2 mx-lg-1 ">About Us</button></li>
@@ -259,10 +260,10 @@
     <section>
       <footer class="py-3 footer-text">
         <ul class="nav justify-content-center border-footer pb-3 mb-3" >
-            <li><button onclick="changeHashTo('home')" class="nav-link px-2 text-secondary">Home</button></li>
-            <li><button onclick="changeHashTo('play')" class="nav-link px-2 text-white">Play</button></li>
-            <li><button onclick="changeHashTo('stats')" class="nav-link px-2 text-white">Stats</button></li>
-            <li><button onclick="changeHashTo('about')" class="nav-link px-2 text-white">About Us</button></li>
+            <li><button onclick="changeHashTo('home')" id="homeBtnFooter" class="nav-link px-2 text-warning">Home</button></li>
+            <li><button onclick="changeHashTo('play')" id="playBtnFooter" class="nav-link px-2 text-white">Play</button></li>
+            <li><button onclick="changeHashTo('stats')" id="statsBtnFooter" class="nav-link px-2 text-white">Stats</button></li>
+            <li><button onclick="changeHashTo('about')" id="aboutBtnFooter" class="nav-link px-2 text-white">About Us</button></li>
           </ul>
         <p class="text-center text-white" id="copyright">© 2010 Royal Bean Studios, Inc</p>
       </footer>
