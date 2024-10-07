@@ -560,3 +560,19 @@ footer{
     transition: all 0.1s;
     bottom: 2%;
 }
+
+.Play-heading{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #0e2f20;
+    color: white;
+    padding-top: 6vh;
+    padding-bottom: 8vh;
+    font-family:Crimson Pro;
+    border-top: #ffffff solid 2px;
+}
+.Play-heading > h1{
+    font-weight: 600;
+    font-size: 450%;
+}
