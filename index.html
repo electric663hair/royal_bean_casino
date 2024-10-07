@@ -42,10 +42,10 @@
               </div>
 
               <div class=" col-lg-4 login-buttons">
-                <button onclick="changeHashTo('login')" class="Login">
+                <button class="Login">
                   Login
                 </button>
-                <button onclick="changeHashTo('signup')" class="Signup">
+                <button class="Signup">
                   Sign up
                 </button>
 
@@ -108,7 +108,7 @@
                 <img src="./Recources/Casino-dealer.png" class="card-img-top" alt="...">
                 <div class="card-body">
                   <h5 class="card-title">Blackjack</h5>
-                  <p class="card-text">Blackjack, or 21, is a simple yet exciting card game where players aim to beat the dealer by getting as close to 21 as possible without going over. Players must decide whether to hit for more cards or stand with their current hand. The game's blend of luck and strategy makes it popular for all types of players, whether casual or experienced.</p>
+                  <p class="card-text" style="color: red;">Blackjack, or 21, is a simple yet exciting card game where players aim to beat the dealer by getting as close to 21 as possible without going over. Players must decide whether to hit for more cards or stand with their current hand. The game's blend of luck and strategy makes it popular for all types of players, whether casual or experienced.</p>
                   <a href="#" class="btn btn-primary">Play Now</a>
                 </div>
               </div>
@@ -275,7 +275,9 @@
         <div class="container px-4 pt-5 ">
           <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
             <div class="col-12 col-lg-6 my-2">
-              <img src="./Recources/unicorn-terry.png" alt="Ace of Spades" width="350px">
+              <div class="Play-Hero">
+                <img src="./Recources/unicorn-terry.png" alt="Ace of Spades" width="350px">
+              </div>
             </div>
             <div class="col-lg-6">
               <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id="Overskrift">Welcome to the Royal Bean experience</h1>
@@ -287,53 +289,27 @@
     </subpage>
 
       <!--Alt som er inni div-en med id="login" vises når man trykker på login knappen på navbaren-->
-      <subpage id="login" class="section">
+      <div id="login" class="section">
         <form style="margin: 5.3% 40% 16% 40%; display: flex; flex-direction: column; justify-content: space-around; height: 20rem;">
-          
-          <h1>Login</h1>
-
-          <label for="username">Username</label>
-          <input id="username" type="text" style="text-align: center;" required>
-          
-          <label for="password">Password</label>
-          <input id="password" type="password" style="text-align: center;" required>
-          
-          <div style="display: flex; flex-direction: row; justify-content: center;">
+          <input type="text" placeholder="Username" style="text-align: center;">
+          <input type="password" placeholder="Password" style="text-align: left;">
+          <div style="display: flex; flex-direction: row; justify-content: left;">
             <input type="checkbox" id="rememberMe" style="margin-right:5%;">
             <label for="rememberMe">Remember Login</label>
           </div>
           <input type="submit" value="Login">
         </form>
-      </subpage>
+      </div>
 
-      <subpage id="signup" class="section">
-        <form style="margin: 5.3% 40% 16% 40%; display: flex; flex-direction: column; justify-content: space-around; height: 20rem;">
-          
-          <h1>Sign Up</h1>
-
-          <label for="username">Username</label>
-          <input id="username" type="text" style="text-align: center;" required>
-          
-          <label for="password1">Password</label>
-          <input id="password1" type="password" style="text-align: center;" required>
-          
-          <label for="password2">Rewrite Password</label>
-          <input id="password2" type="password" style="text-align: center;" required>
-
-          <div style="display: flex; flex-direction: row; justify-content: center;">
-            <input type="checkbox" id="termsOfService" style="margin-right:5%;">
-            <label for="termsOfService">I agree to the Terms of Service</label>
-          </div>
-          <input type="submit" value="Sign Up">
-        </form>
-      </subpage>
-
-  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making, example: id="play";
+  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making + "Page" at the end like a suffix, example: id="playPage";
   and you also have to add this: class="section"; then you can write all of your code inside the subpage tags like this:
 
-  <subpage id="play" class="section">
+  <subpage id="playPage" class="section">
     <h1>This is code!</h1>
   </subpage>;
+  
+  PS: Mark, dont think about all the inline css i added on the login subpage, you can remake the whole thing if you want, it is just a placeholder ;)
+
   -->
 
     <!--Footer-->
