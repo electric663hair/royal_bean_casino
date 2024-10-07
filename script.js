@@ -31,6 +31,7 @@ function showSection(section) {
             btn.classList.remove('text-warning');
             btn.classList.add('text-white');
         }
+        window.scrollTo(0, 0);
     })
 }
 
