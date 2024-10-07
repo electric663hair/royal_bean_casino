@@ -587,3 +587,18 @@ footer{
     font-weight: 600;
     font-size: 450%;
 }
+
+.PlayHeroBackground {
+    background-color: #0e2f20;
+    border-top: #ffffff solid 2px;
+   }
+   
+ .PlayHeroThing{
+     display:flex;
+     justify-content: center;
+ }
+ 
+.row h5 {
+    font-family: "Cinzel", serif;
+    color: #FFC107;
+}

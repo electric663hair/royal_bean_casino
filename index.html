@@ -271,17 +271,19 @@
 
     <subpage id="play" class="section">
 
-      <section class="hero hero-background">
-        <div class="container px-4 pt-5 ">
-          <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-            <div class="col-12 col-lg-6 my-2">
-              <div class="Play-Hero">
+      <section class=".Play-hero">
+        <div class="PlayHeroBackground">
+          <div class="container px-4 pt-5 ">
+            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+              <div class="col-12 col-lg-6 my-2">
+
                 <img src="./Recources/unicorn-terry.png" alt="Ace of Spades" width="350px">
+
               </div>
-            </div>
-            <div class="col-lg-6">
-              <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id="Overskrift">Welcome to the Royal Bean experience</h1>
-              <p class="lead hero-text mt-3">Whether you're a fan of classic table games, thrilling slot machines, or live dealer experiences, we’ve got it all. Our games offer the perfect blend of skill and chance, with incredible rewards waiting at every turn. Remember, as a wise man once said, "You can only lose 100%, but there's no limit to how much you can win."</p>
+              <div class="col-lg-6">
+                <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3" id="Overskrift">Welcome to the Royal Bean experience</h1>
+                <p class="lead hero-text mt-3">Whether you're a fan of classic table games, thrilling slot machines, or live dealer experiences, we’ve got it all. Our games offer the perfect blend of skill and chance, with incredible rewards waiting at every turn. Remember, as a wise man once said, "You can only lose 100%, but there's no limit to how much you can win."</p>
+              </div>
             </div>
           </div>
         </div>
@@ -316,12 +318,47 @@
     <section>
       <footer class="py-3 footer-text">
         <ul class="nav justify-content-center border-footer pb-3 mb-3" >
-            <li><button onclick="changeHashTo('home')" id="homeBtnFooter" class="nav-link px-2 text-warning">Home</button></li>
-            <li><button onclick="changeHashTo('play')" id="playBtnFooter" class="nav-link px-2 text-white">Play</button></li>
-            <li><button onclick="changeHashTo('stats')" id="statsBtnFooter" class="nav-link px-2 text-white">Stats</button></li>
-            <li><button onclick="changeHashTo('about')" id="aboutBtnFooter" class="nav-link px-2 text-white">About Us</button></li>
-          </ul>
-        <p class="text-center text-white" id="copyright">© 2010 Royal Bean Studios, Inc</p>
+          <li><button onclick="changeHashTo('home')" id="homeBtnFooter" class="nav-link px-2 text-warning">Home</button></li>
+          <li><button onclick="changeHashTo('play')" id="playBtnFooter" class="nav-link px-2 text-white">Play</button></li>
+          <li><button onclick="changeHashTo('stats')" id="statsBtnFooter" class="nav-link px-2 text-white">Stats</button></li>
+          <li><button onclick="changeHashTo('about')" id="aboutBtnFooter" class="nav-link px-2 text-white">About Us</button></li>
+        </ul>
+        
+        <div class="row">
+          <div class="col-12 col-md">
+            <p class="text-center text-white" id="copyright">© 2010 Royal Bean Studios, Inc</p>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Cool stuff</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Random feature</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team feature</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Stuff for developers</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another one</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Last time</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Resource name</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Another resource</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Final resource</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Team</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Locations</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Privacy</a></li>
+              <li class="mb-1"><a class="link-secondary text-decoration-none" href="#">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+
       </footer>
     </section>
 
