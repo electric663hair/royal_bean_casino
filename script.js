@@ -21,10 +21,10 @@ function showSection(section) {
         activeSection.classList.add('active');
     }
 
-    // Change color on the text of the nav buttons so that the name of the subpage you are on are in the text-secondary color
-    var buttons = document.querySelectorAll('ul.nav > li > a, ul.nav > li > button');
+    // Change color on the text of the nav buttons so that the name of the subpage you are on are in the text-warning color
+    var buttons = document.querySelectorAll('ul.nav > li > button.nav-link');
     buttons.forEach(function(btn) {
-        if (document.getElementById(window.location.hash.substring(1) + "Btn") == btn) {
+        if (document.getElementById(window.location.hash.substring(1) + "Btn") == btn || document.getElementById(window.location.hash.substring(1) + "BtnFooter") == btn) {
             btn.classList.remove('text-white');
             btn.classList.add('text-warning');
         } else {
@@ -37,7 +37,7 @@ function showSection(section) {
 // Handle page load with hash
 window.addEventListener('load', function() {
     var currentHash = window.location.hash.substring(1); // Remove the '#' from the hash
-    if (currentHash != "#" && currentHash) {
+    if (currentHash) {
         showSection(currentHash);
     } else {
         window.location.hash = "#home";
