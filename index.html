@@ -42,10 +42,10 @@
               </div>
 
               <div class=" col-lg-4 login-buttons">
-                <button class="Login">
+                <button onclick="changeHashTo('login')" class="Login">
                   Login
                 </button>
-                <button class="Signup">
+                <button onclick="changeHashTo('signup')" class="Signup">
                   Sign up
                 </button>
 
@@ -287,27 +287,53 @@
     </subpage>
 
       <!--Alt som er inni div-en med id="login" vises når man trykker på login knappen på navbaren-->
-      <div id="login" class="section">
+      <subpage id="login" class="section">
         <form style="margin: 5.3% 40% 16% 40%; display: flex; flex-direction: column; justify-content: space-around; height: 20rem;">
-          <input type="text" placeholder="Username" style="text-align: center;">
-          <input type="password" placeholder="Password" style="text-align: center;">
+          
+          <h1>Login</h1>
+
+          <label for="username">Username</label>
+          <input id="username" type="text" style="text-align: center;" required>
+          
+          <label for="password">Password</label>
+          <input id="password" type="password" style="text-align: center;" required>
+          
           <div style="display: flex; flex-direction: row; justify-content: center;">
             <input type="checkbox" id="rememberMe" style="margin-right:5%;">
             <label for="rememberMe">Remember Login</label>
           </div>
           <input type="submit" value="Login">
         </form>
-      </div>
+      </subpage>
 
-  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making + "Page" at the end like a suffix, example: id="playPage";
+      <subpage id="signup" class="section">
+        <form style="margin: 5.3% 40% 16% 40%; display: flex; flex-direction: column; justify-content: space-around; height: 20rem;">
+          
+          <h1>Sign Up</h1>
+
+          <label for="username">Username</label>
+          <input id="username" type="text" style="text-align: center;" required>
+          
+          <label for="password1">Password</label>
+          <input id="password1" type="password" style="text-align: center;" required>
+          
+          <label for="password2">Rewrite Password</label>
+          <input id="password2" type="password" style="text-align: center;" required>
+
+          <div style="display: flex; flex-direction: row; justify-content: center;">
+            <input type="checkbox" id="termsOfService" style="margin-right:5%;">
+            <label for="termsOfService">I agree to the Terms of Service</label>
+          </div>
+          <input type="submit" value="Sign Up">
+        </form>
+      </subpage>
+
+  <!--To make more subpages do this: make a subpage tag: <subpage></subpage>; with the id of the page you are making, example: id="play";
   and you also have to add this: class="section"; then you can write all of your code inside the subpage tags like this:
 
-  <subpage id="playPage" class="section">
+  <subpage id="play" class="section">
     <h1>This is code!</h1>
   </subpage>;
-  
-  PS: Mark, dont think about all the inline css i added on the login subpage, you can remake the whole thing if you want, it is just a placeholder ;)
-
   -->
 
     <!--Footer-->
