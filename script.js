@@ -57,3 +57,10 @@ function changeHashTo(section) {
     window.location.hash = section;
     showSection(section);
 }
+
+
+// =====External HTML Files
+
+$(function(){
+    $("#termsOfService").load("termsOfService.html"); 
+  });
