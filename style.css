@@ -497,10 +497,10 @@ footer{
     justify-content: center;
     background-color: #0e2f20;
     color: white;
-    padding-top: 6vh;
-    padding-bottom: 8vh;
+    padding-top: 10vh;
+    padding-bottom: 12vh;
     font-family:Crimson Pro;
-    border-top: #ffffff solid 2px;
+    font-size: 130%;
 }
 
 .about img{
@@ -538,6 +538,10 @@ footer{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.about-container h2{
+    padding-bottom: 4vh;
 }
 
 .about-btn1{
