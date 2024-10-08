@@ -16,6 +16,27 @@ def detectHand(hand):
 
     counts.sort(reverse=True)
 
+    sCount = 0
+    cCount = 0
+    dCount = 0
+    hCount = 0
+    flush = False
+    aceBool = False
+
+    for i in range(len(hand)):
+
+        if "1" in hand[i][0]:
+            aceBool = True
+        if "S" in hand[i][0]:
+            sCount += 1
+        elif "C" in hand[i][0]:
+            cCount += 1
+        elif "D" in hand[i][0]:
+            dCount += 1
+        elif "H" in hand[i][0]:
+            hCount += 1
+    if sCount >= 4 or cCount >= 4 or dCount >= 4 or hCount >= 4:
+        flush = True
     
     if counts == [4, 1]:  
         return "Four of a Kind", 25
@@ -35,8 +56,14 @@ def detectHand(hand):
     
     elif counts == [1, 1, 1, 1, 1]:
         ranks.sort()
-        if ranks == list(range(ranks[0], ranks[0] + 5)):
+        if ranks == list(range(ranks[0], ranks[0] + 5)) and flush and aceBool:
+            return "Royal Flush", 800
+        elif ranks == list(range(ranks[0], ranks[0] + 5)) and flush:
+            return "Straight Flush", 50
+        elif ranks == list(range(ranks[0], ranks[0] + 5)):
             return "Straight", 4
+        elif flush:
+            return "Flush", 6
         else:
             return "High Card", 0
     else:
@@ -51,50 +78,52 @@ def identify(randomCard):
          suit = "Spades"
     elif "C" in randomCard:
        suit = "Clubs"
-    elif "D" in randomCard:    
+    elif "D" in randomCard:
         suit = "Diamonds"
     elif "H" in randomCard:
         suit = "Hearts"
 
-    if "1" in randomCard:
-        num = "Ace"
-        integer = 1
-    elif "2" in randomCard:
-        num = "Two"
-        integer = 2
-    elif "3" in randomCard:
-        num = "Three"
-        integer = 3
-    elif "4" in randomCard:
-        num = "Four"
-        integer = 4
-    elif "5" in randomCard:
-        num = "Five"
-        integer = 5
-    elif "6" in randomCard:
-        num = "Six"
-        integer = 6
-    elif "7" in randomCard:
-        num = "Seven"
-        integer = 7
-    elif "8" in randomCard:
-        num = "Eight"
-        integer = 8
-    elif "9" in randomCard:
-        num = "Nine"
-        integer = 9
-    elif "10" in randomCard:
-        num = "Ten"
-        integer = 10
-    elif "11" in randomCard:
-        num = "Jack"
-        integer = 11
-    elif "12" in randomCard:
-        num = "Queen"
-        integer = 12
-    elif "13" in randomCard:
-        num = "King"
-        integer = 13
+    if "13" in randomCard or "12" in randomCard or "11" in randomCard or "10" in randomCard:
+        if "10" in randomCard:
+            num = "Ten"
+            integer = 10
+        elif "11" in randomCard:
+            num = "Jack"
+            integer = 11
+        elif "12" in randomCard:
+            num = "Queen"
+            integer = 12
+        elif "13" in randomCard:
+            num = "King"
+            integer = 13
+    else:
+        if "1" in randomCard:
+            num = "Ace"
+            integer = 1
+        elif "2" in randomCard:
+            num = "Two"
+            integer = 2
+        elif "3" in randomCard:
+            num = "Three"
+            integer = 3
+        elif "4" in randomCard:
+            num = "Four"
+            integer = 4
+        elif "5" in randomCard:
+            num = "Five"
+            integer = 5
+        elif "6" in randomCard:
+            num = "Six"
+            integer = 6
+        elif "7" in randomCard:
+            num = "Seven"
+            integer = 7
+        elif "8" in randomCard:
+            num = "Eight"
+            integer = 8
+        elif "9" in randomCard:
+            num = "Nine"
+            integer = 9
 
     return suit, num, integer
 
@@ -107,6 +136,7 @@ def refreshDeck():
         deck.append("C" + i)
         deck.append("D" + i)
         deck.append("H" + i)
+        
     shuffle(deck)
     return deck
    
@@ -123,17 +153,14 @@ def play(bet, round_num):
     num = ""
     integer_value = 0
 
-
     def replaceCard(hand, index, deck):
         card = deck[randint(0, len(deck)-1)]  # Randomly select the card
         suit, num, integer_value = identify(card)
         deck.remove(card)  # Now safely remove it from the deck after selection
         hand[index] = (card, suit, num, integer_value)  # Replace the card in the hand
 
-
     for i in range(5):
         replaceCard(DisplayCards, i, deck)
-
 
     def displayCards(hand):
         print()
@@ -148,8 +175,6 @@ def play(bet, round_num):
                 display_list.append("[Discarded]")
         print("- " + ", ".join(display_list) + " -")
 
-
-
     displayCards(DisplayCards)
     aa, multiplier = detectHand(DisplayCards)
     print(aa)
@@ -162,14 +187,12 @@ def play(bet, round_num):
             x = int(x)
             if 1 <= x <= 5:
                 Cardsround1[x-1] = DisplayCards[x-1]
-
             else:
                 print("Choose a card between 1 and 5")
 
     for i in range(len(Cardsround1)):
         if Cardsround1[i] == "":
             replaceCard(Cardsround1, i, deck)
-
 
     displayCards(Cardsround1)
     aa, multiplier = detectHand(Cardsround1)
@@ -178,7 +201,6 @@ def play(bet, round_num):
     print(f"-- + {bet*multiplier} --")
     chips += bet * multiplier
     input()
-
 
 print("---------------Welcome to Jacks or Better by Royal Bean Studios---------------")
 while chips > 0 and Again == True:
@@ -196,4 +218,3 @@ while chips > 0 and Again == True:
     else:
         play(bet, round)
         round += 1
-        
