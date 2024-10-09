@@ -1,5 +1,6 @@
 body {
     overflow-y: scroll; /* Enables vertical scrolling */
+    overflow-x: hidden;
 }
 
 body::-webkit-scrollbar {
@@ -601,4 +602,29 @@ footer{
 .row h5 {
     font-family: "Cinzel", serif;
     color: #FFC107;
+}
+
+.downloadSvg {
+    height: 25px;
+    width: 25px;
+    margin-bottom: 2.5px;
+}
+
+.downloadBtn {
+    display: flex;
+    align-items: end;
+    background-color: #f6f6cf;
+    columns:#0e2f20 ;
+}
+
+.downloadBtn:hover {
+    background-color: #5a7255;
+    color: white;
+    transition: all 0.1s;
+}
+
+.downloadBtn:active {
+    background-color: #5a7255 !important;
+    color: white !important;
+    transition: all 0.1s;
 }
