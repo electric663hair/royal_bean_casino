@@ -1,5 +1,5 @@
 body {
-    overflow-y: scroll; /* Enables vertical scrolling */
+    overflow-y: visible;
     overflow-x: hidden;
 }
 
