@@ -8,7 +8,7 @@ round = 1
 
 
 def detectHand(hand):
-    ranks = [card[3] for card in hand]      
+    ranks = [card[3] for card in hand]
 
     rank_counts = Counter(ranks)
 
@@ -53,7 +53,6 @@ def detectHand(hand):
                     return "One Pair (Jacks or Better)", 1
                 else:
                     return "One Pair (Lower than Jacks)", 0
-    
     elif counts == [1, 1, 1, 1, 1]:
         ranks.sort()
         if ranks == list(range(ranks[0], ranks[0] + 5)) and flush and aceBool:
@@ -138,6 +137,7 @@ def refreshDeck():
         deck.append("H" + i)
         
     shuffle(deck)
+    print(deck)
     return deck
    
 def play(bet, round_num):
@@ -148,10 +148,7 @@ def play(bet, round_num):
     Cardsround1 = ["" for _ in range(5)] #0 = card, 1 = suit, 2 = num, 3 = int
     DisplayCards = ["" for _ in range(5)]
     finishSelecting = False
-    card = ""
-    suit = ""
-    num = ""
-    integer_value = 0
+
 
     def replaceCard(hand, index, deck):
         card = deck[randint(0, len(deck)-1)]  # Randomly select the card
