@@ -74,7 +74,7 @@ function play() {
     let num = "";
     let integer = 0;
 
-    function identify(IdentifyCard) {
+    function idntify(IdentifyCard) {
         let suit = "";
         let num = "";
         let integer = 0;
