@@ -2,6 +2,9 @@ document.querySelector("#copyright").innerHTML = "©" + new Date().getFullYear()
 
 function pageOpened() {
     window.location.hash = "home";
+    document.querySelector("header").style.display = "none";
+    document.querySelector("footer").style.display = "none";
+    showPrompt()
 }
 
 function showSection(section) {
@@ -57,6 +60,30 @@ function changeHashTo(section) {
 
 // =====External HTML Files
 
-$(function(){
-    $("#termsOfService").load("termsOfService.html"); 
-  });
+// $(function(){
+//     $("#termsOfService").load("termsOfService.html"); 
+//   });
+
+function showPrompt() {
+    document.getElementById('customPrompt').style.display = 'block';
+    document.getElementById('overlay').style.display = 'block';
+}
+
+function submitPassword() {
+    const answer = document.getElementById('password').value;
+    if (answer === "Enigma$") {
+        console.log("Success!")
+        document.querySelector("header").style.display = "block";
+        document.querySelector("footer").style.display = "block";
+        closePrompt();
+    } else {
+        document.getElementById("errorTextPassword").innerText = "Incorrect password! Try again";
+    }
+
+    document.getElementById('password').value = '';
+}
+
+function closePrompt() {
+    document.getElementById('customPrompt').style.display = 'none';
+    document.getElementById('overlay').style.display = 'none';
+}

@@ -375,7 +375,7 @@ header{
     position: sticky;
     top: 0;
     width: 100%;
-    display: block;
+    display: none;
     z-index: 9999;
 }
 
@@ -386,6 +386,7 @@ header{
 
 footer{
     background-color: #0e2f20 ;
+    display: none;
 }
 
 .border-footer{
