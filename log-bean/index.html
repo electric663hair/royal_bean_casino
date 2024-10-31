@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-signin-client_id" content="607568017086-sjl3pgll8kc2mq4u09vdv9qja27lsmla.apps.googleusercontent.com">
+    <title>Homepage</title>
+</head>
+<body>
+    <div id="loginBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
+    <div class="data">
+        <p>Name</p>
+        <p id="name"></p>
+        <p>Profile Pic</p>
+        <p id="image"></p>
+        <p>Email</p>
+        <p id="email"></p>
+        <button type="button" onclick="signOut()">Sign Out</button>
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="../log-bean/script.js"></script>
+    </div>
+</body>
+</html>
