@@ -1,3 +1,7 @@
+.data {
+    display: none;
+}
+
 #loginBtn {
     position: absolute;
     top: 50px;
