@@ -69,8 +69,13 @@ body::-webkit-scrollbar {
 
 @media (max-width:576px){
 
+    .about img{
+        width: 360px;
+        height: 450px; 
+    }
+
     .login-buttons{
-        width: 60% !important;
+        width: 320px !important;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -92,21 +97,22 @@ body::-webkit-scrollbar {
     }
 
     .about{
-        width: 80%;
+        width:360px !important;
         border-radius: 20px;
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
     .about1{
         display: grid;
-        grid-template-rows: 400px 2fr;
+        grid-template-rows: 450px 2fr;
         background-color: #f6f6cf;
         color: #0e2f20;
     }
     
     .about2{
         display: grid;
-        grid-template-rows: 400px 2fr;
+        grid-template-rows: 450px 2fr;
         background-color: #0e2f20;
         color: #f6f6cf;
     }
@@ -146,22 +152,29 @@ body::-webkit-scrollbar {
 
 @media (min-width:577px) and (max-width:992px){
 
+
+    .about img{
+        width: 520px;
+        height: 650px; 
+    }
+
     .about{
-        width: 80%;
+        width: 520px;
         border-radius: 20px;
         margin-top: 50px;
         margin-bottom: 50px;
     }
+
     .about1{
         display: grid;
-        grid-template-rows: 400px 2fr;
+        grid-template-rows: 650px 2fr;
         background-color: #f6f6cf;
         color: #0e2f20;
     }
     
     .about2{
         display: grid;
-        grid-template-rows: 400px 2fr;
+        grid-template-rows: 650px 2fr;
         background-color: #0e2f20;
         color: #f6f6cf;
     }
@@ -224,7 +237,6 @@ body::-webkit-scrollbar {
         margin-right: 4%  !important;
         }
     
-
 }
 
 
@@ -234,13 +246,18 @@ body::-webkit-scrollbar {
         font-size:2vw;
     }
 
+    .about img{
+        width: 400px;
+        height: 500px; 
+    }
+
     img.mx-3.bean{
         margin: 0 !important;
         padding: 0 !important;
     }
 
     .about{
-        width: 60%;
+        width: 900px;
         border-radius: 20px;
         margin-top: 50px;
         margin-bottom: 50px;
@@ -248,14 +265,14 @@ body::-webkit-scrollbar {
 
     .about1{
         display: grid;
-        grid-template-columns: 2fr 3fr;
+        grid-template-columns: 400px 500px;
         background-color: #f6f6cf;
         color: #0e2f20;
     }
     
     .about2{
         display: grid;
-        grid-template-columns: 3fr 2fr;
+        grid-template-columns: 500px 400px;
         background-color: #0e2f20;
         color: #f6f6cf;
     }
@@ -504,8 +521,6 @@ footer{
 }
 
 .about img{
-    width: 100%;
-    height: 400px; 
     border-radius: 20px; 
 }
 
