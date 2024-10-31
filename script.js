@@ -1,7 +1,10 @@
 document.querySelector("#copyright").innerHTML = "©" + new Date().getFullYear() + " Royal Bean Studios, Inc";
 
 function pageOpened() {
-    window.location.hash = "home";
+    var hash = window.location.hash;
+    if (hash === "" || hash === "#") {
+        window.location.hash = "home";
+    }
     // document.querySelector("header").style.display = "none";
     // document.querySelector("footer").style.display = "none";
     // showPrompt()
@@ -87,3 +90,11 @@ function closePrompt() {
     document.getElementById('customPrompt').style.display = 'none';
     document.getElementById('overlay').style.display = 'none';
 }
+
+function onSignIn(googleUser) {
+    var profile = googleUser.getBasicProfile();
+    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+    console.log('Name: ' + profile.getName());
+    console.log('Image URL: ' + profile.getImageUrl());
+    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+  }
