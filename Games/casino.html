@@ -4,12 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Casino test</title>
-    This is the test casino
-</head>
-<body onload="play()">
-    
-    <h1 id="hand1">hand1</h1>
-
     <script src="./jacks.js"></script>
+    <link rel="stylesheet" href="jacks.css">
+</head>
+<body onload="balance()">
+
+    <div class="handContainer">
+        <img id="card1" class="image" src="../resources/cards_png/blue_back.png" alt="">
+        <img id="card2" class="image" src="../resources/cards_png/blue_back.png" alt="">
+        <img id="card3" class="image" src="../resources/cards_png/blue_back.png" alt="">
+        <img id="card4" class="image" src="../resources/cards_png/blue_back.png" alt="">
+        <img id="card5" class="image" src="../resources/cards_png/blue_back.png" alt="">
+
+    </div>
+    <button class="round2 none">Confirm</button>
+    <form action="">
+        <input id="betSum" type="number" min="0" step="1" required>
+    </form>
+
+    <button onclick="checkForm()" class="play">Start</button>
+    <h3 id="showBalance">Balance: 10000</h3>
+     
+
 </body>
-</html>
+</HTML>

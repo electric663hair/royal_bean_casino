@@ -1,27 +1,62 @@
-.deck, .dealerHand, .playerHand {
-    position: relative;
-    width: 200px;
-    height: 300px;
+* {
+    margin: 0;
 }
 
-.card {
-    position: absolute;
-    width: 100px;
-    height: 150px;
-    transition: transform 1s ease-in-out;
+.handContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: 50vh;
+    width: 100%;
+    background-color: bisque;
+    
 }
 
-#backCard {
-    width: 50px;
+.selected{
+    background-color: blue !important;
 }
 
-@keyframes moveCard {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(500px, 300px);
-    }
+.none{
+    display: none;
 }
 
+.image {
+    height: 250px;
+    background-color: transparent;
+}
 
+.image:hover,
+.image:active {
+    background-color: red;
+}
+
+#card1 {
+    padding: 5px;
+    border-radius: 12px;
+}
+
+#card2 {
+    padding: 5px;
+    border-radius: 12px;
+}
+
+#card3 {
+    padding: 5px;
+    border-radius: 12px;   
+}
+#card4 {
+    padding: 5px;
+    border-radius: 12px;
+}
+
+#card5 {
+    padding: 5px;
+    border-radius: 12px;  
+}
+
+#showBalance{
+    position: fixed;
+    right: 1%;
+    top: 0;
+}
