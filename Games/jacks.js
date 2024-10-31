@@ -7,79 +7,156 @@ images.forEach((image) => {
     })
 })
 
-let chipsAmount = 100
 
+function flush(suitArr) {
+    return suitArr.every(suit => suit === suitArr[0]);
+}
 
-function detectHand(hand) {
-    let ranks = [];
-    let counts = Array(13).fill(0);
-    let suitCounts = { S: 0, C: 0, D: 0, H: 0 }; // Count suits
-    let aceBool = false;
-
-    // Extracting ranks and counting suits
-    for (let card of hand) {
-        if (!Array.isArray(card) || card.length < 3) return "Invalid hand"; // Validate the structure
-
-        let suit = card[1]; // Assuming suit is at index 1
-        let rank = card[2]; // Assuming rank is at index 2
-
-        // Count ranks
-        counts[rank - 1]++;
-        ranks.push(rank);
-
-        // Count suits
-        suitCounts[suit]++;
-        
-        // Check for Ace presence
-        if (rank === 1) aceBool = true; // Assuming Ace is represented as 1
+function fourOfKind(intArr){
+    for (let i = 0; i < intArr.length - 3; i++){
+        if(intArr[i] === intArr[i+1] && intArr[i] === intArr[i+2] && intArr[i] === intArr[i+3]){
+                return true 
+        }
     }
+}
 
-    // Sort counts to facilitate hand ranking checks
-    counts.sort((a, b) => b - a);
-    let flush = Object.values(suitCounts).some(count => count >= 5); // Check for flush
+function fullHouse(intArr) {
+    
+    let a = 0;
+    let b = 0;
 
-    // Hand type checks
-    if (JSON.stringify(counts) === JSON.stringify([4, 1])) return ["Four of a Kind", 25];
-    if (JSON.stringify(counts) === JSON.stringify([3, 2])) return ["Full House", 9];
-    if (JSON.stringify(counts) === JSON.stringify([3, 1, 1])) return ["Three of a Kind", 3];
-    if (JSON.stringify(counts) === JSON.stringify([2, 2, 1])) return ["Two Pair", 2];
-
-    // One Pair Check
-    if (JSON.stringify(counts) === JSON.stringify([2, 1, 1, 1])) {
-        for (let rank = 0; rank < counts.length; rank++) {
-            if (counts[rank] === 2) {
-                return (rank + 1 >= 11 || rank + 1 === 1) ? ["One Pair (Jacks or Better)", 1] : ["One Pair (Lower than Jacks)", 0];
-            }
+    for (let i = 0; i < intArr.length - 2; i++){
+        if(intArr[i] === intArr[i+1] && intArr[i] === intArr[i+2]){
+                b = 1
+        }
+    }
+    
+    for (let i = 0; i < intArr.length - 1; i++){
+        if(intArr[i] === intArr[i+1]){
+                a = 1
         }
     }
 
-    // High Card or other checks
-    if (JSON.stringify(counts) === JSON.stringify([1, 1, 1, 1, 1])) {
-        ranks.sort((a, b) => a - b);
-        if (isConsecutive(ranks) && flush && aceBool) return ["Royal Flush", 800];
-        if (isConsecutive(ranks) && flush) return ["Straight Flush", 50];
-        if (isConsecutive(ranks)) return ["Straight", 4];
-        if (flush) return ["Flush", 6];
-        return ["High Card", 0];
+    if (a == 1 && b == 1){
+        return true
+    }
+}
+
+function twoPair(intArr) {
+
+    let a;
+    let aPair;
+    let b;
+    let bPair;
+
+    for (let i = 0; i < intArr.length - 1; i++){
+        if(intArr[i] === intArr[i+1]){
+            a = intArr[i]
+            aPair = true;
+        }
     }
 
-    return "Invalid hand";
-}
-
-// Helper function to check if ranks are consecutive
-function isConsecutive(arr) {
-    return arr.every((val, index) => index === 0 || val === arr[index - 1] + 1);
-}
-
-
-
-
-function isConsecutive(ranks) {
-    for (let i = 1; i < ranks.length; i++) {
-        if (ranks[i] !== ranks[i - 1] + 1) return false;
+    for (let i = intArr.length ; i > 0 ; i--){
+        if(intArr[i] === intArr[i-1]){
+            b = intArr[i]
+            bPair = true;
+        }
     }
-    return true;
+
+    if (aPair === true && bPair === true && a !== b) {
+        return true
+    }
+    
 }
+
+function threeOfKind(intArr){
+    for (let i = 0; i < intArr.length - 2; i++){
+        if(intArr[i] === intArr[i+1] && intArr[i] === intArr[i+2]){
+                return true
+        }
+    }
+}
+
+function pair(intArr){
+    for (let i = 0; i < intArr.length - 1; i++){
+        if(intArr[i] === intArr[i+1]){
+            if (intArr[i] > 10 || intArr[i] == 1){
+                return true
+            }
+        }
+    }
+}
+
+function straight(intArr){
+    for (let i = 0; i < intArr.length - 1; i++){
+        if (intArr[0] === intArr[1] - 1 && intArr[0] === intArr[2] - 2 && intArr[0] === intArr[3] - 3 && intArr[0] === intArr[4] - 4){
+            return true
+        }
+    }
+}
+
+function detectHand(hand) {
+    const intArr = []
+    const suitArr = []
+    for (let i = 0; i < 5; i++) {
+        intArr.push(hand[i][2]);
+        suitArr.push(hand[i][1]);
+    }
+    
+    intArr.sort((a, b) => a - b);
+
+    if (flush(suitArr) && straight(intArr)){
+        alert("Straight flush!!!")
+
+    } 
+
+    const bet = (document.querySelector("#betSum").value)
+
+    var gain = bet
+    alert(gain)
+    if (straight(intArr)){
+        alert("Straight!")
+        gain *= 4
+    } else{
+        if (flush(suitArr)) {
+            alert("Flush!")
+            gain *= 6
+        } else{
+            if (fourOfKind(intArr)) {
+                alert("Four of a Kind!")
+                gain *= 25
+            } else{
+                if (fullHouse(intArr)) {
+                    alert("Full House!")
+                    gain *= 9
+                } else{
+                    if (twoPair(intArr)) {
+                        alert("TwoPair!")
+                        gain *= 2
+                    } else{
+                        if (threeOfKind(intArr)) {
+                            alert("Three of a Kind!")
+                            gain *= 3
+                        }else {
+                            if (pair(intArr)) {
+                                alert("Pair!")
+                                gain *= 1
+                            } else {
+                                gain *= 0
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    balance += gain
+    alert(balance)
+    
+
+}
+
 
 function identify(IdentifyCard) {
     let suit = "";
@@ -94,9 +171,6 @@ function identify(IdentifyCard) {
 
     return { suit, integer };
 }
-
-
-
 function refreshDeck() {
     let deck = [];
     for (let i = 1; i < 14; i++) {
@@ -108,17 +182,14 @@ function refreshDeck() {
 function removePlay(){
     document.querySelector("button.play").classList.add("none")  
 }
-
 function removeBet(){
     document.querySelector("input").classList.add("none")
 }
-
 function addRound2(){
     document.querySelector("button.round2").classList.remove("none")
 }
-
 function checkForm(){
-    let betamount = (document.querySelector("#betSum").value)
+    const betamount = (document.querySelector("#betSum").value)
     const form =  document.querySelector("form");
     
     if (form.checkValidity() && betamount < balance) {
@@ -131,7 +202,6 @@ function checkForm(){
         form.reportValidity();
     }
 }
-
 
 function play() {
     addRound2();
@@ -209,8 +279,7 @@ function play() {
         displayCards(Hand2)
         document.querySelector("button.round2").classList.add("none")
         
-
-        alert(detectHand(Hand2))
+        detectHand(Hand2);
     
 
     }
