@@ -2,9 +2,9 @@ document.querySelector("#copyright").innerHTML = "©" + new Date().getFullYear()
 
 function pageOpened() {
     window.location.hash = "home";
-    document.querySelector("header").style.display = "none";
-    document.querySelector("footer").style.display = "none";
-    showPrompt()
+    // document.querySelector("header").style.display = "none";
+    // document.querySelector("footer").style.display = "none";
+    // showPrompt()
 }
 
 function showSection(section) {

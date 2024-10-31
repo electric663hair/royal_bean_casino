@@ -375,7 +375,6 @@ header{
     position: sticky;
     top: 0;
     width: 100%;
-    display: none;
     z-index: 9999;
 }
 
@@ -386,7 +385,6 @@ header{
 
 footer{
     background-color: #0e2f20 ;
-    display: none;
 }
 
 .border-footer{
@@ -628,4 +626,8 @@ footer{
     background-color: #5a7255 !important;
     color: white !important;
     transition: all 0.1s;
+}
+
+#copyright {
+    font-family: "Cinzel", serif;
 }
