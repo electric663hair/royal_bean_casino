@@ -10,17 +10,17 @@
 <body>
     <div id="loginBtn" class="g-signin2" data-onsuccess="onSignIn"></div>
     <div class="data">
-        <p>Name</p>
+        <p>Name:</p>
         <p id="name"></p>
-        <p>Profile Pic</p>
+        <p>Profile Pic:</p>
         <p id="image"></p>
-        <p>Email</p>
+        <p>Email:</p>
         <p id="email"></p>
         
         <button type="button" onclick="signOut();">Sign Out</button>
-
-        <script src="https://apis.google.com/js/platform.js" async defer></script>
-        <script src="../log-bean/script.js"></script>
     </div>
+
+    <script src="https://apis.google.com/js/platform.js?onload=initClient" async defer></script>
+    <script src="../log-bean/script.js"></script>
 </body>
 </html>
