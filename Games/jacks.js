@@ -184,6 +184,10 @@ function detectHand(hand) {
             flush = true
         }
     }
+
+    if (flush && JSON.stringify(integerArray) === JSON.stringify(13, 12, 11, 10, 1)) {
+        return { winningHand: "Royal flush", multiplier: 800 }
+    }
     
     
     let count1 = 0, count2 = 0, count3 = 0, count4 = 0, count5 = 0, count6 = 0, 
@@ -238,23 +242,23 @@ function detectHand(hand) {
 
 
     if (JSON.stringify(countsList) === JSON.stringify([4, 1])) {
-        return "Four of a kind";
+        return { winningHand: "Four of a kind", multiplier: 25 };
     } else if (JSON.stringify(countsList) === JSON.stringify([3, 1, 1])) {
-        return "Three of a kind";
+        return { winningHand: "Three of a kind", multiplier: 3 };
     } else if (JSON.stringify(countsList) === JSON.stringify([2, 2, 1])) {
-        return "Two pair";
+        return { winningHand: "Two pair", multiplier: 2 };
     } else if (JSON.stringify(countsList) === JSON.stringify([3, 2])) {
-        return "Full house";
+        return { winningHand: "Full house", multiplier: 9 };
     } else if (JSON.stringify(countsList) === JSON.stringify([2, 1, 1, 1])) {
-        return "Pair";
+        return { winningHand: "Pair", multiplier: 1 };
     } else if (JSON.stringify(countsList) === JSON.stringify([1, 1, 1, 1, 1]) && flush && integerArray[0] - 4 == integerArray[4]) {
-        return "Straight flush";
+        return { winningHand: "Straight flush", multiplier: 50 };
     } else if (JSON.stringify(countsList) === JSON.stringify([1, 1, 1, 1, 1]) && integerArray[0] - 4 == integerArray[4]) {
-        return "Straight";
+        return { winningHand: "Straight", multiplier: 4 };
     } else if (JSON.stringify(countsList) === JSON.stringify([1, 1, 1, 1, 1]) && flush) {
-        return "Flush";
+        return { winningHand: "Flush", multiplier: 6 };
     } else if (JSON.stringify(countsList) === JSON.stringify([1, 1, 1, 1, 1])) {
-        return "High card";
+        return { winningHand: "High card", multiplier: 0 };
     }
 }
 
@@ -290,7 +294,7 @@ function addRound2(){
     document.querySelector("button.round2").classList.remove("none")
 }
 function checkForm(){
-    const betamount = (document.querySelector("#betSum").value)
+    const betamount = document.querySelector("#betSum").value
     const form =  document.querySelector("form");
     
     if (form.checkValidity() && betamount < balance) {
@@ -356,8 +360,6 @@ function play() {
     function round2() {
         let Hand2 = ["", "", "", "", ""];
     
-        alert("ROUND 2 START")
-    
         for (let i = 0; i < 5; i++)  {
             const imageElement = document.getElementById(`card${i+1}`)
             if (imageElement.classList.contains("selected")) {
@@ -380,7 +382,18 @@ function play() {
         displayCards(Hand2)
         document.querySelector("button.round2").classList.add("none")
         
-        detectHand(Hand2);
+        const winningText = document.getElementById("winningsText")
+        const profitText = document.getElementById("profitsText")
+        let { winningHand, multiplier  } = detectHand(Hand2)
+        const betamount = document.querySelector("#betSum").value
+
+        balance += betamount*multiplier
+        document.querySelector("h3").innerText = "Balance: " + balance
+
+        winningText.innerText = `You got ${winningHand} ${multiplier}x`
+        profitText.innerText = `You won ${betamount*multiplier}$`
+
+        document.querySelector("button.play").classList.remove("none")  
     
 
     }
