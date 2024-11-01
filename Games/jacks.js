@@ -1,6 +1,10 @@
 var balance = 10000
 
-// Mark sin
+const betButton = document.querySelector(".play")
+betButton.addEventListener("click", function(){
+    checkForm();
+});
+
 function flush(suitArr) {
     return suitArr.every(suit => suit === suitArr[0]);
 }
@@ -88,9 +92,15 @@ function straight(intArr){
     }
 }
 
+function Royal(intArr){
+    return intArr.every(int => int > 9 || int === 1);
+
+}
+
 function detectHand(hand) {
-    const intArr = []
-    const suitArr = []
+    const intArr = [];
+    const suitArr = [];
+
     for (let i = 0; i < 5; i++) {
         intArr.push(hand[i][2]);
         suitArr.push(hand[i][1]);
@@ -98,15 +108,15 @@ function detectHand(hand) {
     
     intArr.sort((a, b) => a - b);
 
+    if (Royal(intArr) && flush(suitArr)){
+        return { winningHand: "Royal flush", multiplier: 400 };
+    }
+
     if (flush(suitArr) && straight(intArr)){
         return { winningHand: "Straight flush", multiplier: 50 };
 
     } 
 
-    const bet = (document.querySelector("#betSum").value)
-
-    var gain = bet
-    alert(gain)
     if (straight(intArr)){
         return { winningHand: "Straight", multiplier: 4 };
     } else{
@@ -144,7 +154,7 @@ function detectHand(hand) {
 
 
 
-// Den bedre versjonen
+// Den shit versjonen
 // function detectHand(hand) {
 
 //     let integerArray = []
@@ -290,14 +300,18 @@ function checkForm(){
     }
 }
 
-function play() {
+document.querySelectorAll(".image").forEach((image) => {
+    image.addEventListener("click", function() {
+        image.classList.toggle("selected");
+    });
+});
 
-    const images = document.querySelectorAll(".image");
-    images.forEach((image) => {
-        image.addEventListener("click", function() {
-            image.classList.remove("selected")
-        });
-    })
+function play() {
+    
+
+    let images = document.querySelectorAll(".image");
+
+    images.forEach(image => image.classList.remove("selected"));
 
     document.querySelector("button.round2").classList.remove("none")
     document.querySelector("input").classList.add("none")
@@ -321,12 +335,6 @@ function play() {
         Hand1.push([randomCard, suit, integer]);
 
     }
-
-
-
-
-
-
     
     function displayCards(Handddd) {
         for (let i = 0; i < 5; i++)  {
@@ -336,25 +344,16 @@ function play() {
     }
 
     displayCards(Hand1)
-
-
-    images.forEach((image) => {
-        image.addEventListener("click", function() {
-            image.classList.toggle("selected")
-        });
-    })
-
-
     
 
     function round2() {
+
 
         let Hand2 = ["", "", "", "", ""];
     
         for (let i = 0; i < 5; i++)  {
             const imageElement = document.getElementById(`card${i+1}`)
             if (imageElement.classList.contains("selected")) {
-
                 Hand2[i] = Hand1[i]
             }
         }
@@ -366,18 +365,15 @@ function play() {
                 deck.splice(deck.indexOf(randomCard), 1);
                 Hand2[i] = ([randomCard, suit, integer]);
             }
-
-
         }
 
 
-        images.forEach((image) => {
-            image.addEventListener("click", function() {
-                image.classList.remove("selected")
-            });
-        })
-
         displayCards(Hand2)
+
+        for (let i = 0; i < images.length; i++){  
+            images[i].classList.remove("selected")
+        }
+
         document.querySelector("button.round2").classList.add("none")
         
         const winningText = document.getElementById("winningsText")
@@ -394,15 +390,7 @@ function play() {
         document.querySelector("button.play").classList.remove("none")
         document.querySelector("input").classList.remove("none")
 
-    
-
-        
-
-
     }
-    
-
-
 
 }
 
