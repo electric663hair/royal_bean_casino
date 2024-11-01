@@ -1,13 +1,6 @@
 var balance = 10000
 
-const images = document.querySelectorAll(".image");
-images.forEach((image) => {
-    image.addEventListener("click", function() {
-
-    })
-})
-
-
+//Mark sin
 // function flush(suitArr) {
 //     return suitArr.every(suit => suit === suitArr[0]);
 // }
@@ -157,6 +150,7 @@ images.forEach((image) => {
 
 // }
 
+// Den bedre versjonen
 function detectHand(hand) {
 
     let integerArray = []
@@ -284,15 +278,7 @@ function refreshDeck() {
     return deck;
 }
 
-function removePlay(){
-    document.querySelector("button.play").classList.add("none")  
-}
-function removeBet(){
-    document.querySelector("input").classList.add("none")
-}
-function addRound2(){
-    document.querySelector("button.round2").classList.remove("none")
-}
+
 function checkForm(){
     const betamount = document.querySelector("#betSum").value
     const form =  document.querySelector("form");
@@ -301,6 +287,8 @@ function checkForm(){
 
         balance -= betamount
         document.querySelector("h3").innerText = "Balance: " + balance
+        document.querySelector("button.play").classList.add("none")
+        document.querySelector("input").classList.add("none")
         play();
 
     } else {
@@ -309,10 +297,17 @@ function checkForm(){
 }
 
 function play() {
-    addRound2();
-    removeBet();
-    
-    removePlay();
+
+    const images = document.querySelectorAll(".image");
+    images.forEach((image) => {
+        image.addEventListener("click", function() {
+            image.classList.remove("selected")
+        });
+    })
+
+    document.querySelector("button.round2").classList.remove("none")
+    document.querySelector("input").classList.add("none")
+    document.querySelector("button.play").classList.add("none")
     
     document.querySelector("button.round2").addEventListener("click", function() {
         round2();
@@ -333,8 +328,11 @@ function play() {
 
     }
 
-    
-    const images = document.querySelectorAll(".image");
+
+
+
+
+
     
     function displayCards(Handddd) {
         for (let i = 0; i < 5; i++)  {
@@ -346,10 +344,8 @@ function play() {
     displayCards(Hand1)
 
 
-     
     images.forEach((image) => {
         image.addEventListener("click", function() {
-            
             image.classList.toggle("selected")
         });
     })
@@ -358,6 +354,7 @@ function play() {
     
 
     function round2() {
+
         let Hand2 = ["", "", "", "", ""];
     
         for (let i = 0; i < 5; i++)  {
@@ -379,6 +376,13 @@ function play() {
 
         }
 
+
+        images.forEach((image) => {
+            image.addEventListener("click", function() {
+                image.classList.remove("selected")
+            });
+        })
+
         displayCards(Hand2)
         document.querySelector("button.round2").classList.add("none")
         
@@ -392,9 +396,14 @@ function play() {
 
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
-
-        document.querySelector("button.play").classList.remove("none")  
     
+        document.querySelector("button.play").classList.remove("none")
+        document.querySelector("input").classList.remove("none")
+
+    
+
+        
+
 
     }
     
