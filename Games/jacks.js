@@ -34,7 +34,7 @@ function fullHouse(intArr) {
         }
     }
 
-    if (a == 1 && b == 1){
+    if (a == 1 && b == 1 && a != b){
         return true
     }
 }
@@ -108,51 +108,18 @@ function detectHand(hand) {
     
     intArr.sort((a, b) => a - b);
 
-    if (Royal(intArr) && flush(suitArr)){
-        return { winningHand: "Royal flush", multiplier: 400 };
-    }
-
-    if (flush(suitArr) && straight(intArr)){
-        return { winningHand: "Straight flush", multiplier: 50 };
-
-    } 
-
-    if (straight(intArr)){
-        return { winningHand: "Straight", multiplier: 4 };
-    } else{
-        if (flush(suitArr)) {
-            return { winningHand: "Flush", multiplier: 6 };
-        } else{
-            if (fourOfKind(intArr)) {
-                return { winningHand: "Four of a kind", multiplier: 25 };
-            } else{
-                if (fullHouse(intArr)) {
-                    return { winningHand: "Full house", multiplier: 9 };
-                } else{
-                    if (twoPair(intArr)) {
-                        return { winningHand: "Two pair", multiplier: 2 };
-                    } else{
-                        if (threeOfKind(intArr)) {
-                            return { winningHand: "Three of a kind", multiplier: 3 };
-                        }else {
-                            if (pair(intArr)) {
-                                return { winningHand: "Pair", multiplier: 1 };
-                            } else {
-                                return { winningHand: "Invalid hand", multiplier: 0 };
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    };
+    if (Royal(intArr) && flush(suitArr)) return { winningHand: "Royal flush", multiplier: 400 };
+    if (flush(suitArr) && straight(intArr)) return { winningHand: "Straight flush", multiplier: 50 };
+    if (fourOfKind(intArr)) return { winningHand: "Four of a kind", multiplier: 25 };
+    if (fullHouse(intArr)) return { winningHand: "Full house", multiplier: 9 };
+    if (flush(suitArr)) return { winningHand: "Flush", multiplier: 6 };
+    if (straight(intArr)) return { winningHand: "Straight", multiplier: 4 };
+    if (threeOfKind(intArr)) return { winningHand: "Three of a kind", multiplier: 3 };
+    if (twoPair(intArr)) return { winningHand: "Two pair", multiplier: 2 };
+    if (pair(intArr)) return { winningHand: "Pair", multiplier: 1 };
+    
+    return { winningHand: "Invalid hand", multiplier: 0 };
 }
-
-
-
-
-
-
 
 // Den shit versjonen
 // function detectHand(hand) {
@@ -300,6 +267,7 @@ function checkForm(){
     }
 }
 
+
 document.querySelectorAll(".image").forEach((image) => {
     image.addEventListener("click", function() {
         image.classList.toggle("selected");
@@ -307,8 +275,8 @@ document.querySelectorAll(".image").forEach((image) => {
 });
 
 function play() {
-    
-
+    let deck = refreshDeck();
+    let Hand1 = [];
     let images = document.querySelectorAll(".image");
 
     images.forEach(image => image.classList.remove("selected"));
@@ -316,64 +284,60 @@ function play() {
     document.querySelector("button.round2").classList.remove("none")
     document.querySelector("input").classList.add("none")
     document.querySelector("button.play").classList.add("none")
-    
-    document.querySelector("button.round2").addEventListener("click", function() {
-        round2();
-    });
-
-    let suit = "";
-    let integer = 0;
-
-
-    let deck = refreshDeck();
-    let Hand1 = [];
 
     for (let i = 0; i < 5; i++) {
         let randomCard = deck[Math.floor(Math.random() * deck.length)];
         let { suit, integer } = identify(randomCard);
         deck.splice(deck.indexOf(randomCard), 1);
         Hand1.push([randomCard, suit, integer]);
-
     }
+ 
+        displayCards(Hand1)
+
     
     function displayCards(Handddd) {
         for (let i = 0; i < 5; i++)  {
-            document.getElementById(`card${i+1}`).src = `../resources/cards_png/${Handddd[i][0]}.png`;
-    
+            let cardElement = document.getElementById(`card${i+1}`)
+            cardElement.src = "";
+            cardElement.src = `../resources/cards_png/${Handddd[i][0]}.png`;
         }
     }
 
-    displayCards(Hand1)
-    
+
+
+    if (!document.querySelector("button.round2").classList.contains("listener-added")) {
+        document.querySelector("button.round2").addEventListener("click", function() {
+            round2();
+        });
+        document.querySelector("button.round2").classList.add("listener-added");
+    }
+
 
     function round2() {
-
-
         let Hand2 = ["", "", "", "", ""];
     
         for (let i = 0; i < 5; i++)  {
             const imageElement = document.getElementById(`card${i+1}`)
             if (imageElement.classList.contains("selected")) {
-                Hand2[i] = Hand1[i]
+                Hand2[i] = Hand1[i]           
             }
         }
-
+    
         for (let i = 0; i < Hand2.length; i++)  {
-            if (Hand2[i] == "") {
+        if (Hand2[i] == "") {
                 let randomCard = deck[Math.floor(Math.random() * deck.length)];
                 let { suit, integer } = identify(randomCard);
                 deck.splice(deck.indexOf(randomCard), 1);
-                Hand2[i] = ([randomCard, suit, integer]);
+                Hand2[i] = ([randomCard, suit, integer]);      
             }
         }
 
-
         displayCards(Hand2)
 
-        for (let i = 0; i < images.length; i++){  
-            images[i].classList.remove("selected")
-        }
+        images.forEach(image => image.classList.remove("selected"));
+        finish();
 
+        function finish(){
         document.querySelector("button.round2").classList.add("none")
         
         const winningText = document.getElementById("winningsText")
@@ -390,8 +354,10 @@ function play() {
         document.querySelector("button.play").classList.remove("none")
         document.querySelector("input").classList.remove("none")
 
+        }
     }
 
 }
+
 
 
