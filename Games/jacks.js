@@ -13,6 +13,21 @@ const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
 
+const cardClick = new Audio("../resources/sounds/bubbleSound.mp3");
+const soundToggleSound = new Audio("../resources/sounds/soundSwitch.mp3");
+const caChing = new Audio("../resources/sounds/ca-ching.mp3");
+const manRoyalFlush = new Audio("../resources/sounds/royal-flush.mp3");
+const manStraightFlush = new Audio("../resources/sounds/straight-flush.mp3");
+const manFourOfAKind = new Audio("../resources/sounds/four-of-a-kind.mp3");
+const manThreeOfAKind = new Audio("../resources/sounds/three-of-a-kind.mp3");
+const manFullHouse = new Audio("../resources/sounds/full-house.mp3");
+const manFlush = new Audio("../resources/sounds/flush.mp3");
+const manStraight = new Audio("../resources/sounds/straight.mp3");
+const manTwoPair = new Audio("../resources/sounds/two-pair.mp3");
+const manPair = new Audio("../resources/sounds/pair.mp3");
+const manPairUnderJacks = new Audio("../resources/sounds/pair-under-jacks.mp3");
+const manHighCard = new Audio("../resources/sounds/high-card.mp3");
+
 var betamount = document.querySelector("#betSum").value;
 
 document.querySelectorAll("img").forEach(image => {image.draggable = false;});
@@ -80,7 +95,6 @@ betButton.addEventListener("click", function() {
 });
 
 var soundToggleVar = true;
-const soundToggleSound = new Audio("../resources/sounds/soundSwitch.mp3");
 const soundIcon = document.querySelector(".soundIcon");
 soundIcon.addEventListener("click", soundToggle);
 function soundToggle() {
@@ -231,90 +245,78 @@ function detectHand(hand) {
     }
     
     intArr.sort((a, b) => a - b);
-    const caChing = new Audio("../resources/sounds/ca-ching.mp3");
     if (Royal(intArr) && flush(suitArr)) {
         if (soundToggleVar) {
-            const royalFlush = new Audio("../resources/sounds/royal-flush.mp3");
             caChing.play();
-            setTimeout(royalFlush.play(), 1000);
+            setTimeout(manRoyalFlush.play(), 1000);
         }
         return { winningHand: "Royal flush", multiplier: 400 };
     }
     if (flush(suitArr) && straight(intArr)) {
         if (soundToggleVar) {
-            const straightFlush = new Audio("../resources/sounds/straight-flush.mp3");
             caChing.play();
-            setTimeout(straightFlush.play(), 1000);
+            setTimeout(manStraightFlush.play(), 1000);
         }
         return { winningHand: "Straight flush", multiplier: 50 };
     }
     if (fourOfKind(intArr)) {
         if (soundToggleVar) {
-            const fourOfAKind = new Audio("../resources/sounds/royal-four-of-a-kind.mp3");
             caChing.play();
-            setTimeout(fourOfAKind.play(), 1000);
+            setTimeout(manFourOfAKind.play(), 1000);
         }
         return { winningHand: "Four of a kind", multiplier: 25 };
     }
     if (threeOfKind(intArr)) {
         if (soundToggleVar) {
-            const threeOfAKind = new Audio("../resources/sounds/three-of-a-kind.mp3");
             caChing.play();
-            setTimeout(threeOfAKind.play(), 1000);
+            setTimeout(manThreeOfAKind.play(), 1000);
         }
         return { winningHand: "Three of a kind", multiplier: 3 };
     }
     if (fullHouse(intArr)) {
         if (soundToggleVar) {
-            const fullHouse = new Audio("../resources/sounds/full-house.mp3");
             caChing.play();
-            setTimeout(fullHouse.play(), 1000);
+            setTimeout(manFullHouse.play(), 1000);
         }
         return { winningHand: "Full house", multiplier: 9 };
     }
     if (flush(suitArr)) {
         if (soundToggleVar) {
-            const flush = new Audio("../resources/sounds/flush.mp3");
             caChing.play();
-            setTimeout(flush.play(), 1000);
+            setTimeout(manFlush.play(), 1000);
         }
         return { winningHand: "Flush", multiplier: 6 };
     }
     if (straight(intArr)) {
         if (soundToggleVar) {
-            const straight = new Audio("../resources/sounds/straight.mp3");
             caChing.play();
-            setTimeout(straight.play(), 1000);
+            setTimeout(manStraight.play(), 1000);
         }
         return { winningHand: "Straight", multiplier: 4 };
     }
     if (twoPair(intArr)) {
         if (soundToggleVar) {
-            const twoPair = new Audio("../resources/sounds/two-pair.mp3");
             caChing.play();
-            setTimeout(twoPair.play(), 1000);
+            setTimeout(manTwoPair.play(), 1000);
         }
         return { winningHand: "Two pair", multiplier: 2 };
     }
     if (pair(intArr)) {
         if (soundToggleVar) {
-            const pair = new Audio("../resources/sounds/pair.mp3");
             caChing.play();
-            setTimeout(pair.play(), 1000);
+            setTimeout(manPair.play(), 1000);
         }
         return { winningHand: "Pair", multiplier: 1 };
     }
     if (pair(intArr) === false) {
         if (soundToggleVar) {
-            const pairUnderJacks = new Audio("../resources/sounds/pair-under-jacks.mp3");
-            pairUnderJacks.play();
+            manPairUnderJacks.play();
         }
         return { winningHand: "Pair under jacks", multiplier: 0 };
     }
     
     if (soundToggleVar) {
-        const highCard = new Audio("../resources/sounds/high-card.mp3");
-        highCard.play();
+        manHighCard.play();
     }
     return { winningHand: "High card", multiplier: 0 };
 }
@@ -343,6 +345,7 @@ function refreshDeck() {
 document.querySelectorAll(".image").forEach((image) => {
     image.addEventListener("click", function() {
         image.classList.toggle("selected");
+        cardClick.play();
     });
 });
 
