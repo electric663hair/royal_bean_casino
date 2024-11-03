@@ -13,9 +13,9 @@ const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
 
-var soundToggleVar = true;
-
 var betamount = document.querySelector("#betSum").value;
+
+document.querySelectorAll("img").forEach(image => {image.draggable = false;});
 
 if (localStorage.getItem("128") && localStorage.getItem("127")) {
     const savedSeed = localStorage.getItem("128");
@@ -79,9 +79,12 @@ betButton.addEventListener("click", function() {
     checkForm();
 });
 
+var soundToggleVar = true;
+const soundToggleSound = new Audio("../resources/sounds/soundSwitch.mp3");
 const soundIcon = document.querySelector(".soundIcon");
 soundIcon.addEventListener("click", soundToggle);
 function soundToggle() {
+    soundToggleSound.play();
     soundToggleVar = !soundToggleVar;
     if (soundToggleVar) {
         soundIcon.src = "../resources/soundon.svg"
@@ -228,67 +231,76 @@ function detectHand(hand) {
     }
     
     intArr.sort((a, b) => a - b);
-
+    const caChing = new Audio("../resources/sounds/ca-ching.mp3");
     if (Royal(intArr) && flush(suitArr)) {
         if (soundToggleVar) {
             const royalFlush = new Audio("../resources/sounds/royal-flush.mp3");
-            royalFlush.play();
+            caChing.play();
+            setTimeout(royalFlush.play(), 1000);
         }
         return { winningHand: "Royal flush", multiplier: 400 };
     }
     if (flush(suitArr) && straight(intArr)) {
         if (soundToggleVar) {
             const straightFlush = new Audio("../resources/sounds/straight-flush.mp3");
-            straightFlush.play();
+            caChing.play();
+            setTimeout(straightFlush.play(), 1000);
         }
         return { winningHand: "Straight flush", multiplier: 50 };
     }
     if (fourOfKind(intArr)) {
         if (soundToggleVar) {
             const fourOfAKind = new Audio("../resources/sounds/royal-four-of-a-kind.mp3");
-            fourOfAKind.play();
+            caChing.play();
+            setTimeout(fourOfAKind.play(), 1000);
         }
         return { winningHand: "Four of a kind", multiplier: 25 };
     }
     if (threeOfKind(intArr)) {
         if (soundToggleVar) {
             const threeOfAKind = new Audio("../resources/sounds/three-of-a-kind.mp3");
-            threeOfAKind.play();
+            caChing.play();
+            setTimeout(threeOfAKind.play(), 1000);
         }
         return { winningHand: "Three of a kind", multiplier: 3 };
     }
     if (fullHouse(intArr)) {
         if (soundToggleVar) {
             const fullHouse = new Audio("../resources/sounds/full-house.mp3");
-            fullHouse.play();
+            caChing.play();
+            setTimeout(fullHouse.play(), 1000);
         }
         return { winningHand: "Full house", multiplier: 9 };
     }
     if (flush(suitArr)) {
         if (soundToggleVar) {
             const flush = new Audio("../resources/sounds/flush.mp3");
-            flush.play();
+            caChing.play();
+            setTimeout(flush.play(), 1000);
         }
         return { winningHand: "Flush", multiplier: 6 };
     }
     if (straight(intArr)) {
         if (soundToggleVar) {
             const straight = new Audio("../resources/sounds/straight.mp3");
-            straight.play();
+            caChing.play();
+            setTimeout(straight.play(), 1000);
         }
         return { winningHand: "Straight", multiplier: 4 };
     }
     if (twoPair(intArr)) {
         if (soundToggleVar) {
             const twoPair = new Audio("../resources/sounds/two-pair.mp3");
-            twoPair.play();
+            caChing.play();
+            setTimeout(twoPair.play(), 1000);
         }
         return { winningHand: "Two pair", multiplier: 2 };
     }
     if (pair(intArr)) {
         if (soundToggleVar) {
             const pair = new Audio("../resources/sounds/pair.mp3");
-            pair.play();
+            caChing.play();
+            setTimeout(pair.play(), 1000);
         }
         return { winningHand: "Pair", multiplier: 1 };
     }
@@ -339,7 +351,7 @@ function play() {
     Hand1 = [];
     let images = document.querySelectorAll(".image");
 
-    images.forEach(image => image.classList.remove("selected"));
+    images.forEach(image => {image.classList.remove("selected")});
 
     document.querySelector("button.round2").classList.remove("none")
     document.querySelector("input").disabled = true

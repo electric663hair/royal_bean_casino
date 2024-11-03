@@ -25,6 +25,7 @@
 .image {
     height: 250px;
     background-color: transparent;
+    transition: none;
 }
 
 .image:hover,
