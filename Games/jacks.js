@@ -1,10 +1,93 @@
-var balance = 10000
+var game = {
+    "balance": 10000
+}
 var deck = [];
 var Hand1 = [];
 
+const maxBet = 1000;
+const minBet = 0;
+const ascendBetValue = 100;
+const descendBetValue = 100;
+
+document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
+var betamount = document.querySelector("#betSum").value;
+
+if (localStorage.getItem("128") && localStorage.getItem("127")) {
+    const savedSeed = localStorage.getItem("128");
+    const savedBalance = localStorage.getItem("127");
+    game.balance = savedBalance / random(savedSeed);
+
+    // Update balance text
+    document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
+}
+
+function random(seed) {
+    var m = 2 ** 35 - 31;
+    var a = 185852;
+    var s = seed % m;
+    return (s = (s * a) % m) / m;
+}
+
+function saveBalance() {
+    const currentSeed = Math.floor(Math.random()*4194304);
+        localStorage.setItem("128", currentSeed);
+        var encryptedBalance = game.balance * random(currentSeed);
+        localStorage.setItem("127", encryptedBalance);
+}
+
+function checkForm(){
+    betamount = document.querySelector("#betSum").value;
+    const form =  document.querySelector("form");
+    if (form.checkValidity() && betamount <= game.balance && betamount > 0 && betamount <= maxBet) {
+        game.balance -= betamount
+        document.querySelector("h3").innerText = "Balance: $" + game.balance
+        document.querySelector("button.play").classList.add("none")
+        document.querySelector("input").classList.add("none") 
+        play(); 
+
+    } else {
+        form.reportValidity();
+        console.error("The desired value is not allowed")
+    }
+}
+
 const betButton = document.querySelector(".play")
-betButton.addEventListener("click", function(){
+betButton.addEventListener("click", function() {
     checkForm();
+});
+
+// For adding ascendBetValue to the betamount
+const betUp = document.querySelector(".betUp");
+betUp.addEventListener("click", function() {
+    let betamount = parseInt(document.querySelector("#betSum").value);
+    if (isNaN(betamount)) {
+        betamount = 0;
+    }
+
+    if (betamount + ascendBetValue <= maxBet) {
+        betamount += ascendBetValue;
+        document.querySelector("#betSum").value = betamount;
+    } else {
+        betamount = maxBet;
+        document.querySelector("#betSum").value = betamount;
+    }
+});
+
+// For taking decendBetValue from the betamount
+const betDown = document.querySelector(".betDown");
+betDown.addEventListener("click", function() {
+    let betamount = parseInt(document.querySelector("#betSum").value);
+    if (isNaN(betamount)) {
+        document.querySelector("#betSum").value = 0;
+    }
+    if (!isNaN(betamount)) {
+        if (betamount - ascendBetValue >= minBet) {
+            betamount -= ascendBetValue;
+            document.querySelector("#betSum").value = betamount;
+        } else {
+            betamount = 0;
+        }
+    }
 });
 
 function flush(suitArr) {
@@ -254,25 +337,6 @@ function refreshDeck() {
     return deck;
 }
 
-
-function checkForm(){
-    const betamount = document.querySelector("#betSum").value
-    const form =  document.querySelector("form");
-    
-    if (form.checkValidity() && betamount < balance + 1 && betamount > 0 && betamount < 1001) {
-
-        balance -= betamount
-        document.querySelector("h3").innerText = "Balance: $" + balance
-        document.querySelector("button.play").classList.add("none")
-        document.querySelector("input").classList.add("none") 
-        play(); 
-
-    } else {
-        form.reportValidity();
-    }
-}
-
-
 document.querySelectorAll(".image").forEach((image) => {
     image.addEventListener("click", function() {
         image.classList.toggle("selected");
@@ -344,8 +408,10 @@ function play() {
         let { winningHand, multiplier  } = detectHand(Hand2)
         const betamount = document.querySelector("#betSum").value
 
-        balance += betamount*multiplier
-        document.querySelector("h3").innerText = "Balance: " + "$" + balance
+        game.balance += betamount*multiplier
+        document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
+
+        saveBalance()
 
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
