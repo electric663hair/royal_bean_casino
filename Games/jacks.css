@@ -79,22 +79,17 @@
     width: 35%;
 }
 
-#betDown > img{
+#betDown > img, #betUp > img{
     width: 50px;
     height: 50px;
     background-color: rgb(226, 215, 207);
     padding: 10%;
     border-radius: 10%;
+    margin: 2%;
+    transition: all .3s;
 }
-
-#betUp > img{
-    width: 50px;
-    height: 50px;
-    background-color: rgb(226, 215, 207);
-    padding: 10%;
-    border-radius: 10%;
-    margin-left: 2%;
-
+#betDown > img:hover, #betUp > img:hover {
+    background-color: #c9bdb5;
 }
 
 #betMax{

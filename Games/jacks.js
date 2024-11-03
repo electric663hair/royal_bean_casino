@@ -8,14 +8,13 @@ const winningsDiv = document.getElementById("winningsDiv")
 const winningText = document.getElementById("winningsText")
 const profitText = document.getElementById("profitsText")
 
-var maxBet = 1000;
+var maxBet;
 const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
 
 var soundToggleVar = true;
 
-document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
 var betamount = document.querySelector("#betSum").value;
 
 if (localStorage.getItem("128") && localStorage.getItem("127")) {
@@ -24,6 +23,8 @@ if (localStorage.getItem("128") && localStorage.getItem("127")) {
     game.balance = savedBalance / random(savedSeed);
 
     // Update balance text
+    maxBet = game.balance;
+    document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
     document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 }
 
@@ -396,7 +397,7 @@ function play() {
         const betamount = document.querySelector("#betSum").value
 
         game.balance += betamount*multiplier
-        maxBet = Math.floor(game.balance/10);
+        maxBet = game.balance;
 
         document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
         document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
