@@ -319,11 +319,8 @@ function play() {
 
 
     function round2() {
-<<<<<<< Updated upstream
-        let Hand2 = Hand1;
-=======
+
     let Hand2 = Hand1;
->>>>>>> Stashed changes
     
         for (let i = 0; i < 5; i++) {
             const imageElement = document.getElementById(`card${i + 1}`);

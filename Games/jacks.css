@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 50vh;
+    height: calc(100vh - 120px);
     width: 100%;
     background-color: bisque;
     
@@ -62,12 +62,11 @@
 .control{
     height: 120px;
     width: 100%;
-    position: fixed;
-    bottom: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
+    background-color: rgb(197, 0, 0);
 }
 
 .betButtons{
@@ -94,9 +93,10 @@
 
 
 .winningsDiv {
+    position: absolute;
+    top: 0;
     justify-content: center;
-    width: 100%;
-    height: 30vh;
+    z-index: 1;
 }
 
 #profitsText {
