@@ -284,6 +284,9 @@ function play() {
 
 
     function round2() {
+        const rond2Sound = new Audio("../resources/sounds/round2-bill.mp3");
+        rond2Sound.play();
+
         let Hand2 = Hand1;
     
         for (let i = 0; i < 5; i++) {
