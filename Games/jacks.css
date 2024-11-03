@@ -56,9 +56,40 @@
 }
 
 #showBalance{
-    position: absolute;
-    right: 1%;
-    top: 0;
+  color: red;
+}
+
+.control{
+    height: 120px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.betButtons{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#betDown > img{
+    width: 50px;
+    height: 50px;
+}
+
+#betUp > img{
+    width: 50px;
+    height: 50px;
+}
+
+.sound > img{
+    width: 50px;
+    height: 50px;
 }
 
 

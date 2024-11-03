@@ -259,10 +259,10 @@ function checkForm(){
     const betamount = document.querySelector("#betSum").value
     const form =  document.querySelector("form");
     
-    if (form.checkValidity() && betamount < balance + 1 && betamount > 0) {
+    if (form.checkValidity() && betamount < balance + 1 && betamount > 0 && betamount < 1001) {
 
         balance -= betamount
-        document.querySelector("h3").innerText = "Balance: " + balance
+        document.querySelector("h3").innerText = "Balance: $" + balance
         document.querySelector("button.play").classList.add("none")
         document.querySelector("input").classList.add("none") 
         play(); 
@@ -319,7 +319,11 @@ function play() {
 
 
     function round2() {
+<<<<<<< Updated upstream
         let Hand2 = Hand1;
+=======
+    let Hand2 = Hand1;
+>>>>>>> Stashed changes
     
         for (let i = 0; i < 5; i++) {
             const imageElement = document.getElementById(`card${i + 1}`);
@@ -345,7 +349,7 @@ function play() {
         const betamount = document.querySelector("#betSum").value
 
         balance += betamount*multiplier
-        document.querySelector("h3").innerText = "Balance: " + balance
+        document.querySelector("h3").innerText = "Balance: " + "$" + balance
 
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
