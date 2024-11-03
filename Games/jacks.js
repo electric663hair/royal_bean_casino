@@ -314,21 +314,15 @@ function play() {
 
 
     function round2() {
-        let Hand2 = ["", "", "", "", ""];
+let Hand2 = Hand1;
     
-        for (let i = 0; i < 5; i++)  {
-            const imageElement = document.getElementById(`card${i+1}`)
-            if (imageElement.classList.contains("selected")) {
-                Hand2[i] = Hand1[i]           
-            }
-        }
-    
-        for (let i = 0; i < Hand2.length; i++)  {
-        if (Hand2[i] == "") {
+        for (let i = 0; i < 5; i++) {
+            const imageElement = document.getElementById(`card${i + 1}`);
+            if (!imageElement.classList.contains("selected")) {
                 let randomCard = deck[Math.floor(Math.random() * deck.length)];
                 let { suit, integer } = identify(randomCard);
                 deck.splice(deck.indexOf(randomCard), 1);
-                Hand2[i] = ([randomCard, suit, integer]);      
+                Hand2[i] = [randomCard, suit, integer];
             }
         }
 
