@@ -56,14 +56,15 @@
 }
 
 #showBalance{
-  color: red;
+  color: rgb(0, 0, 0);
+  font-size: 40px;
 }
 
 .control{
     height: 120px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: row;
     background-color: rgb(197, 0, 0);
@@ -74,21 +75,43 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    width: 35%;
 }
 
 #betDown > img{
     width: 50px;
     height: 50px;
+    background-color: rgb(226, 215, 207);
+    padding: 10%;
+    border-radius: 10%;
 }
 
 #betUp > img{
     width: 50px;
     height: 50px;
+    background-color: rgb(226, 215, 207);
+    padding: 10%;
+    border-radius: 10%;
+    margin-left: 2%;
+
+}
+
+#betMax{
+    width: 25%;
+    height: 50px;
+    margin-left: 2%;
+    margin-right: 10%;
 }
 
 .sound > img{
     width: 50px;
     height: 50px;
+}
+
+.play{
+    height: 60px;
+    width: 100px;
+    font-size: 20px;
 }
 
 
@@ -111,4 +134,8 @@ input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+}
+
+input{
+    height: 50px;
 }

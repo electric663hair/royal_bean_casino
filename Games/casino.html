@@ -34,11 +34,13 @@
                 <img src="../resources/up-arrow-hand-drawn-outline-svgrepo-com.svg" class="betUp" alt="">
             </div>
 
-            <div id="betMax">Max Bet</div>
+            <button id="betMax">Max</button>
+            
+            <form action="">
+                <input placeholder="Max bet: $1000..." id="betSum" type="number" min="0" step="1" title="The amount you are going to bet this round" required>
+            </form>
         </div>
-        <form action="">
-            <input placeholder="Max bet: $1000..." id="betSum" type="number" min="0" step="1" title="The amount you are going to bet this round" required>
-        </form>
+
         <button class="play" title="Press this button when you want to begin a new round">Bet</button>
         <button class="round2 none">Confirm</button>
         <div class="sound">
