@@ -92,7 +92,7 @@
 }
 
 
-.winningsDiv {
+#winningsDiv {
     position: absolute;
     top: 0;
     justify-content: center;
