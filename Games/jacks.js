@@ -114,12 +114,12 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1]){
+        if(intArr[i] === intArr[i+1]  && intArr != b){
                 a = 1
         }
     }
 
-    if (a == 1 && b == 1 && a != b){
+    if (a == 1 && b == 1){
         return true
     }
 }
