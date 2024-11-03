@@ -1,4 +1,6 @@
 var balance = 10000
+var deck = [];
+var Hand1 = [];
 
 const betButton = document.querySelector(".play")
 betButton.addEventListener("click", function(){
@@ -242,7 +244,7 @@ function identify(IdentifyCard) {
     return { suit, integer };
 }
 function refreshDeck() {
-    let deck = [];
+    deck = [];
     for (let i = 1; i < 14; i++) {
         deck.push(i + "S", i + "C", i + "D", i + "H");
     }
@@ -254,13 +256,13 @@ function checkForm(){
     const betamount = document.querySelector("#betSum").value
     const form =  document.querySelector("form");
     
-    if (form.checkValidity() && betamount < balance) {
+    if (form.checkValidity() && betamount < balance + 1 && betamount > 0) {
 
         balance -= betamount
         document.querySelector("h3").innerText = "Balance: " + balance
         document.querySelector("button.play").classList.add("none")
-        document.querySelector("input").classList.add("none")
-        play();
+        document.querySelector("input").classList.add("none") 
+        play(); 
 
     } else {
         form.reportValidity();
@@ -275,8 +277,8 @@ document.querySelectorAll(".image").forEach((image) => {
 });
 
 function play() {
-    let deck = refreshDeck();
-    let Hand1 = [];
+    deck = refreshDeck();
+    Hand1 = [];
     let images = document.querySelectorAll(".image");
 
     images.forEach(image => image.classList.remove("selected"));
