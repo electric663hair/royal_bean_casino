@@ -31,12 +31,12 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1]){
+        if(intArr[i] === intArr[i+1]  && intArr != b){
                 a = 1
         }
     }
 
-    if (a == 1 && b == 1 && a != b){
+    if (a == 1 && b == 1){
         return true
     }
 }
@@ -259,10 +259,10 @@ function checkForm(){
     const betamount = document.querySelector("#betSum").value
     const form =  document.querySelector("form");
     
-    if (form.checkValidity() && betamount < balance + 1 && betamount > 0) {
+    if (form.checkValidity() && betamount < balance + 1 && betamount > 0 && betamount < 1001) {
 
         balance -= betamount
-        document.querySelector("h3").innerText = "Balance: " + balance
+        document.querySelector("h3").innerText = "Balance: $" + balance
         document.querySelector("button.play").classList.add("none")
         document.querySelector("input").classList.add("none") 
         play(); 
@@ -345,7 +345,7 @@ function play() {
         const betamount = document.querySelector("#betSum").value
 
         balance += betamount*multiplier
-        document.querySelector("h3").innerText = "Balance: " + balance
+        document.querySelector("h3").innerText = "Balance: " + "$" + balance
 
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
