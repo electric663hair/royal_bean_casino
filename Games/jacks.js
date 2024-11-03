@@ -319,7 +319,7 @@ function play() {
 
 
     function round2() {
-let Hand2 = Hand1;
+        let Hand2 = Hand1;
     
         for (let i = 0; i < 5; i++) {
             const imageElement = document.getElementById(`card${i + 1}`);
