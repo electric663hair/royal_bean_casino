@@ -1,5 +1,6 @@
 * {
     margin: 0;
+    transition: all .2s;
 }
 
 .handContainer {
@@ -108,7 +109,7 @@
     height: 50px;
 }
 
-.play{
+.play, .round2{
     height: 60px;
     width: 100px;
     font-size: 20px;
@@ -138,4 +139,13 @@ input::-webkit-inner-spin-button {
 
 input{
     height: 50px;
+}
+
+.soundIcon {
+    padding: 7px;
+    border-radius: 20px;
+}
+
+.soundIcon:hover {
+    background-color: #990707;
 }

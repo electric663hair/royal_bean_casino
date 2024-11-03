@@ -8,10 +8,12 @@ const winningsDiv = document.getElementById("winningsDiv")
 const winningText = document.getElementById("winningsText")
 const profitText = document.getElementById("profitsText")
 
-const maxBet = 1000;
+var maxBet = 1000;
 const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
+
+var soundToggleVar = true;
 
 document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
 var betamount = document.querySelector("#betSum").value;
@@ -46,7 +48,7 @@ function checkForm(){
         game.balance -= betamount
         document.querySelector("h3").innerText = "Balance: $" + game.balance
         document.querySelector("button.play").classList.add("none")
-        document.querySelector("input").classList.add("none") 
+        document.querySelector("input").disabled = true
         play(); 
 
     } else {
@@ -55,10 +57,31 @@ function checkForm(){
     }
 }
 
+const betMaxBtn = document.querySelector("#betMax");
+betMaxBtn.addEventListener("click", function() {
+    if (game.balance >= maxBet) {
+        betamount = maxBet;
+    } else {
+        betamount = game.balance;
+    }
+    document.querySelector("#betSum").value = betamount;
+})
+
 const betButton = document.querySelector(".play")
 betButton.addEventListener("click", function() {
     checkForm();
 });
+
+const soundIcon = document.querySelector(".soundIcon");
+soundIcon.addEventListener("click", soundToggle);
+function soundToggle() {
+    soundToggleVar = !soundToggleVar;
+    if (soundToggleVar) {
+        soundIcon.src = "../resources/soundon.svg"
+    } else {
+        soundIcon.src = "../resources/soundoff.svg"
+    }
+}
 
 // For adding ascendBetValue to the betamount
 const betUp = document.querySelector(".betUp");
@@ -118,7 +141,7 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1]  && intArr != b){
+        if(intArr[i] === intArr[i+1]  && intArr != b){ // rart
                 a = 1
         }
     }
@@ -199,22 +222,83 @@ function detectHand(hand) {
     
     intArr.sort((a, b) => a - b);
 
-    if (Royal(intArr) && flush(suitArr)) return { winningHand: "Royal flush", multiplier: 400 };
-    if (flush(suitArr) && straight(intArr)) return { winningHand: "Straight flush", multiplier: 50 };
-    if (fourOfKind(intArr)) return { winningHand: "Four of a kind", multiplier: 25 };
-    if (fullHouse(intArr)) return { winningHand: "Full house", multiplier: 9 };
-    if (flush(suitArr)) return { winningHand: "Flush", multiplier: 6 };
-    if (straight(intArr)) return { winningHand: "Straight", multiplier: 4 };
-    if (threeOfKind(intArr)) return { winningHand: "Three of a kind", multiplier: 3 };
-    if (twoPair(intArr)) return { winningHand: "Two pair", multiplier: 2 };
-    if (pair(intArr)) return { winningHand: "Pair", multiplier: 1 };
-    if (pair(intArr) === false) return { winningHand: "Pair under jacks", multiplier: 0 };
+    if (Royal(intArr) && flush(suitArr)) {
+        if (soundToggleVar) {
+            const royalFlush = new Audio("../resources/sounds/royal-flush.mp3");
+            royalFlush.play();
+        }
+        return { winningHand: "Royal flush", multiplier: 400 };
+    }
+    if (flush(suitArr) && straight(intArr)) {
+        if (soundToggleVar) {
+            const straightFlush = new Audio("../resources/sounds/straight-flush.mp3");
+            straightFlush.play();
+        }
+        return { winningHand: "Straight flush", multiplier: 50 };
+    }
+    if (fourOfKind(intArr)) {
+        if (soundToggleVar) {
+            const fourOfAKind = new Audio("../resources/sounds/royal-four-of-a-kind.mp3");
+            fourOfAKind.play();
+        }
+        return { winningHand: "Four of a kind", multiplier: 25 };
+    }
+    if (threeOfKind(intArr)) {
+        if (soundToggleVar) {
+            const threeOfAKind = new Audio("../resources/sounds/three-of-a-kind.mp3");
+            threeOfAKind.play();
+        }
+        return { winningHand: "Three of a kind", multiplier: 3 };
+    }
+    if (fullHouse(intArr)) {
+        if (soundToggleVar) {
+            const fullHouse = new Audio("../resources/sounds/full-house.mp3");
+            fullHouse.play();
+        }
+        return { winningHand: "Full house", multiplier: 9 };
+    }
+    if (flush(suitArr)) {
+        if (soundToggleVar) {
+            const flush = new Audio("../resources/sounds/flush.mp3");
+            flush.play();
+        }
+        return { winningHand: "Flush", multiplier: 6 };
+    }
+    if (straight(intArr)) {
+        if (soundToggleVar) {
+            const straight = new Audio("../resources/sounds/straight.mp3");
+            straight.play();
+        }
+        return { winningHand: "Straight", multiplier: 4 };
+    }
+    if (twoPair(intArr)) {
+        if (soundToggleVar) {
+            const twoPair = new Audio("../resources/sounds/two-pair.mp3");
+            twoPair.play();
+        }
+        return { winningHand: "Two pair", multiplier: 2 };
+    }
+    if (pair(intArr)) {
+        if (soundToggleVar) {
+            const pair = new Audio("../resources/sounds/pair.mp3");
+            pair.play();
+        }
+        return { winningHand: "Pair", multiplier: 1 };
+    }
+    if (pair(intArr) === false) {
+        if (soundToggleVar) {
+            const pairUnderJacks = new Audio("../resources/sounds/pair-under-jacks.mp3");
+            pairUnderJacks.play();
+        }
+        return { winningHand: "Pair under jacks", multiplier: 0 };
+    }
     
+    if (soundToggleVar) {
+        const highCard = new Audio("../resources/sounds/high-card.mp3");
+        highCard.play();
+    }
     return { winningHand: "High card", multiplier: 0 };
 }
-
-
-
 
 function identify(IdentifyCard) {
     let suit = "";
@@ -251,7 +335,7 @@ function play() {
     images.forEach(image => image.classList.remove("selected"));
 
     document.querySelector("button.round2").classList.remove("none")
-    document.querySelector("input").classList.add("none")
+    document.querySelector("input").disabled = true
     document.querySelector("button.play").classList.add("none")
     document.getElementById("winningsDiv").classList.add("none")
 
@@ -284,8 +368,8 @@ function play() {
 
 
     function round2() {
-        const rond2Sound = new Audio("../resources/sounds/round2-bill.mp3");
-        rond2Sound.play();
+
+        game.balance = Math.floor(game.balance);
 
         let Hand2 = Hand1;
     
@@ -312,6 +396,9 @@ function play() {
         const betamount = document.querySelector("#betSum").value
 
         game.balance += betamount*multiplier
+        maxBet = Math.floor(game.balance/10);
+
+        document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
         document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 
         saveBalance()
@@ -321,12 +408,9 @@ function play() {
         profitText.innerText = `You won ${betamount*multiplier}$`
     
         document.querySelector("button.play").classList.remove("none")
-        document.querySelector("input").classList.remove("none")
+        document.querySelector("input").disabled = false
 
         }
     }
 
 }
-
-
-
