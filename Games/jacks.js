@@ -26,6 +26,12 @@ if (localStorage.getItem("128") && localStorage.getItem("127")) {
     maxBet = game.balance;
     document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
     document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
+} else {
+    game.balance = 10000;
+
+    maxBet = game.balance;
+    document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
+    document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 }
 
 function random(seed) {
