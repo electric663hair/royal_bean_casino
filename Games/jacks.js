@@ -81,6 +81,8 @@ function pair(intArr){
         if(intArr[i] === intArr[i+1]){
             if (intArr[i] > 10 || intArr[i] == 1){
                 return true
+            } else if (intArr[i] < 11){
+                return false
             }
         }
     }
@@ -119,8 +121,9 @@ function detectHand(hand) {
     if (threeOfKind(intArr)) return { winningHand: "Three of a kind", multiplier: 3 };
     if (twoPair(intArr)) return { winningHand: "Two pair", multiplier: 2 };
     if (pair(intArr)) return { winningHand: "Pair", multiplier: 1 };
+    if (!pair(intArr)) return { winningHand: "Pair under jacks", multiplier: 0 };
     
-    return { winningHand: "Invalid hand", multiplier: 0 };
+    return { winningHand: "High card", multiplier: 0 };
 }
 
 // Den shit versjonen
