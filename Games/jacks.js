@@ -8,7 +8,7 @@ const winningsDiv = document.getElementById("winningsDiv")
 const winningText = document.getElementById("winningsText")
 const profitText = document.getElementById("profitsText")
 
-var maxBet;
+var maxBet = 1000;
 const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
@@ -38,13 +38,11 @@ if (localStorage.getItem("128") && localStorage.getItem("127")) {
     game.balance = savedBalance / random(savedSeed);
 
     // Update balance text
-    maxBet = game.balance;
     document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
     document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 } else {
     game.balance = 10000;
 
-    maxBet = game.balance;
     document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
     document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 }
@@ -413,12 +411,10 @@ function play() {
         function finish(){
         document.querySelector("button.round2").classList.add("none")
         
-
         let { winningHand, multiplier  } = detectHand(Hand2)
         const betamount = document.querySelector("#betSum").value
 
         game.balance += betamount*multiplier
-        maxBet = game.balance;
 
         document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
         document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
@@ -434,5 +430,4 @@ function play() {
 
         }
     }
-
 }
