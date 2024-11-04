@@ -430,5 +430,4 @@ function play() {
 
         }
     }
-
 }
