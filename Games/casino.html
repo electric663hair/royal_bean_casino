@@ -24,6 +24,9 @@
 
     <div class="control">
         <h3 id="showBalance">Balance: $10000</h3>
+        <button class="ruleButton">
+            Rules
+        </button>
         <div class="betButtons">
 
             <div id="betDown"> 
@@ -35,7 +38,7 @@
             </div>
 
             <button id="betMax">Max</button>
-            
+
             <form action="">
                 <input placeholder="Max bet: $1000..." id="betSum" type="number" min="0" step="1" title="The amount you are going to bet this round" required>
             </form>
@@ -48,6 +51,14 @@
             <img src="../resources/soundon.svg" class="soundIcon" alt="Sound icon" title="Press to toggle the sounds in the game">
         </div>
     </div>
+    <div class="rules none">
+        <h3><b>RuleBook</b></h3><br>
+        <p>
+            <b>High card:</b> No winning combination. You do not make anything.<br>Multiplier: 0 <br><br><b>Jacks or Better:</b> A pair of Jacks, Queens, Kings, or Aces. Lower pairs (10s or below) don’t win in this game, but a pair of Jacks or better gives a small payout.<br>Multiplier: 1 <br><br><b>Two Pair:</b> Two separate pairs of cards. For example, two Kings and two 3s. Having two pairs gives a higher payout than just one pair.<br>Multiplier: 2 <br><br><b>Three of a Kind:</b> Three cards of the same rank, like three 7s. This is better than two pairs.<br>Multiplier: 3 <br><br><b>Straight:</b> Five consecutive cards in a row, regardless of suit. For example, 5-6-7-8-9. Cards don’t need to be in the same suit, but they must be in a sequence.<br>Multiplier: 4 <br><br><b>Flush:</b> Five cards of the same suit, but not in a sequence. For example, five hearts. This pays more than a straight.<br>Multiplier: 6 <br><br><b>Full House:</b> A combination of Three of a Kind and a Pair, like three 8s and two Queens. It’s stronger than a flush but weaker than Four of a Kind.<br>Multiplier: 9 <br><br><b>Four of a Kind:</b> Four cards of the same rank, such as four Jacks. This has a high payout.<br>Multiplier: 25 <br><br> <b>Straight Flush:</b> Five consecutive cards, all of the same suit, like 5-6-7-8-9 of hearts. This hand is just below a Royal Flush.<br>Multiplier: 50 <br><br><b>Royal Flush:</b> The best hand in Jacks or Better, consisting of 10, Jack, Queen, King, and Ace of the same suit. This is the hardest hand to get and has the highest payout.<br>Multiplier: 400 <br><br>
+         </p>
+    </div>
+
+
 
     <script src="../Games/jacks.js"></script>
 </body>

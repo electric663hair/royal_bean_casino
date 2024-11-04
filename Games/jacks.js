@@ -87,6 +87,12 @@ betMaxBtn.addEventListener("click", function() {
     document.querySelector("#betSum").value = betamount;
 })
 
+const ruleButton = document.querySelector(".ruleButton")
+const rules = document.querySelector(".rules")
+ruleButton.addEventListener("click", function() {
+    rules.classList.toggle("none")
+});
+
 const betButton = document.querySelector(".play")
 betButton.addEventListener("click", function() {
     checkForm();
@@ -173,7 +179,7 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1] && intArr[i] !== intArr[i+3]  && intArr[i] !== intArr[i-1]){
+        if(intArr[i] === intArr[i+1] && intArr[i] !== intArr[i+2]  && intArr[i] !== intArr[i-1]){
                 a = 1;
         }
     }
@@ -353,7 +359,9 @@ function refreshDeck() {
 document.querySelectorAll(".image").forEach((image) => {
     image.addEventListener("click", function() {
         image.classList.toggle("selected");
+        if (soundToggleVar) {
         cardClick.play();
+        }
     });
 });
 
