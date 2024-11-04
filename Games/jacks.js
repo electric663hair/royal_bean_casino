@@ -92,12 +92,22 @@ betButton.addEventListener("click", function() {
     checkForm();
 });
 
-var soundToggleVar = true;
 const soundIcon = document.querySelector(".soundIcon");
-soundIcon.addEventListener("click", soundToggle);
-function soundToggle() {
+if (localStorage.getItem("126") === null) {
+    var soundToggleVar = true;
+} else {
+    var soundToggleVar = (localStorage.getItem("126") === 'true');
+    soundToggle();
+}
+soundIcon.addEventListener("click", function() {
     soundToggleSound.play();
     soundToggleVar = !soundToggleVar;
+    
+    soundToggle();
+});
+function soundToggle() {
+    localStorage.setItem("126", soundToggleVar);
+
     if (soundToggleVar) {
         soundIcon.src = "../resources/soundon.svg"
     } else {
@@ -163,7 +173,7 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1]  && intArr != b){ // rart
+        if(intArr[i] === intArr[i+1]  && intArr[i] != b){
                 a = 1
         }
     }
@@ -264,13 +274,6 @@ function detectHand(hand) {
         }
         return { winningHand: "Four of a kind", multiplier: 25 };
     }
-    if (threeOfKind(intArr)) {
-        if (soundToggleVar) {
-            caChing.play();
-            setTimeout(manThreeOfAKind.play(), 1000);
-        }
-        return { winningHand: "Three of a kind", multiplier: 3 };
-    }
     if (fullHouse(intArr)) {
         if (soundToggleVar) {
             caChing.play();
@@ -291,6 +294,13 @@ function detectHand(hand) {
             setTimeout(manStraight.play(), 1000);
         }
         return { winningHand: "Straight", multiplier: 4 };
+    }
+    if (threeOfKind(intArr)) {
+        if (soundToggleVar) {
+            caChing.play();
+            setTimeout(manThreeOfAKind.play(), 1000);
+        }
+        return { winningHand: "Three of a kind", multiplier: 3 };
     }
     if (twoPair(intArr)) {
         if (soundToggleVar) {
