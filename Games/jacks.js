@@ -165,6 +165,7 @@ function fullHouse(intArr) {
     
     let a = 0;
     let b = 0;
+    let c = 0;
 
     for (let i = 0; i < intArr.length - 2; i++){
         if(intArr[i] === intArr[i+1] && intArr[i] === intArr[i+2]){
@@ -173,8 +174,13 @@ function fullHouse(intArr) {
     }
     
     for (let i = 0; i < intArr.length - 1; i++){
-        if(intArr[i] === intArr[i+1]  && intArr[i] != b){
-                a = 1
+        if(intArr[i] === intArr[i+1]){
+                c = 1;
+                if (c === b){
+                    a = 1
+                } else{
+                    c = 0;
+                }
         }
     }
 
