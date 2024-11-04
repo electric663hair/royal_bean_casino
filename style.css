@@ -643,8 +643,11 @@ footer{
     transition: all 0.1s;
 }
 
-#copyright {
+.cinzel {
     font-family: "Cinzel", serif;
+}
+.margin20px {
+    margin: 20px;
 }
 
 .gamesCatalog {
