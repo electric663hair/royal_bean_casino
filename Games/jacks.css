@@ -10,7 +10,7 @@
     gap: 10px;
     height: calc(100vh - 120px);
     width: 100%;
-    background-color: bisque;
+    background-color: #0e2f20;
     
 }
 
@@ -64,7 +64,7 @@
     justify-content: space-around;
     align-items: center;
     flex-direction: row;
-    background-color: #c50000;
+    background-color: #FFB000;
 }
 
 .betButtons {
@@ -100,7 +100,7 @@
     height: 50px;
 }
 
-.play, .round2, .resetGame {
+.play, .round2, .continue {
     height: 60px;
     width: 100px;
     font-size: 20px;
@@ -115,11 +115,11 @@
 }
 
 #profitsText {
-    color: black;
+    color: white;
 }
 
 #winningsText {
-    color: black;
+    color: white;
 }
 
 input::-webkit-outer-spin-button,
@@ -160,7 +160,7 @@ input[type="number"] {
     height: 50px;
 }
 #autoResetGame {
-    accent-color: #33b4df !important;
+    accent-color: #000000 !important;
     height: 25px;
     width: 25px;
     transition: all .5s;

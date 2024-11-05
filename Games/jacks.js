@@ -9,6 +9,10 @@ const winningsDiv = document.getElementById("winningsDiv")
 const winningText = document.getElementById("winningsText")
 const profitText = document.getElementById("profitsText")
 
+const betButton = document.querySelector(".play")
+const confirmButton = document.querySelector("button.round2")
+const continueButton = document.querySelector(".continue")
+
 var maxBet = 1000;
 const minBet = 0;
 const ascendBetValue = 100;
@@ -47,38 +51,8 @@ autoResetGameCheckbox.addEventListener("change", function() {
 
 document.querySelectorAll("img").forEach(image => {image.draggable = false;});
 
-function gameRoundStage(stageSwitchTo) {
-    if (stageSwitchTo === "beforeGameStart") {
-        beforeGameStart = true;
-        gameStarted = false;
-        gameRound2 = false;
-    } else if (stageSwitchTo === "gameStarted") {
-        beforeGameStart = false;
-        gameStarted = true;
-        gameRound2 = false;
-    } else if (stageSwitchTo === "gameRound2") {
-        beforeGameStart = false;
-        gameStarted = false;
-        gameRound2 = true;
-    } else console.debug(`Can not find any parameter with this stageSwitch\nstageSwitchTo: ${stageSwitchTo}`)
-}
 
 document.querySelector("body").addEventListener("keydown", function(event) {
-    // Makes the enter key not work as normal :)
-    if (event.key === "Enter") {
-        event.preventDefault();
-        if (beforeGameStart && !gameStarted && !gameRound2) {
-            // Simulate bet btn click
-            gameRoundStage("gameStarted");
-        } else if (!beforeGameStart && gameStarted && !gameRound2) {
-            // Simulate confirm btn click
-            gameRoundStage("gameRound2");
-        } else if (!beforeGameStart && !gameStarted && gameRound2) {
-            // Simulate continue btn click
-            gameRoundStage("beforeGameStart");
-        }
-    }
-
     // Checks for keypresses 1 through 5 and toggles the selected class for the desired image
     for (let i = 0; i < images.length; i++) {
         if (event.key == i+1) {
@@ -154,7 +128,7 @@ ruleButton.addEventListener("click", function() {
     rules.classList.toggle("none")
 });
 
-const betButton = document.querySelector(".play")
+
 betButton.addEventListener("click", function() {
     document.querySelectorAll(".image").forEach(image => image.classList.remove("secondRound"));
     checkForm();
@@ -439,10 +413,10 @@ function play() {
 
     images.forEach(image => {image.classList.remove("selected")});
 
-    document.querySelector("button.round2").classList.remove("none");
+    confirmButton.classList.remove("none");
     document.querySelector("input").disabled = true;
-    document.querySelector("button.play").classList.add("none");
-    document.getElementById("winningsDiv").classList.add("none");
+    betButton.classList.add("none");
+    winningsDiv.classList.add("none");
 
     for (let i = 0; i < 5; i++) {
         let randomCard = deck[Math.floor(Math.random() * deck.length)];
@@ -511,25 +485,30 @@ function play() {
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
 
-        const resetGameBtn = document.querySelector(".resetGame");
-        resetGameBtn.classList.remove("none");
+        const resetGameBtn = document.querySelector(".continue");
+        
 
         if (document.querySelector("#autoResetGame").checked) {
+
+            document.querySelector(".play").classList.remove("none");
             resetGameBtn.addEventListener("click", function() {
-                resetGame()
+                play()
             });
         } else {
+            resetGameBtn.classList.remove("none");
             resetGameBtn.addEventListener("click", function() {
                 resetGame()
             });
         }
 
         function resetGame() {
-            resetGameBtn.classList.add("none");
             images.forEach((image) => {
                 image.src = "../resources/cards_png/blue_back.png"
             })
-            document.querySelector("button.play").classList.remove("none")
+            
+            confirmButton.classList.add("none")
+            continueButton.classList.add("none")
+            betButton.classList.remove("none")
             document.querySelector("input").disabled = false
         }
         }
