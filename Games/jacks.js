@@ -515,11 +515,9 @@ function play() {
         resetGameBtn.classList.remove("none");
 
         if (document.querySelector("#autoResetGame").checked) {
-            document.querySelector(".play").classList.remove("none");
-            document.querySelector(".round2").classList.add("none");
-            document.querySelector(".resetGame").classList.add("none");
-            document.querySelectorAll(".image").forEach(image => image.classList.remove("secondRound"));
-            checkForm();
+            resetGameBtn.addEventListener("click", function() {
+                resetGame()
+            });
         } else {
             resetGameBtn.addEventListener("click", function() {
                 resetGame()

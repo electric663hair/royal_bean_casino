@@ -175,4 +175,4 @@ input[type="number"] {
 }
 
 .scaleOnTouch {transition: all .15s;}
-.scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.2;}
+.scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.1;}
