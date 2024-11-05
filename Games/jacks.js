@@ -1,7 +1,6 @@
 var game = {
     "balance": 10000
 }
-
 var deck = [];
 var Hand1 = [];
 
@@ -13,12 +12,6 @@ var maxBet = 1000;
 const minBet = 0;
 const ascendBetValue = 100;
 const descendBetValue = 100;
-
-let select;
-
-let beforeGameStart = true;
-let gameStarted;
-let gameRound2;
 
 const cardClick = new Audio("../resources/sounds/bubbleSound.mp3");
 const soundToggleSound = new Audio("../resources/sounds/soundSwitch.mp3");
@@ -36,68 +29,13 @@ const manPairUnderJacks = new Audio("../resources/sounds/pair-under-jacks.mp3");
 const manHighCard = new Audio("../resources/sounds/high-card.mp3");
 
 var betamount = document.querySelector("#betSum").value;
-const form = document.querySelector("form");
-
-
-const autoResetGameCheckbox = document.querySelector("#autoResetGame");
-autoResetGameCheckbox.checked = (localStorage.getItem("autoReset") === "true");
-autoResetGameCheckbox.addEventListener("change", function() {
-    localStorage.setItem("autoReset", this.checked);
-});
 
 document.querySelectorAll("img").forEach(image => {image.draggable = false;});
-
-function gameRoundStage(stageSwitchTo) {
-    if (stageSwitchTo === "beforeGameStart") {
-        beforeGameStart = true;
-        gameStarted = false;
-        gameRound2 = false;
-    } else if (stageSwitchTo === "gameStarted") {
-        beforeGameStart = false;
-        gameStarted = true;
-        gameRound2 = false;
-    } else if (stageSwitchTo === "gameRound2") {
-        beforeGameStart = false;
-        gameStarted = false;
-        gameRound2 = true;
-    } else console.debug(`Can not find any parameter with this stageSwitch\nstageSwitchTo: ${stageSwitchTo}`)
-}
-
-document.querySelector("body").addEventListener("keydown", function(event) {
-    // Makes the enter key not work as normal :)
-    if (event.key === "Enter") {
-        event.preventDefault();
-        if (beforeGameStart && !gameStarted && !gameRound2) {
-            // Simulate bet btn click
-            gameRoundStage("gameStarted");
-        } else if (!beforeGameStart && gameStarted && !gameRound2) {
-            // Simulate confirm btn click
-            gameRoundStage("gameRound2");
-        } else if (!beforeGameStart && !gameStarted && gameRound2) {
-            // Simulate continue btn click
-            gameRoundStage("beforeGameStart");
-        }
-    }
-
-    // Checks for keypresses 1 through 5 and toggles the selected class for the desired image
-    for (let i = 0; i < images.length; i++) {
-        if (event.key == i+1) {
-            if (select) {
-                images[i].classList.toggle("selected");
-                if (soundToggleVar) {
-                    cardClick.play();
-                }
-            }
-        }
-    }
-});
 
 if (localStorage.getItem("128") && localStorage.getItem("127")) {
     const savedSeed = localStorage.getItem("128");
     const savedBalance = localStorage.getItem("127");
     game.balance = savedBalance / random(savedSeed);
-
-    game.balance = Math.round(game.balance);
 
     // Update balance text
     document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
@@ -125,6 +63,7 @@ function saveBalance() {
 
 function checkForm(){
     betamount = document.querySelector("#betSum").value;
+    const form =  document.querySelector("form");
     if (form.checkValidity() && betamount <= game.balance && betamount > 0 && betamount <= maxBet) {
         game.balance -= betamount
         document.querySelector("h3").innerText = "Balance: $" + game.balance
@@ -134,7 +73,7 @@ function checkForm(){
 
     } else {
         form.reportValidity();
-        console.debug("The desired value is not allowed");
+        console.error("The desired value is not allowed")
     }
 }
 
@@ -156,7 +95,6 @@ ruleButton.addEventListener("click", function() {
 
 const betButton = document.querySelector(".play")
 betButton.addEventListener("click", function() {
-    document.querySelectorAll(".image").forEach(image => image.classList.remove("secondRound"));
     checkForm();
 });
 
@@ -164,7 +102,7 @@ const soundIcon = document.querySelector(".soundIcon");
 if (localStorage.getItem("126") === null) {
     var soundToggleVar = true;
 } else {
-    var soundToggleVar = (localStorage.getItem("126") === "true");
+    var soundToggleVar = (localStorage.getItem("126") === 'true');
     soundToggle();
 }
 soundIcon.addEventListener("click", function() {
@@ -418,31 +356,26 @@ function refreshDeck() {
     return deck;
 }
 
-let images = document.querySelectorAll(".image");
-images.forEach((image) => {
+document.querySelectorAll(".image").forEach((image) => {
     image.addEventListener("click", function() {
-        if (select) {
-            image.classList.toggle("selected");
-            if (soundToggleVar) {
-                cardClick.play();
-            }
+        image.classList.toggle("selected");
+        if (soundToggleVar) {
+        cardClick.play();
         }
     });
 });
 
 function play() {
-    select = true;
-
     deck = refreshDeck();
     Hand1 = [];
     let images = document.querySelectorAll(".image");
 
     images.forEach(image => {image.classList.remove("selected")});
 
-    document.querySelector("button.round2").classList.remove("none");
-    document.querySelector("input").disabled = true;
-    document.querySelector("button.play").classList.add("none");
-    document.getElementById("winningsDiv").classList.add("none");
+    document.querySelector("button.round2").classList.remove("none")
+    document.querySelector("input").disabled = true
+    document.querySelector("button.play").classList.add("none")
+    document.getElementById("winningsDiv").classList.add("none")
 
     for (let i = 0; i < 5; i++) {
         let randomCard = deck[Math.floor(Math.random() * deck.length)];
@@ -457,8 +390,8 @@ function play() {
     function displayCards(Handddd) {
         for (let i = 0; i < 5; i++)  {
             let cardElement = document.getElementById(`card${i+1}`)
+            cardElement.src = "";
             cardElement.src = `../resources/cards_png/${Handddd[i][0]}.png`;
-            cardElement.alt = `The card is ${Handddd[i][1]} ${Handddd[i][2]}`;
         }
     }
 
@@ -471,9 +404,8 @@ function play() {
         document.querySelector("button.round2").classList.add("listener-added");
     }
 
+
     function round2() {
-        select = false;
-        document.querySelectorAll(".image").forEach(image => image.classList.add("secondRound"));
 
         game.balance = Math.floor(game.balance);
 
@@ -510,6 +442,9 @@ function play() {
         document.getElementById("winningsDiv").classList.remove("none")
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
         profitText.innerText = `You won ${betamount*multiplier}$`
+    
+        document.querySelector("button.play").classList.remove("none")
+        document.querySelector("input").disabled = false
 
         const resetGameBtn = document.querySelector(".resetGame");
         resetGameBtn.classList.remove("none");
