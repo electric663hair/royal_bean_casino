@@ -1,7 +1,11 @@
 * {
     margin: 0;
     transition: all .2s;
-}body {position: fixed;width: 100%;}
+}
+body {
+    position: fixed;
+    width: 100%;
+}
 
 .handContainer {
     display: flex;
@@ -10,12 +14,12 @@
     gap: 10px;
     height: calc(100vh - 120px);
     width: 100%;
-    background-color: #0e2f20;
+    background-color: #00422a;
     
 }
 
 .selected {
-    background-color: blue !important;
+    background-color: #FFB000 !important;
 }
 
 .none {
@@ -58,41 +62,59 @@
 }
 
 .control {
+    display: grid;
+    grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 1fr 1fr;
     height: 120px;
     width: 100%;
-    display: flex;
-    justify-content: space-around;
+    background-color: #B22222;
     align-items: center;
-    flex-direction: row;
-    background-color: #FFB000;
+    justify-content: center;
+    padding-left: 2%;
+    padding-right: 4%;
+    gap: 20px;
 }
 
-.betButtons {
+.rules-container{
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    width: 35%;
+    justify-content: center;
+}
+
+.sound{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.balance{
+    background-color: #FFB000;
+    padding: 10px;
+    border: solid black 3px;
+    border-radius: 10px;
 }
 
 #betDown > img, #betUp > img {
     width: 50px;
     height: 50px;
     background-color: rgb(226, 215, 207);
-    padding: 10%;
     border-radius: 10%;
-    margin: 2%;
+    padding: 10px;
     transition: all .3s;
+    margin: 0%;
 }
+
 #betDown > img:hover, #betUp > img:hover {
     background-color: #c9bdb5;
 }
 
+#betUp, #betDown{
+    width: 70px;
+    height: 70px;
+}
+
 #betMax {
-    width: 25%;
-    height: 50px;
-    margin-left: 2%;
-    margin-right: 10%;
+    height: 70px;
+    width: 100px;
+    font-size: 20px;
 }
 
 .sound > img {
@@ -101,7 +123,7 @@
 }
 
 .play, .round2, .continue {
-    height: 60px;
+    height: 70px;
     width: 100px;
     font-size: 20px;
 }
@@ -129,7 +151,8 @@ input::-webkit-inner-spin-button {
 }
 
 input[type="number"] {
-    height: 50px;
+    height: 66px;
+    padding: 0;
 }
 
 .soundIcon {
@@ -157,8 +180,10 @@ input[type="number"] {
 
 .ruleButton {
     width: 100px;
-    height: 50px;
+    height: 70px;
+    font-size: 20px;
 }
+
 #autoResetGame {
     accent-color: #000000 !important;
     height: 25px;
@@ -175,4 +200,4 @@ input[type="number"] {
 }
 
 .scaleOnTouch {transition: all .15s;}
-.scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.1;}
+.scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
