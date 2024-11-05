@@ -13,11 +13,11 @@
             <h2 id="winningsText"></h2>
             <h1 id="profitsText"></h1>
         </div>
-        <img id="card1" class="image" src="../resources/cards_png/blue_back.png" alt="">
-        <img id="card2" class="image" src="../resources/cards_png/blue_back.png" alt="">
-        <img id="card3" class="image" src="../resources/cards_png/blue_back.png" alt="">
-        <img id="card4" class="image" src="../resources/cards_png/blue_back.png" alt="">
-        <img id="card5" class="image" src="../resources/cards_png/blue_back.png" alt="">
+        <img id="card1" class="image scaleOnTouch" src="../resources/cards_png/blue_back.png" alt="The back of a playing card">
+        <img id="card2" class="image scaleOnTouch" src="../resources/cards_png/blue_back.png" alt="The back of a playing card">
+        <img id="card3" class="image scaleOnTouch" src="../resources/cards_png/blue_back.png" alt="The back of a playing card">
+        <img id="card4" class="image scaleOnTouch" src="../resources/cards_png/blue_back.png" alt="The back of a playing card">
+        <img id="card5" class="image scaleOnTouch" src="../resources/cards_png/blue_back.png" alt="The back of a playing card">
     </div>
 
 
@@ -46,6 +46,12 @@
 
         <button class="play" title="Press this button when you want to begin a new round">Bet</button>
         <button class="round2 none">Confirm</button>
+        <button class="resetGame none">Continue</button>
+
+        <div class="autoResetGameDiv">
+            <input type="checkbox" id="autoResetGame">
+            <label for="autoResetGame">Autostart Game</label>
+        </div>
 
         <div class="sound">
             <img src="../resources/soundon.svg" class="soundIcon" alt="Sound icon" title="Press to toggle the sounds in the game">
