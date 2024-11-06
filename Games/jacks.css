@@ -153,8 +153,18 @@ input::-webkit-inner-spin-button {
 input[type="number"] {
     height: 66px;
     padding: 0;
+    font-size: 16px;
+    text-align: center;
 }
 
+input[type="number"]:focus{
+    outline: none;
+}
+
+input:focus::placeholder {
+    color: transparent;
+  }
+  
 .soundIcon {
     padding: 7px;
     border-radius: 20px;
@@ -185,15 +195,29 @@ input[type="number"] {
 }
 
 #autoResetGame {
-    accent-color: #000000 !important;
+    accent-color: #FFB000 !important;
     height: 25px;
     width: 25px;
     transition: all .5s;
 }
 
+#winningsDiv {
+    text-align: center;
+    font-size: 40px;
+    font-family: "Bungee Shade", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .opacity{
+    opacity: 0.5;
+  }
+
 .autoResetGameDiv {
+    height: 70px;
     display: flex;
     align-items: center;
+    justify-content: space-around;
     text-align: center;
     flex-direction: column;
     font-size: x-large;

@@ -412,6 +412,8 @@ function play() {
     let images = document.querySelectorAll(".image");
 
     images.forEach(image => {image.classList.remove("selected")});
+    images.forEach(image => {image.classList.remove("opacity")});
+    images.forEach(image => {image.classList.add("scaleOnTouch")});
 
     confirmButton.classList.remove("none");
     document.querySelector("input").disabled = true;
@@ -469,7 +471,9 @@ function play() {
         finish();
 
         function finish(){
+        images.forEach(image => {image.classList.add("opacity")});
         document.querySelector("button.round2").classList.add("none")
+        images.forEach(image => {image.classList.remove("scaleOnTouch")});
         
         let { winningHand, multiplier  } = detectHand(Hand2)
         const betamount = document.querySelector("#betSum").value
@@ -505,6 +509,8 @@ function play() {
             images.forEach((image) => {
                 image.src = "../resources/cards_png/blue_back.png"
             })
+            images.forEach(image => {image.classList.remove("opacity")});
+            document.getElementById("winningsDiv").classList.add("none")
             
             confirmButton.classList.add("none")
             continueButton.classList.add("none")
