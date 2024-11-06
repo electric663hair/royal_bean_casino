@@ -63,7 +63,7 @@ body {
 
 .control {
     display: grid;
-    grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 1fr 1fr;
+    grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 0.8fr 1fr;
     height: 120px;
     width: 100%;
     background-color: #B22222;
@@ -195,10 +195,14 @@ input:focus::placeholder {
 }
 
 #autoResetGame {
-    accent-color: #FFB000 !important;
-    height: 25px;
+    accent-color: #000000 !important;
     width: 25px;
+    height: 25px;
     transition: all .5s;
+}
+
+label{
+    font-weight: 200;
 }
 
 #winningsDiv {
@@ -214,13 +218,18 @@ input:focus::placeholder {
   }
 
 .autoResetGameDiv {
-    height: 70px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     text-align: center;
     flex-direction: column;
     font-size: x-large;
+    background-color:#FFB000;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    border: solid black 3px;
+    border-radius: 15px;
 }
 
 .scaleOnTouch {transition: all .15s;}
