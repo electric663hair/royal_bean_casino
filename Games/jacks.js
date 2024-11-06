@@ -100,10 +100,13 @@ function saveBalance() {
 function checkForm(){
     betamount = document.querySelector("#betSum").value;
     if (form.checkValidity() && betamount <= game.balance && betamount > 0 && betamount <= maxBet) {
-        game.balance -= betamount
-        document.querySelector("h3").innerText = "Balance: $" + game.balance
-        document.querySelector("button.play").classList.add("none")
-        document.querySelector("input").disabled = true
+        
+        game.balance -= betamount;
+        saveBalance();
+
+        document.querySelector("h3").innerText = "Balance: $" + game.balance;
+        document.querySelector("button.play").classList.add("none");
+        document.querySelector("input").disabled = true;
         play(); 
 
     } else {

@@ -163,15 +163,16 @@ input[type="number"]:focus{
 
 input:focus::placeholder {
     color: transparent;
-  }
-  
+}
+
 .soundIcon {
     padding: 7px;
     border-radius: 20px;
+    background-color: #FFB000;
 }
 
 .soundIcon:hover {
-    background-color: #990707;
+    background-color: #FFB0009f;
 }
 
 .rules {
