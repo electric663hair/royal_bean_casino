@@ -205,6 +205,14 @@ body::-webkit-scrollbar {
 
 @media (max-width:991px){
 
+    .hamburger, .hamburger > img {
+        position: fixed;
+        top: 5px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+    
     .nav-link{
         font-size: 20px;
     }
@@ -293,6 +301,10 @@ body::-webkit-scrollbar {
         font-family: Crimson Pro;
         margin-top: 50px;
         font-size:300%;
+    }
+    
+    .hamburger {
+        display: none;
     }
 
 }
