@@ -235,3 +235,31 @@ label{
 
 .scaleOnTouch {transition: all .15s;}
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
+
+@media (max-width:449) {
+    
+}
+
+@media (min-width:450px) {
+    
+}
+
+@media (min-width:576px) {
+    
+}
+
+@media (min-width:768px) {
+    
+}
+
+@media (min-width:992px) {
+    
+}
+
+@media (min-width:1200px) {
+    
+}
+
+@media (min-width:1400px) {
+    
+}
