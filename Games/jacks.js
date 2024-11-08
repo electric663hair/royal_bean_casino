@@ -292,6 +292,20 @@ function detectHand(hand) {
     const intArr = [];
     const suitArr = [];
 
+    payoutTable = {
+        "Royal flush": 400,
+        "Straight flush": 50,
+        "Four of a kind": 25,
+        "Full house": 9,
+        "Flush": 6,
+        "Straight": 4,
+        "Three of a kind": 3,
+        "Two pair": 2,
+        "Pair": 1,
+        "Pair under jacks": 0,
+        "High card": 0
+    }
+
     for (let i = 0; i < 5; i++) {
         intArr.push(hand[i][2]);
         suitArr.push(hand[i][1]);
@@ -303,75 +317,86 @@ function detectHand(hand) {
             caChing.play();
             setTimeout(manRoyalFlush.play(), 1000);
         }
-        return { winningHand: "Royal flush", multiplier: 400 };
+        finalHand = "Royal flush"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (flush(suitArr) && straight(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manStraightFlush.play(), 1000);
         }
-        return { winningHand: "Straight flush", multiplier: 50 };
+        finalHand = "Straight flush"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (fourOfKind(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manFourOfAKind.play(), 1000);
         }
-        return { winningHand: "Four of a kind", multiplier: 25 };
+        finalHand = "Four of a kind"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (fullHouse(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manFullHouse.play(), 1000);
         }
-        return { winningHand: "Full house", multiplier: 9 };
+        finalHand = "Full house"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (flush(suitArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manFlush.play(), 1000);
         }
-        return { winningHand: "Flush", multiplier: 6 };
+        finalHand = "Flush"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (straight(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manStraight.play(), 1000);
         }
-        return { winningHand: "Straight", multiplier: 4 };
+        finalHand = "Straight"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (threeOfKind(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manThreeOfAKind.play(), 1000);
         }
-        return { winningHand: "Three of a kind", multiplier: 3 };
+        finalHand = "Three of a kind"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (twoPair(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manTwoPair.play(), 1000);
         }
-        return { winningHand: "Two pair", multiplier: 2 };
+        finalHand = "Two pair"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (pair(intArr)) {
         if (soundToggleVar) {
             caChing.play();
             setTimeout(manPair.play(), 1000);
         }
-        return { winningHand: "Pair", multiplier: 1 };
+        finalHand = "Pair"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     if (pair(intArr) === false) {
         if (soundToggleVar) {
             manPairUnderJacks.play();
         }
-        return { winningHand: "Pair under jacks", multiplier: 0 };
+        finalHand = "Pair under jacks"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
     }
     
     if (soundToggleVar) {
         manHighCard.play();
     }
-    return { winningHand: "High card", multiplier: 0 };
+    finalHand = "High card"
+        return { winningHand: finalHand, multiplier: payoutTable[finalHand] };
 }
 
 function identify(IdentifyCard) {
