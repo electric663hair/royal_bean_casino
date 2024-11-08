@@ -1,4 +1,4 @@
-const sizeOfGrid = 9 * 3; // Define the size of the grid (3 rows of 9 cells each)
+const sizeOfGrid = 9 * 3
 const grid = document.querySelector(".grid"); // Get the reference to the parent grid element in the DOM
 let stackCount = 0;
 
@@ -79,37 +79,8 @@ function dragElement(elmnt) { // Function to enable dragging behavior for an ele
 
         if (closestStack && closestDistance < Infinity) { // If a closest stack element is found within a reasonable distance, snap to its position
             const closestRect = closestStack.getBoundingClientRect(); // Get the closest stack's position
-            elmnt.style.top = (closestRect.top + window.scrollY) + "px"; // Align vertically with the stack
-            elmnt.style.left = (closestRect.left + window.scrollX) + "px"; // Align horizontally with the stack
+            // elmnt.style.top = (closestRect.top + window.scrollY) + "px"; // Align vertically with the stack
+            // elmnt.style.left = (closestRect.left + window.scrollX) + "px"; // Align horizontally with the stack
         }
     }
 }
-
-let mouseEnterList = [];
-let mouseLeaveList = [];
-
-document.querySelectorAll("span").forEach((stack) => {
-    stack.addEventListener("mouseenter", function() {
-        mouseEnterList.push(this)
-        if (mouseEnterList.length > 7) {
-            mouseEnterList.splice(0, 1)
-            console.log("splice!")
-        }
-        document.querySelectorAll("span").forEach((element) => {
-            element.style.backgroundColor = "white";
-        })
-        document.querySelectorAll("span.stack").forEach((element) => {
-            element.style.backgroundColor = "gray";
-        })
-        let colorList = ["pink", "purple", "blue", "green", "yellow", "orange", "red"];
-        let count = 0;
-        mouseEnterList.forEach((element) => {
-            element.style.backgroundColor = colorList[count];
-            count++;
-        })
-        console.log(mouseEnterList)
-    })
-    stack.addEventListener("mouseleave", function() {
-        mouseLeaveList.push(this)
-    })
-});
