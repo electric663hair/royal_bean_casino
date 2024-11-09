@@ -7,29 +7,12 @@ body {
     width: 100%;
 }
 
-.handContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    height: calc(100vh - 120px);
-    width: 100%;
-    background-color: #00422a;
-    
-}
-
 .selected {
     background-color: #FFB000 !important;
 }
 
 .none {
     display: none;
-}
-
-.image {
-    height: 250px;
-    background-color: transparent;
-    transition: none;
 }
 
 #card1 {
@@ -241,6 +224,9 @@ label{
         align-items: start;
         margin: 400px;
     }
+    .image {
+        height: 75px;
+    }
 }
 
 @media (min-width:450px) {
@@ -248,24 +234,34 @@ label{
         align-items: start;
         margin: 400px;
     }
+    .image {
+        height: 75px;
+    }
 }
 
 @media (min-width:576px) {
-    .handContainer {
-        align-items: start;
-        margin: 400px;
-    }
+    
 }
 
 @media (min-width:768px) {
-    .handContainer {
-        align-items: start;
-        margin: 400px;
-    }
+    
 }
 
 @media (min-width:992px) {
-    
+    .image {
+        height: 250px;
+        background-color: transparent;
+        transition: none;
+    }
+    .handContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        height: calc(100vh - 120px);
+        width: 100%;
+        background-color: #00422a;  
+    }
 }
 
 @media (min-width:1200px) {
