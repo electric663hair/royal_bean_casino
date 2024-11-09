@@ -19,12 +19,10 @@ body {
     padding: 5px;
     border-radius: 12px;
 }
-
 #card2 {
     padding: 5px;
     border-radius: 12px;
 }
-
 #card3 {
     padding: 5px;
     border-radius: 12px;   
@@ -33,7 +31,6 @@ body {
     padding: 5px;
     border-radius: 12px;
 }
-
 #card5 {
     padding: 5px;
     border-radius: 12px;  
@@ -52,8 +49,7 @@ body {
     background-color: #B22222;
     align-items: center;
     justify-content: center;
-    padding-left: 2%;
-    padding-right: 4%;
+    padding : 0 4% 0 2%;
     gap: 20px;
 }
 
