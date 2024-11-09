@@ -237,19 +237,31 @@ label{
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
 @media (max-width:449) {
-    
+    .handContainer {
+        align-items: start;
+        margin: 400px;
+    }
 }
 
 @media (min-width:450px) {
-    
+    .handContainer {
+        align-items: start;
+        margin: 400px;
+    }
 }
 
 @media (min-width:576px) {
-    
+    .handContainer {
+        align-items: start;
+        margin: 400px;
+    }
 }
 
 @media (min-width:768px) {
-    
+    .handContainer {
+        align-items: start;
+        margin: 400px;
+    }
 }
 
 @media (min-width:992px) {
