@@ -1,4 +1,5 @@
 var deck = [], playerHand = [], dealerHand = []
+const text = document.getElementById("text")
 
 function checkForm(){
     betamount = document.querySelector("#betSum").value;
@@ -48,11 +49,25 @@ function drawCard(hand, containerId) {
 }
 
 function sum(hand, textId) {
-    let sum = 0
+    let sum = 0, ace = false, amount = 0
+
     for (let i = 0; i < hand.length; i++) {
-        sum += hand[i].integer
+        let aa = hand[i].integer
+
+        if (aa == 1) {ace = true}
+
+        if (aa > 10) {
+            amount = 10
+        } else {
+            amount = aa
+        }
+        sum += amount
+
+        if (sum <= 11 && ace) {
+            sum += 10
+        }
     }
-    document.getElementById(textId).innerHTML = sum
+    document.getElementById(textId).innerHTML = `${textId}: ${sum}`
     return sum
 
 }
@@ -72,15 +87,32 @@ function play() {
         if (playerHandSum < 21) {
 
             drawCard(playerHand, "playerCards");
-            sum(playerHand, "playerSum")
-        }
-        else {
-            
+            playerHandSum = sum(playerHand, "playerSum")
+
+            if (playerHandSum == 21) {
+                text.innerHTML = "You won"
+            } else if (playerHandSum > 21) {
+                text.innerHTML = "You lost"
+            }
         }
     })
 
     document.getElementById("stand").addEventListener("click", function() {
         document.getElementById("hit").classList.add("none")
+
+        while (dealerHandSum <= 17) {
+            drawCard(dealerHand, "dealerCards")
+            dealerHandSum = sum(dealerHand, "dealerSum")
+        }
+        if (dealerHandSum > 21 || playerHandSum > dealerHandSum) {
+            text.innerHTML = "You won"
+        } else if (dealerHandSum > playerHandSum) {
+            text.innerHTML = "You lost"
+        } else if (dealerHandSum == playerHandSum) {
+            text.innerHTML = "Push"
+        }
+
     })
 
 }
+c
