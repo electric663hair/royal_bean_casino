@@ -516,3 +516,9 @@ label{
         height: calc(100vh - 80px - 10px);
     }
 }
+
+@media (max-height: 250px) {
+    .image {
+        height: 100px !important;
+    }
+}
