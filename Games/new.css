@@ -1,0 +1,131 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.control {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    background-color: #B22222;
+    height: 100px;
+    padding: 10px 0 10px 0;
+    width: 100vw;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+#betSum {
+    width: 200px;
+    font-size: 12px;
+    height: 64px;
+}
+
+#betDown > img, #betUp > img {
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    background-color: rgb(226, 215, 207);
+    border-radius: 10%;
+    transition: all .3s;
+    margin: 0;
+}
+
+#betDown > img:hover, #betUp > img:hover {
+    background-color: #c9bdb5;
+}
+
+#betUp, #betDown{
+    width: 70px;
+    height: 70px;
+}
+
+#betMax {
+    height: 70px;
+    width: 100px;
+    font-size: 20px;
+}
+
+.sound > img {
+    width: 50px;
+    height: 50px;
+}
+
+.play, .round2, .continue {
+    height: 70px;
+    width: 100px;
+    font-size: 20px;
+}
+
+.soundIcon {
+    padding: 7px;
+    border-radius: 20px;
+    background-color: #FFB000;
+}
+
+.soundIcon:hover {
+    background-color: #FFB0009f;
+}
+
+.rules {
+    position: fixed;
+    top: 5%;
+    left: calc((100% - 100px - 60%)/2);
+    width: 60%;
+    height: 70vh;
+    padding: 30px 50px 0 50px;
+    z-index: 2;
+    background-color: rgb(240, 240, 240);
+    border: black solid;
+    border-width: 5px 5px 5px 5px;
+    overflow-y: auto;
+}
+
+.ruleButton {
+    width: 70px;
+    height: 70px;
+    font-size: 20px;
+}
+
+#autoResetGame {
+    accent-color: #000000 !important;
+    transition: all .5s;
+}
+
+label{
+    font-weight: 200;
+}
+
+#winningsDiv {
+    text-align: center;
+    font-family: "Bungee Shade", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.autoResetGameDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+    flex-direction: column;
+    background-color:#FFB000;
+    border: solid black 3px;
+    border-radius: 15px;
+    width: 100px;
+    height: 64px;
+}
+
+.balanceDiv {
+    color: black;
+    font-size: 40px;
+    background-color: #FFB000;
+    border: solid black 3px;
+    border-radius: 10px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    margin: 0;
+}

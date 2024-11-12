@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="new.css">
+</head>
+<body>
+    <div class="control">
+        <div class="balanceDiv">
+            <h3 id="balance">Balance: $10000</h3>
+        </div>
+            <button class="ruleButton">
+                Rules
+            </button>
+
+            <div id="betDown"> 
+                <img src="../resources/down-arrow-svgrepo-com.svg" class="betDown" alt="">
+            </div>
+
+            <div id="betUp">
+                <img src="../resources/up-arrow-hand-drawn-outline-svgrepo-com.svg" class="betUp" alt="">
+            </div>
+
+            <button id="betMax">Max</button>
+
+            <form>
+                <input placeholder="Max bet: $1000..." id="betSum" type="number" min="0" step="1" title="The amount you are going to bet this round" required>
+            </form>
+            <button class="play" title="Press this button when you want to begin a new round">Bet</button>
+            <button class="round2 none">Confirm</button>
+            <button class="continue none">Continue</button>
+
+        <div class="autoResetGameDiv">
+            <input type="checkbox" id="autoResetGame">
+            <label for="autoResetGame">Autostart</label>
+        </div>
+
+        <div class="sound">
+            <img src="../resources/soundon.svg" class="soundIcon" alt="Sound icon" title="Press to toggle the sounds in the game">
+        </div>
+    </div>
+</body>
+</html>
