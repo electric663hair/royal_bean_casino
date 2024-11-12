@@ -6,6 +6,7 @@
     margin: 0;
     transition: all 0.2s;
 }
+
 body {
     position: fixed;
     width: 100%;
@@ -512,8 +513,6 @@ label{
     }
 
     .handContainer {
-        height: calc(100vh - 80px);
+        height: calc(100vh - 80px - 10px);
     }
-
-
 }
