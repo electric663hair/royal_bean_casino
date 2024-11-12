@@ -11,6 +11,14 @@ body {
     width: 100%;
 }
 
+.back{
+    position: fixed;
+    left: 1%;
+    top: 1%;
+    background-color: #FFB000;
+    border-radius: 50%;
+}
+
 .handContainer {
     display: flex;
     justify-content: center;
@@ -60,18 +68,12 @@ body {
     border-radius: 12px;  
 }
 
-.control {
-    display: grid;
-    grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 0.8fr 1fr;
-    height: 120px;
+.control{
     width: 100%;
     background-color: #B22222;
     align-items: center;
-    justify-content: center;
-    padding-left: 2%;
-    padding-right: 4%;
-    gap: 20px;
 }
+
 
 .rules-container{
     display: flex;
@@ -226,26 +228,6 @@ label{
 
 .smallScreenDisclaimer {display: none;}
 
-@media (max-width:449px) {
-    .ssNone {
-        display: none;
-    }
-    .smallScreenDisclaimer {
-        display: block;
-        position: absolute;
-        top: calc(50vh - calc(var(--height)/2));
-        width: 100vw;
-        text-align: center;
-    }
-    .smallScreenDisclaimer > img {
-        height: var(--height);
-    }
-    a.ssNone {
-        color: black;
-        border-color: black;
-        left: 10%;
-    }
-}
 
 @media (min-width:450px) {
     #betSum {
@@ -389,4 +371,133 @@ label{
         padding-right: 4%;
         gap: 20px;
     }
+}
+
+@media (min-width:400px) and (min-height: 700px) {
+    .control {
+        display: grid;
+        grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 0.8fr 1fr;
+        height: 120px;
+        justify-content: center;
+        padding-left: 2%;
+        padding-right: 4%;
+        gap: 20px;
+    }
+
+    .back{
+        height: 55px;
+        width: 55px;
+    }
+}
+
+@media (max-width:400px) and (max-height: 700px) {
+
+    .ssNone {
+        display: none;
+    }
+
+    .smallScreenDisclaimer {
+        display: block;
+        position: absolute;
+        top: calc(50vh - calc(var(--height)/2));
+        width: 100vw;
+        text-align: center;
+    }
+
+    .smallScreenDisclaimer > img {
+        height: var(--height);
+    }
+
+    a.ssNone {
+        color: black;
+        border-color: black;
+        left: 10%;
+    }
+}
+
+@media (max-width:700px) and (max-height: 400px) {
+
+    .image {
+        height: 150px;
+    }
+
+    #betDown, #betUp {
+        display: none;
+    }
+
+    .balance{
+        font-size: calc(5px + 2vw) !important;
+        height: 50%;
+        width: 27%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0 !important;
+    }
+
+    #betSum{
+        height: 100%;
+        border: none;
+    }
+
+
+    form{
+        height: 50%;
+    }
+
+    #betMax{
+        height: 50%;
+        font-size: 15px;
+    }
+    
+    .ruleButton{
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .play, .round2, .continue{
+        height: 50%;
+        font-size: 15px;
+    }
+
+    .autoResetGameDiv {
+        flex-direction: row;
+        padding: 0 5px 0 5px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    input#autoResetGame {
+        height: 20px;
+    }
+
+    .sound{
+        position: fixed;
+        top: 1%;
+        right: -46%;
+    }
+
+    .sound > img{
+        width: 35px !important;
+        height: 35px !important;
+        padding: 5px;
+    }
+
+    .control{
+        height: 80px;
+        width: 100%;
+        grid-template-columns: none;
+        gap: none;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0;
+    }
+
+    .back{
+        height: 45px;
+        width: 45px;
+    }
+
+
 }
