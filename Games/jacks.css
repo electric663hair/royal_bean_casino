@@ -510,5 +510,9 @@ label{
         width: 45px;
     }
 
+    .handContainer {
+        height: calc(100vh - 80px);
+    }
+
 
 }
