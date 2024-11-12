@@ -95,9 +95,9 @@ body {
 #betDown > img, #betUp > img {
     width: 50px;
     height: 50px;
+    padding: 10px;
     background-color: rgb(226, 215, 207);
     border-radius: 10%;
-    padding: 10px;
     transition: all .3s;
     margin: 0%;
 }
@@ -152,8 +152,8 @@ input::-webkit-inner-spin-button {
 
 input[type="number"] {
     height: 66px;
-    padding: 0;
     font-size: 16px;
+    padding: 0;
     text-align: center;
 }
 
@@ -181,24 +181,16 @@ input:focus::placeholder {
     left: calc((100% - 100px - 60%)/2);
     width: 60%;
     height: 70vh;
+    padding: 30px 50px 0 50px;
     z-index: 2;
     background-color: rgb(240, 240, 240);
-    padding: 30px 50px 0 50px;
     border: black solid;
     border-width: 5px 5px 5px 5px;
     overflow-y: auto;
 }
 
-.ruleButton {
-    width: 100px;
-    height: 70px;
-    font-size: 20px;
-}
-
 #autoResetGame {
     accent-color: #000000 !important;
-    width: 25px;
-    height: 25px;
     transition: all .5s;
 }
 
@@ -208,27 +200,22 @@ label{
 
 #winningsDiv {
     text-align: center;
-    font-size: 40px;
     font-family: "Bungee Shade", sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
+}
   
-  .opacity{
+.opacity{
     opacity: 0.5;
-  }
+}
 
 .autoResetGameDiv {
-    height: 50px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     text-align: center;
     flex-direction: column;
-    font-size: x-large;
     background-color:#FFB000;
-    padding-bottom: 10px;
-    padding-top: 10px;
     border: solid black 3px;
     border-radius: 15px;
 }
@@ -253,7 +240,115 @@ label{
 }
 
 @media (min-width:992px) {
+    .image {
+        height: 250px;
+    }
     
+    #card1 {
+        padding: 5px;
+        border-radius: 12px;
+    }
+    
+    #card2 {
+        padding: 5px;
+        border-radius: 12px;
+    }
+    
+    #card3 {
+        padding: 5px;
+        border-radius: 12px;   
+    }
+    #card4 {
+        padding: 5px;
+        border-radius: 12px;
+    }
+    
+    #card5 {
+        padding: 5px;
+        border-radius: 12px;  
+    }
+    
+    #showBalance {
+      font-size: 40px;
+    }
+    
+    .control {
+        height: 120px;
+        padding-left: 2%;
+        padding-right: 4%;
+        gap: 20px;
+    }
+
+    .balance {
+        padding: 10px;
+    }
+
+    #betDown > img, #betUp > img {
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+    }
+
+    #betUp, #betDown{
+        width: 70px;
+        height: 70px;
+    }
+    
+    #betMax {
+        height: 70px;
+        width: 100px;
+        font-size: 20px;
+    }
+
+    .sound > img {
+        width: 50px;
+        height: 50px;
+    }
+
+    .play, .round2, .continue {
+        height: 70px;
+        width: 100px;
+        font-size: 20px;
+    }
+
+    input[type="number"] {
+        height: 66px;
+        font-size: 16px;
+    }
+
+    .soundIcon {
+        padding: 7px;
+    }
+
+    .rules {
+        top: 5%;
+        left: calc((100% - 100px - 60%)/2);
+        width: 60%;
+        height: 70vh;
+        padding: 30px 50px 0 50px;
+    }
+
+    .ruleButton {
+        width: 100px;
+        height: 70px;
+        font-size: 20px;
+    }
+
+    #autoResetGame {
+        width: 25px;
+        height: 25px;
+    }
+    
+    .winningsDiv {
+        font-size: 40px;
+    }
+
+    .autoResetGameDiv {
+        height: 50px;
+        font-size: x-large;
+        padding-bottom: 10px;
+        padding-top: 10px;
+    }
 }
 
 @media (min-width:1200px) {
