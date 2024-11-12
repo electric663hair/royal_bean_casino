@@ -6,33 +6,36 @@
     <title>Blackjack</title>
     <link rel="stylesheet" href="../Blackjack/blackjack.css">
 </head>
-<body>
+<body onload="play()">
 
     <div class="cards">
-        <div class="dealerCards">
-            <img id="card1" class="image" src="../../resources/cards_png/blue_back.png">
+        <div id="dealerCards">
 
         </div>
         
-        <div class="playerCards">
+        <div id="playerCards">
 
         </div>
     </div>
 
+    
+
     <div class="control">
-        <form>
-            <input placeholder="Max bet: $1000..." id="betSum" type="number" min="0" step="1" title="The amount you are going to bet this round" required>
-        </form>
+        <div>
+            <button id="hit">
+                Hit
+            </button>
+            <button id="stand">
+                Stand
+            </button>
+        </div>
+        <div>
+            <h1 id="playerSum"></h1>
+            <h1 id="dealerSum"></h1>
+        </div>
     </div>
 
-
-
-
-
-
-
-
-
+    
 
 
     <script src="../Blackjack/blackjack.js"></script>

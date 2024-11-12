@@ -1,4 +1,4 @@
-var deck = []
+var deck = [], playerHand = [], dealerHand = []
 
 function checkForm(){
     betamount = document.querySelector("#betSum").value;
@@ -22,37 +22,7 @@ betButton.addEventListener("click", function() {
 });
 
 function identify(IdentifyCard) {
-    let integer = 0;
-
-    if (IdentifyCard.includes("13")) {
-        integer = 13
-    } else if (IdentifyCard.includes("12")) {
-        integer = 12
-    } else if (IdentifyCard.includes("11")) {
-        integer = 11
-    } else if (IdentifyCard.includes("10")) {
-        integer = 10
-    } else if (IdentifyCard.includes("9")) {
-        integer = 9
-    } else if (IdentifyCard.includes("8")) {
-        integer = 8
-    } else if (IdentifyCard.includes("7")) {
-        integer = 7
-    } else if (IdentifyCard.includes("6")) {
-        integer = 6
-    } else if (IdentifyCard.includes("5")) {
-        integer = 5
-    } else if (IdentifyCard.includes("4")) {
-        integer = 4
-    } else if (IdentifyCard.includes("3")) {
-        integer = 3
-    } else if (IdentifyCard.includes("2")) {
-        integer = 2
-    } else if (IdentifyCard.includes("1")) {
-        integer = 1
-    }
-
-    return { integer };
+    return parseInt(IdentifyCard.slice(0, -1));
 }
 
 function refreshDeck() {
@@ -63,14 +33,54 @@ function refreshDeck() {
     return deck;
 }
 
-function drawCard(card) {
-    
+function drawCard(hand, containerId) {
+    let index = Math.floor(Math.random() * deck.length)
+    let card = deck[index]
+    deck.splice(index, 1)
+    let integer = identify(card)
+    hand.push({ card, integer })
+
+    const img = document.createElement("img");
+    img.src = `../../resources/cards_png/${card}.png`;
+    img.classList.add("image");
+
+    document.getElementById(containerId).appendChild(img);
 }
 
+function sum(hand, textId) {
+    let sum = 0
+    for (let i = 0; i < hand.length; i++) {
+        sum += hand[i].integer
+    }
+    document.getElementById(textId).innerHTML = sum
+    return sum
+
+}
 
 function play() {
     deck = refreshDeck()
+    drawCard(dealerHand, "dealerCards");
+    drawCard(dealerHand, "dealerCards");
 
+    drawCard(playerHand, "playerCards");
+    drawCard(playerHand, "playerCards");
 
+    let playerHandSum = sum(playerHand, "playerSum")
+    let dealerHandSum = sum(dealerHand, "dealerSum")
+
+    document.getElementById("hit").addEventListener("click", function() {
+        if (playerHandSum < 21) {
+
+            drawCard(playerHand, "playerCards");
+            sum(playerHand, "playerSum")
+        }
+        else {
+            
+        }
+    })
+
+    document.getElementById("stand").addEventListener("click", function() {
+        document.getElementById("hit").classList.add("none")
+    })
 
 }
