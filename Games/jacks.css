@@ -7,6 +7,17 @@ body {
     width: 100%;
 }
 
+.handContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    height: calc(100vh - 120px);
+    width: 100%;
+    background-color: #00422a;
+    
+}
+
 .selected {
     background-color: #FFB000 !important;
 }
@@ -15,14 +26,22 @@ body {
     display: none;
 }
 
+.image {
+    height: 250px;
+    background-color: transparent;
+    transition: none;
+}
+
 #card1 {
     padding: 5px;
     border-radius: 12px;
 }
+
 #card2 {
     padding: 5px;
     border-radius: 12px;
 }
+
 #card3 {
     padding: 5px;
     border-radius: 12px;   
@@ -31,6 +50,7 @@ body {
     padding: 5px;
     border-radius: 12px;
 }
+
 #card5 {
     padding: 5px;
     border-radius: 12px;  
@@ -49,7 +69,8 @@ body {
     background-color: #B22222;
     align-items: center;
     justify-content: center;
-    padding : 0 4% 0 2%;
+    padding-left: 2%;
+    padding-right: 4%;
     gap: 20px;
 }
 
@@ -216,23 +237,11 @@ label{
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
 @media (max-width:449) {
-    .handContainer {
-        align-items: start;
-        margin: 400px;
-    }
-    .image {
-        height: 75px;
-    }
+    
 }
 
 @media (min-width:450px) {
-    .handContainer {
-        align-items: start;
-        margin: 400px;
-    }
-    .image {
-        height: 75px;
-    }
+    
 }
 
 @media (min-width:576px) {
@@ -244,20 +253,7 @@ label{
 }
 
 @media (min-width:992px) {
-    .image {
-        height: 250px;
-        background-color: transparent;
-        transition: none;
-    }
-    .handContainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 10px;
-        height: calc(100vh - 120px);
-        width: 100%;
-        background-color: #00422a;  
-    }
+    
 }
 
 @media (min-width:1200px) {
