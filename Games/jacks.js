@@ -1,3 +1,5 @@
+console.log(navigator.userAgent)
+
 var game = {
     "balance": 10000
 }

@@ -1,3 +1,7 @@
+:root {
+    --height: 150px;
+}
+
 * {
     margin: 0;
     transition: all 0.2s;
@@ -56,11 +60,6 @@ body {
     border-radius: 12px;  
 }
 
-#showBalance {
-  color: rgb(0, 0, 0);
-  font-size: 40px;
-}
-
 .control {
     display: grid;
     grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 0.8fr 1fr;
@@ -86,6 +85,8 @@ body {
 }
 
 .balance{
+    color: rgb(0, 0, 0);
+    font-size: 40px;
     background-color: #FFB000;
     padding: 10px;
     border: solid black 3px;
@@ -223,23 +224,35 @@ label{
 .scaleOnTouch {transition: all .15s;}
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
-@media (max-width:449) {
-    
+.smallScreenDisclaimer {display: none;}
+
+@media (max-width:449px) {
+    .ssNone {
+        display: none;
+    }
+    .smallScreenDisclaimer {
+        display: block;
+        position: absolute;
+        top: calc(50vh - calc(var(--height)/2));
+        width: 100vw;
+        text-align: center;
+    }
+    .smallScreenDisclaimer > img {
+        height: var(--height);
+    }
+    a.ssNone {
+        color: black;
+        border-color: black;
+        left: 10%;
+    }
 }
 
 @media (min-width:450px) {
-    
-}
+    #betSum {
+        width: 100px;
+        font-size: 12px;
+    }
 
-@media (min-width:576px) {
-    
-}
-
-@media (min-width:768px) {
-    
-}
-
-@media (min-width:992px) {
     .image {
         height: 250px;
     }
@@ -269,18 +282,15 @@ label{
     }
     
     #showBalance {
-      font-size: 40px;
+      font-size: 30px;
+      padding: 15px 0 15px 0;
     }
     
     .control {
         height: 120px;
         padding-left: 2%;
         padding-right: 4%;
-        gap: 20px;
-    }
-
-    .balance {
-        padding: 10px;
+        gap: 10px;
     }
 
     #betDown > img, #betUp > img {
@@ -296,7 +306,7 @@ label{
     
     #betMax {
         height: 70px;
-        width: 100px;
+        width: 70px;
         font-size: 20px;
     }
 
@@ -307,8 +317,8 @@ label{
 
     .play, .round2, .continue {
         height: 70px;
-        width: 100px;
-        font-size: 20px;
+        width: 70px;
+        font-size: 18px;
     }
 
     input[type="number"] {
@@ -329,7 +339,7 @@ label{
     }
 
     .ruleButton {
-        width: 100px;
+        width: 70px;
         height: 70px;
         font-size: 20px;
     }
@@ -345,16 +355,38 @@ label{
 
     .autoResetGameDiv {
         height: 50px;
-        font-size: x-large;
-        padding-bottom: 10px;
-        padding-top: 10px;
+        font-size: 20px;
+        padding: 10px 2px 10px 2px;
     }
 }
 
 @media (min-width:1200px) {
-    
-}
+    #betSum {
+        width: 200px;
+    }
 
-@media (min-width:1400px) {
-    
+    #showBalance {
+        font-size: 40px;
+        padding: 10px 0 10px 2px;
+    }
+    .ruleButton {
+        width: 100px;
+        font-size: 20px;
+    }
+    #betMax {
+        width: 100px;
+        font-size: 20px;
+    }
+    .play, .round2, .continue {
+        width: 100px;
+        font-size: 20px;
+    }
+    .autoResetGameDiv {
+        font-size: x-large;
+    }
+    .control {
+        padding-left: 2%;
+        padding-right: 4%;
+        gap: 20px;
+    }
 }
