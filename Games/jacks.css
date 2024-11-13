@@ -406,7 +406,7 @@ label{
     }
 }
 
-@media (max-width:768px) and (max-height: 1280px) {
+@media (max-width:668px) and (max-height: 1080px) {
 
     .ssNone {
         display: none;
@@ -437,7 +437,7 @@ label{
 
 }
 
-@media (max-width:1280px) and (max-height: 768px) {
+@media (max-width:1080px) and (max-height: 668px) {
 
     .image {
         height: 150px;
