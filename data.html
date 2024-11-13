@@ -7,8 +7,21 @@
 </head>
 <body>
     <h1></h1>
+    <h2></h2>
     <script>
-        document.querySelector("h1").textContent = screen.orientation + navigator.userAgent
+        document.querySelector("h1").textContent = screen.orientation.angle + " ... " + navigator.userAgent
+
+        screen.orientation.addEventListener("change", function() {
+            let screenOrientation = screen.orientation.angle;
+            const h2 = document.querySelector("h2");
+            h2.textContent = screenOrientation
+
+            if (screenOrientation == 90 || screenOrientation == 270) {
+                h2.style.color = "green";
+            } else {
+                h2.style.color = "red";
+            }
+        })
     </script>
 </body>
 </html>
