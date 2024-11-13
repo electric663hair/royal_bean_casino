@@ -23,6 +23,17 @@ html{
     height: 100vh;
 }
 
+html, body {
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+#mainContent {
+    height: 100vh;
+    width: 100vw;
+    overflow: auto;
+}
+
 .back{
     position: fixed;
     left: 1%;
