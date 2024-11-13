@@ -13,9 +13,11 @@
         let screenOrientation = screen.orientation.angle;
 
         document.querySelector("h1").textContent = navigator.userAgent + "\nScreen Width: " + screen.width + "px\nScreen Height: " + screen.height + "px";
-        h2.document.querySelector("h2").textContent = screenOrientation;
+        h2.textContent = screenOrientation;
 
         screen.orientation.addEventListener("change", function() {
+            document.querySelector("h1").textContent = navigator.userAgent + "\nScreen Width: " + screen.width + "px\nScreen Height: " + screen.height + "px";
+
             screenOrientation = screen.orientation.angle;
             h2.textContent = screenOrientation
 
