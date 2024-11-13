@@ -407,6 +407,11 @@ label{
 }
 
 @media (min-width:992px) and (min-height: 576px) {
+
+    .handContainer{
+        height: calc(100vh - 120px);
+    }
+    
     .control {
         position: fixed;
         right: 0;
