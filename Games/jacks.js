@@ -526,7 +526,11 @@ function play() {
 
             document.querySelector(".play").classList.remove("none");
             resetGameBtn.addEventListener("click", function() {
-                play()
+                if (game.balance <= 0) {
+                    resetGame()
+                } else {
+                    play()
+                }
             });
         } else {
             resetGameBtn.classList.remove("none");
