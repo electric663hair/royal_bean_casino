@@ -1,5 +1,3 @@
-console.log(navigator.userAgent)
-
 $(window).scroll(function(){
     $(".card").css("top", Math.max(0, 0 - $("body").css("position", "fixed")));
 });
