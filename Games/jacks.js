@@ -1,3 +1,5 @@
+$(document).ready(goFullscreen($("body")));
+
 $(window).scroll(function(){
     $(".image").css("top", Math.max(0, 0 - $("body").css("position", "fixed")));
 });
@@ -45,6 +47,31 @@ const manHighCard = new Audio("../resources/sounds/high-card.mp3");
 
 var betamount = document.querySelector("#betSum").value;
 const form = document.querySelector("form");
+
+
+
+
+// screenOrientation = screen.orientation.angle;
+// if (screenOrientation == 90 || screenOrientation == 270) {
+//     $(".ssNone0").removeClass("ssNone");
+//     $(".smalLScreenDisclaimer0").removeClass("smallScreenDisclaimer");
+// } else {
+//     document.querySelectorAll(".ssNone0").classList.add("ssNone");
+//     document.querySelectorAll(".smalLScreenDisclaimer0").classList.add("smallScreenDisclaimer");
+// }
+
+function goFullscreen(element) {
+     if (element.requestFullscreen) {
+        element.requestFullscreen();
+    } else if(element.mozRequestFullScreen) { // Firefox
+        element.mozRequestFullScreen();
+    } else if(element.webkitRequestFullscreen) { // Chrome, Safari
+        element.webkitRequestFullscreen();
+    } else if(element.msRequestFullscreen) { // IE/Edge
+        element.msRequestFullscreen();
+    }
+}
+
 
 
 const autoResetGameCheckbox = document.querySelector("#autoResetGame");
