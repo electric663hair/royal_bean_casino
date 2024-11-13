@@ -675,13 +675,14 @@ footer{
 
 .gamesCard {
     width: 325px;
-    height: 600px;
+    height: calc(100vh);
     background-color: #0e2f20;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: space-between;
+    flex-wrap: nowrap;
 }
 
 .gamesText > p{
