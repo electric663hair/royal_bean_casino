@@ -9,11 +9,14 @@
     <h1></h1>
     <h2></h2>
     <script>
-        document.querySelector("h1").textContent = screen.orientation.angle + " ... " + navigator.userAgent
+        const h2 = document.querySelector("h2");
+        let screenOrientation = screen.orientation.angle;
+
+        document.querySelector("h1").textContent = navigator.userAgent + "\nScreen Width: " + screen.width + "\nScreen Height: " + screen.height;
+        h2.document.querySelector("h2").textContent = screenOrientation;
 
         screen.orientation.addEventListener("change", function() {
-            let screenOrientation = screen.orientation.angle;
-            const h2 = document.querySelector("h2");
+            screenOrientation = screen.orientation.angle;
             h2.textContent = screenOrientation
 
             if (screenOrientation == 90 || screenOrientation == 270) {
