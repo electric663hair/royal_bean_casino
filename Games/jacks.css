@@ -507,6 +507,10 @@ label{
     }
 
     .control{
+        position: fixed;
+        right: 0;
+        left: 0;
+        bottom: 0;
         height: 80px;
         width: 100%;
         grid-template-columns: none;
@@ -523,7 +527,7 @@ label{
     }
 
     .handContainer {
-        height: calc(100vh - 80px);
+        height: 100vh;
     }
 }
 
