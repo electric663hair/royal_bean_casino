@@ -65,7 +65,7 @@ function openFullscreen() {
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
     } else if (elem.webkitEnterFullscreen) { // For Safari
-      elem.webkitRequestFullscreen();
+      elem.webkitEnterFullscreen();
     } else if (elem.msRequestFullscreen) { // For IE11
       elem.msRequestFullscreen();
     }
