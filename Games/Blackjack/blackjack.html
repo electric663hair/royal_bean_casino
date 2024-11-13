@@ -6,7 +6,7 @@
     <title>Blackjack</title>
     <link rel="stylesheet" href="../Blackjack/blackjack.css">
 </head>
-<body onload="play()">
+<body>
 
     <div class="cards">
         <div id="dealerCards">
@@ -22,6 +22,12 @@
 
     <div class="control">
         <div>
+            <input type="text" name="placeholder" id="betInput">
+            <button id="start">
+                Bet
+            </button>
+        </div>
+        <div>
             <button id="hit">
                 Hit
             </button>
@@ -33,8 +39,14 @@
             <h1 id="playerSum"></h1>
             <h1 id="dealerSum"></h1>
         </div>
+        <div>
+            <h1 id="text"></h1>
+        </div>
+        <div>
+            <h1 id="balanceText"></h1>
+        </div>
     </div>
-
+``    
     
 
 
