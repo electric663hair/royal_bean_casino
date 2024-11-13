@@ -2,10 +2,6 @@
     --height: 150px;
 }
 
-:-webkit-full-screen .handContainer {
-    background-color: yellow !important;
-  }
-
 * {
     margin: 0;
     transition: all 0.2s;
