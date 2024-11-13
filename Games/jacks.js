@@ -59,6 +59,9 @@ const form = document.querySelector("form");
 // }
 
 function openFullscreen() {
+    document.getElementById("fullScreen").classList.add("none")
+    document.getElementById("exitfullScreen").classList.remove("none")
+
     let elem = document.documentElement;
   
     if (elem.requestFullscreen) {
@@ -70,8 +73,23 @@ function openFullscreen() {
     }
   }
   
-  // Call this function on a user interaction, like a button click
+
   document.getElementById("fullScreen").addEventListener("click", openFullscreen);
+
+  function closeFullscreen() {
+    document.getElementById("exitfullScreen").classList.add("none")
+    document.getElementById("fullScreen").classList.remove("none")
+  
+    if (document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if (document.webkitExitFullscreen) { // For Safari
+      document.webkitExitFullscreen();
+    } else if (document.msExitFullscreen) { // For IE11
+      document.msExitFullscreen();
+    }
+  }
+
+  document.getElementById("exitfullScreen").addEventListener("click", closeFullscreen);
 
 const autoResetGameCheckbox = document.querySelector("#autoResetGame");
 autoResetGameCheckbox.checked = (localStorage.getItem("autoReset") === "true");

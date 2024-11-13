@@ -256,6 +256,16 @@ label{
     width: 50px;
 }
 
+#exitfullScreen{
+    height: 50px;
+    width: 50px;
+}
+
+#exitfullScreen > img{
+    height: 50px;
+    width: 50px;
+}
+
 .scaleOnTouch {transition: all .15s;}
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
@@ -411,7 +421,7 @@ label{
     .handContainer{
         height: calc(100vh - 120px);
     }
-    
+
     .control {
         position: fixed;
         right: 0;
@@ -565,6 +575,16 @@ label{
     }
 
     #fullScreen > img{
+        height: 40px;
+        width: 40px;
+    }
+
+    #exitfullScreen{
+        height: 40px;
+        width: 40px;
+    }
+
+    #exitfullScreen > img{
         height: 40px;
         width: 40px;
     }
