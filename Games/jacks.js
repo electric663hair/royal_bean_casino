@@ -58,8 +58,10 @@ const form = document.querySelector("form");
 //     document.querySelectorAll(".smalLScreenDisclaimer0").classList.add("smallScreenDisclaimer");
 // }
 
-// ===== Fullscreen Logic =====
 function openFullscreen() {
+    document.getElementById("fullScreen").classList.add("none")
+    document.getElementById("exitfullScreen").classList.remove("none")
+
     let elem = document.documentElement;
   
     if (elem.requestFullscreen) {
@@ -69,9 +71,15 @@ function openFullscreen() {
     } else if (elem.msRequestFullscreen) { // For IE11
       elem.msRequestFullscreen();
     }
-}
+  }
+  
 
-function closeFullscreen() {
+  document.getElementById("fullScreen").addEventListener("click", openFullscreen);
+
+  function closeFullscreen() {
+    document.getElementById("exitfullScreen").classList.add("none")
+    document.getElementById("fullScreen").classList.remove("none")
+  
     if (document.exitFullscreen) {
       document.exitFullscreen();
     } else if (document.webkitExitFullscreen) { // For Safari
@@ -79,42 +87,9 @@ function closeFullscreen() {
     } else if (document.msExitFullscreen) { // For IE11
       document.msExitFullscreen();
     }
-}
+  }
 
-let fullscreenToggle;
-function toggleFullscreen() {
-    fullscreenToggle = !fullscreenToggle;
-    if (fullscreenToggle) {
-        openFullscreen();
-    } else if (!fullscreenToggle) {
-        closeFullscreen();
-    }
-}
-
-// Evenlisteners for fullscreen
-document.getElementById("fullScreen").addEventListener("click", openFullscreen);
-document.getElementById("exitfullScreen").addEventListener("click", closeFullscreen);
-
-document.addEventListener("keydown", function(event) {
-    if (event.key == "F" || event.key == "f") {
-        toggleFullscreen();
-    }
-})
-
-// Checks if the page is in fullscreen and if escape button is pressed, it updates the fullscreen button
-document.addEventListener("fullscreenchange", function() {
-    if(!(window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height)) {
-        // Fullscreen activated
-        $("#exitfullScreen").removeClass("none");
-        $("#fullScreen").addClass("none");
-    } else {
-        // Fullscreen deactivated
-        $("#exitfullScreen").addClass("none");
-        $("#fullScreen").removeClass("none");
-        fullscreenToggle = false;
-    }
-})
-
+  document.getElementById("exitfullScreen").addEventListener("click", closeFullscreen);
 
 const autoResetGameCheckbox = document.querySelector("#autoResetGame");
 autoResetGameCheckbox.checked = (localStorage.getItem("autoReset") === "true");
