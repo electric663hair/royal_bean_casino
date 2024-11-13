@@ -235,6 +235,16 @@ label{
     border-radius: 15px;
 }
 
+#fullScreen{
+    width: 50px;
+    height: 50px;
+}
+
+#fullScreen > img{
+    height: 50px;
+    width: 50px;
+}
+
 .scaleOnTouch {transition: all .15s;}
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
@@ -383,27 +393,30 @@ label{
     .autoResetGameDiv {
         font-size: x-large;
     }
-    .control {
-        padding-left: 2%;
-        padding-right: 4%;
-        gap: 20px;
-    }
 }
 
 @media (min-width:992px) and (min-height: 576px) {
     .control {
-        display: grid;
-        grid-template-columns: 2.2fr 0.50fr 0.35fr 0.35fr 0.50fr 0.70fr 1fr 0.8fr 1fr;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
         height: 120px;
-        justify-content: center;
-        padding-left: 2%;
-        padding-right: 4%;
-        gap: 20px;
+        padding: 0%;
     }
 
     .back{
         height: 55px;
         width: 55px;
+    }
+
+    .sound{
+        width: 64px;
+        height: 64px;
+    }
+
+    #fullScreen{
+        display: none;
     }
 }
 
@@ -529,6 +542,18 @@ label{
     .handContainer {
         height: 80vh;
     }
+
+    #fullScreen{
+        height: 40px;
+        width: 40px;
+    }
+
+    #fullScreen > img{
+        height: 40px;
+        width: 40px;
+    }
+
+    
 }
 
 @media (max-height: 250px) {

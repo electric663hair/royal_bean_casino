@@ -1,5 +1,3 @@
-$(document).ready(goFullscreen($("body")));
-
 $(window).scroll(function(){
     $(".image").css("top", Math.max(0, 0 - $("body").css("position", "fixed")));
 });
@@ -59,6 +57,10 @@ const form = document.querySelector("form");
 //     document.querySelectorAll(".ssNone0").classList.add("ssNone");
 //     document.querySelectorAll(".smalLScreenDisclaimer0").classList.add("smallScreenDisclaimer");
 // }
+
+$("#fullScreen").on("click", function(){
+    goFullscreen($("body"))
+});
 
 function goFullscreen(element) {
      if (element.requestFullscreen) {
