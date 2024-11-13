@@ -59,7 +59,7 @@ const form = document.querySelector("form");
 // }
 
 $("#fullScreen").on("click", function(){
-    goFullscreen(document.documentElement)
+    goFullscreen($(".handContainer")[0])
 });
 
 function goFullscreen(element) {
