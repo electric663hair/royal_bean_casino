@@ -57,9 +57,9 @@ const form = document.querySelector("form");
 //     document.querySelectorAll(".ssNone0").classList.add("ssNone");
 //     document.querySelectorAll(".smalLScreenDisclaimer0").classList.add("smallScreenDisclaimer");
 // }
-
+var elem = document.documentElement;
 function openFullscreen() {
-    let elem = document.documentElement;
+
     alert("bob")
   
     if (elem.requestFullscreen) {
