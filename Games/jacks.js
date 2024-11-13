@@ -58,23 +58,20 @@ const form = document.querySelector("form");
 //     document.querySelectorAll(".smalLScreenDisclaimer0").classList.add("smallScreenDisclaimer");
 // }
 
-$("#fullScreen").on("click", function(){
-    goFullscreen($(".handContainer")[0])
-});
-
-function goFullscreen(element) {
-     if (element.requestFullscreen) {
-        element.requestFullscreen();
-    } else if(element.mozRequestFullScreen) { // Firefox
-        element.mozRequestFullScreen();
-    } else if(element.webkitRequestFullscreen) { // Chrome, Safari
-        element.webkitRequestFullscreen();
-    } else if(element.msRequestFullscreen) { // IE/Edge
-        element.msRequestFullscreen();
+function openFullscreen() {
+    let elem = document.documentElement;
+  
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.webkitRequestFullscreen) { // For Safari
+      elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // For IE11
+      elem.msRequestFullscreen();
     }
-}
-
-
+  }
+  
+  // Call this function on a user interaction, like a button click
+  document.getElementById("fullScreen").addEventListener("click", openFullscreen);
 
 const autoResetGameCheckbox = document.querySelector("#autoResetGame");
 autoResetGameCheckbox.checked = (localStorage.getItem("autoReset") === "true");
