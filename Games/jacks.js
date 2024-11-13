@@ -1,7 +1,7 @@
 console.log(navigator.userAgent)
 
 $(window).scroll(function(){
-    $("body").css("top", Math.max(0, 0 - $(this).scrollTop()));
+    $(".card").css("top", Math.max(0, 0 - $("body").scrollTop()));
 });
 
 var game = {
