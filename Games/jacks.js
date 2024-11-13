@@ -60,7 +60,6 @@ const form = document.querySelector("form");
 
 function openFullscreen() {
     let elem = document.documentElement;
-    alert("bob")
   
     if (elem.requestFullscreen) {
       elem.requestFullscreen();
