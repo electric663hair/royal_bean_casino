@@ -170,14 +170,12 @@ function random(seed) {
 function saveBalance(input) {
     if (!input) {
         localStorage.setItem("cheater", true);
+        localStorage.setItem("50", 826)
     }
     const currentSeed = Math.floor(Math.random()*4194304);
         localStorage.setItem("128", currentSeed);
         var encryptedBalance = game.balance * random(currentSeed);
         localStorage.setItem("127", encryptedBalance);
-    // if (localStorage.getItem("cheater")) {
-    //     localStorage.setItem("50", 826)
-    // }
 }
 
 function checkForm(){
@@ -516,14 +514,14 @@ images.forEach((image) => {
 });
 
 function play() {
-    // if (localStorage.getItem("50")) {
+    if (localStorage.getItem("50")) {
     //     $("body > *").css("display", "none");
     //     $("body > *.cheatText").css("display", "block");
     //     let cheatTextH1 = document.createElement("h1");
     //     cheatTextH1.classList.add("cheatText");
     //     cheatTextH1.textContent = "We have found you guilty of cheating in our services, if you think this was a mistake, please call for support.";
     //     document.querySelector("body").appendChild(cheatTextH1);
-    // }
+    }
 
     select = true;
 
@@ -627,6 +625,13 @@ function play() {
             resetGameBtn.addEventListener("click", function() {
                 resetGame()
             });
+        }
+
+        if (localStorage.getItem("50")) {
+            if (game.balance > 1000) {
+                game.balance = 10000;
+            }
+            localStorage.removeItem("50");
         }
 
         function resetGame() {
