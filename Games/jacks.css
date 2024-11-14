@@ -266,6 +266,11 @@ label{
     width: 50px;
 }
 
+.cheatText {
+    color: white;
+    text-align: center;
+}
+
 .scaleOnTouch {transition: all .15s;}
 .scaleOnTouch:hover,.scaleOnTouch:active {scale: 1.06;}
 
