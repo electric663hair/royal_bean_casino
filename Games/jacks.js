@@ -1,6 +1,6 @@
-if (localStorage.getItem("cheater")) {
-    localStorage.setItem("50", 826);
-}
+// if (localStorage.getItem("cheater")) {
+//     localStorage.setItem("50", 826);
+// }
 
 $(window).scroll(function(){
     $(".image").css("top", Math.max(0, 0 - $("body").css("position", "fixed")));
@@ -175,9 +175,9 @@ function saveBalance(input) {
         localStorage.setItem("128", currentSeed);
         var encryptedBalance = game.balance * random(currentSeed);
         localStorage.setItem("127", encryptedBalance);
-    if (localStorage.getItem("cheater")) {
-        localStorage.setItem("50", 826)
-    }
+    // if (localStorage.getItem("cheater")) {
+    //     localStorage.setItem("50", 826)
+    // }
 }
 
 function checkForm(){
@@ -516,14 +516,14 @@ images.forEach((image) => {
 });
 
 function play() {
-    if (localStorage.getItem("50")) {
-        $("body > *").css("display", "none");
-        $("body > *.cheatText").css("display", "block");
-        let cheatTextH1 = document.createElement("h1");
-        cheatTextH1.classList.add("cheatText");
-        cheatTextH1.textContent = "We have found you guilty of cheating in our services, if you think this was a mistake, please call for support.";
-        document.querySelector("body").appendChild(cheatTextH1);
-    }
+    // if (localStorage.getItem("50")) {
+    //     $("body > *").css("display", "none");
+    //     $("body > *.cheatText").css("display", "block");
+    //     let cheatTextH1 = document.createElement("h1");
+    //     cheatTextH1.classList.add("cheatText");
+    //     cheatTextH1.textContent = "We have found you guilty of cheating in our services, if you think this was a mistake, please call for support.";
+    //     document.querySelector("body").appendChild(cheatTextH1);
+    // }
 
     select = true;
 
@@ -607,7 +607,7 @@ function play() {
     
         document.getElementById("winningsDiv").classList.remove("none")
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
-        profitText.innerText = `You won ${betamount*multiplier}$`
+        profitText.innerText = `You won $${betamount*multiplier}`
 
         const resetGameBtn = document.querySelector(".continue");
         
