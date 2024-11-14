@@ -108,7 +108,7 @@ function play() {
                 drawCard(playerHand, "playerCards");
                 playerHandSum = sum(playerHand, "playerSum")
 
-                if (playerHandSum == 21) {
+                     if (playerHandSum == 21) {
                     aaaaaaa(true)
 
                 } else if (playerHandSum > 21) {
@@ -120,7 +120,7 @@ function play() {
         document.getElementById("stand").addEventListener("click", function() {
             document.getElementById("hit").classList.add("none")
 
-            while (dealerHandSum <= 17) {
+            while (dealerHandSum < 17) {
                 drawCard(dealerHand, "dealerCards")
                 dealerHandSum = sum(dealerHand, "dealerSum")
             }
