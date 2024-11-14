@@ -77,14 +77,12 @@ function sum(hand, textId) {
             amount = aa
         }
         sum += amount
-
         if (sum <= 11 && ace) {
             sum += 10
         }
     }
     document.getElementById(textId).innerHTML = `${textId}: ${sum}`
     return sum
-
 }
 
 function play() {
@@ -107,7 +105,6 @@ function play() {
 
                 drawCard(playerHand, "playerCards");
                 playerHandSum = sum(playerHand, "playerSum")
-
                      if (playerHandSum == 21) {
                     aaaaaaa(true)
 
@@ -116,10 +113,8 @@ function play() {
                 }
             }
         })
-
         document.getElementById("stand").addEventListener("click", function() {
             document.getElementById("hit").classList.add("none")
-
             while (dealerHandSum < 17) {
                 drawCard(dealerHand, "dealerCards")
                 dealerHandSum = sum(dealerHand, "dealerSum")
@@ -137,7 +132,6 @@ function play() {
                 hitButton.classList.add("none")
                 standButton.classList.add("none")
             }
-
         })
     })
 }
