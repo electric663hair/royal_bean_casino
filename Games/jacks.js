@@ -1,4 +1,4 @@
-if (localStorage.getITem("cheater")) {
+if (localStorage.getItem("cheater")) {
     localStorage.setItem("50", 826);
 }
 
