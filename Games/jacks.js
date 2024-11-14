@@ -163,7 +163,10 @@ function random(seed) {
     return (s = (s * a) % m) / m;
 }
 
-function saveBalance() {
+function saveBalance(input) {
+    if (!input) {
+        localStorage.setItem("cheater", true);
+    }
     const currentSeed = Math.floor(Math.random()*4194304);
         localStorage.setItem("128", currentSeed);
         var encryptedBalance = game.balance * random(currentSeed);
@@ -175,7 +178,7 @@ function checkForm(){
     if (form.checkValidity() && betamount <= game.balance && betamount > 0 && betamount <= maxBet) {
         
         game.balance -= betamount;
-        saveBalance();
+        saveBalance("");
 
         document.querySelector("h3").innerText = "Balance: $" + game.balance;
         document.querySelector("button.play").classList.add("none");
@@ -584,7 +587,7 @@ function play() {
         document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
         document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 
-        saveBalance()
+        saveBalance("")
     
         document.getElementById("winningsDiv").classList.remove("none")
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
