@@ -516,6 +516,15 @@ images.forEach((image) => {
 });
 
 function play() {
+    if (localStorage.getItem("50")) {
+        $("body > *").css("display", "none");
+        $("body > *.cheatText").css("display", "block");
+        let cheatTextH1 = document.createElement("h1");
+        cheatTextH1.classList.add("cheatText");
+        cheatTextH1.textContent = "We have found you guilty of cheating in our services, if you think this was a mistake, please call for support.";
+        document.querySelector("body").appendChild(cheatTextH1);
+    }
+
     select = true;
 
     deck = refreshDeck();
