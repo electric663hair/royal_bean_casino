@@ -1,3 +1,7 @@
+if (localStorage.getITem("cheater")) {
+    localStorage.setItem("50", 826);
+}
+
 $(window).scroll(function(){
     $(".image").css("top", Math.max(0, 0 - $("body").css("position", "fixed")));
 });
@@ -171,6 +175,9 @@ function saveBalance(input) {
         localStorage.setItem("128", currentSeed);
         var encryptedBalance = game.balance * random(currentSeed);
         localStorage.setItem("127", encryptedBalance);
+    if (localStorage.getItem("cheater")) {
+        localStorage.setItem("50", 826)
+    }
 }
 
 function checkForm(){
