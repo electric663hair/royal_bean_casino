@@ -178,7 +178,7 @@ function checkForm(){
     if (form.checkValidity() && betamount <= game.balance && betamount > 0 && betamount <= maxBet) {
         
         game.balance -= betamount;
-        saveBalance("");
+        saveBalance(1);
 
         document.querySelector("h3").innerText = "Balance: $" + game.balance;
         document.querySelector("button.play").classList.add("none");
@@ -587,7 +587,7 @@ function play() {
         document.querySelector("#betSum").placeholder = `Max bet: $${maxBet}...`
         document.querySelector("h3").innerText = "Balance: " + "$" + game.balance;
 
-        saveBalance("")
+        saveBalance(1)
     
         document.getElementById("winningsDiv").classList.remove("none")
         winningText.innerText = `You got ${winningHand} ${multiplier}x`
