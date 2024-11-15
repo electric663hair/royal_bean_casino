@@ -1,0 +1,168 @@
+body{
+    margin: 0;
+    padding: 0;
+    background-color:  #A9B388;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    z-index: -1;
+}
+
+
+.gradient-background {
+    background: linear-gradient(300deg, #A9B388, #d7d7c1);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 6vh;
+    background-color: #5F6F52;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header{
+    width: 100%;
+    height: 12vh;
+    background-color:  #5F6F52;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+}
+
+.headText{
+    display: flex;
+    width: 30%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 85%;
+}
+
+.headText > h2{
+    padding: 0;
+    margin: 0;
+    color: #FEFAE0;
+    margin-left: 20px;
+    font-size: 45px;
+}
+
+.headText > h3{
+    padding: 0;
+    margin: 0;
+    color: #FEFAE0;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.main{
+    height: 65vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 17vh;
+}
+
+.navbar{
+    z-index: 2;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar > button{
+    background-color:  #5F6F52;
+    height: 110px;
+    width:  220px;
+    border-radius: 5px;
+    color: #FEFAE0;
+    font-size: 25px;
+    font-weight: 550;
+    text-shadow: #475e34 2px 2px;
+    z-index: 2;
+}
+
+.trees{
+    position: fixed;
+    bottom: 6vh;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+.tree1{
+    height: 230px;
+    opacity: 0.8;
+}
+
+.tree2{
+    height: 150px;
+    opacity: 0.5;
+}
+
+.tree3{
+    height: 280px;
+}
+
+.tree4{
+    height: 240px;
+    opacity: 0.7;
+    padding-right: 50px;
+}
+
+.tree5{
+    height: 190px;
+    opacity: 0.6;
+    padding-left: 20px;
+}
+
+.branch1{
+    position: fixed;
+    right: 0;
+    top: 22%;
+    width: 35%;
+    opacity: 0.4;
+}
+
+.branch2{
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+    position: fixed;
+    left: 0;
+    top: 22%;
+    width: 35%;
+    opacity: .4;
+    z-index: 0;
+}
+
+.fox{
+    position: fixed;
+    bottom: 4vh;
+    height: 120px;
+    right: 16%;
+}
+
