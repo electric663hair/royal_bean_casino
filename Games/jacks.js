@@ -75,6 +75,10 @@ function openFullscreen() {
     } else if (elem.msRequestFullscreen) { // For IE11
       elem.msRequestFullscreen();
     }
+
+    $("#exitfullScreen").removeClass("none");
+    $("#fullScreen").addClass("none");
+    fullscreenToggle = true;
 }
 
 function closeFullscreen() {
@@ -85,7 +89,21 @@ function closeFullscreen() {
     } else if (document.msExitFullscreen) { // For IE11
       document.msExitFullscreen();
     }
+
+    $("#exitfullScreen").addClass("none");
+    $("#fullScreen").removeClass("none");
+    fullscreenToggle = false;
 }
+
+let isFullScreen;
+document.addEventListener("fullscreenchange", function() {
+    isFullScreen = !isFullScreen;
+    if (isFullScreen) {
+        openFullscreen();
+    } else if (!isFullScreen) {
+        closeFullscreen();
+    }
+})
 
 let fullscreenToggle;
 function toggleFullscreen() {
@@ -102,7 +120,6 @@ document.getElementById("fullScreen").addEventListener("click", openFullscreen);
 document.getElementById("exitfullScreen").addEventListener("click", closeFullscreen);
 
 document.addEventListener("keydown", function(event) {
-    console.log(event.key, stageOfGame)
     if (event.key.toLowerCase() === "f") {
         toggleFullscreen();
     } else if (event.key.toLowerCase() === "m") {
@@ -121,7 +138,6 @@ document.addEventListener("keydown", function(event) {
     } else if (event.key === "ArrowDown") {
         betDownFunction();
     } else if (event.key === "Enter") {
-        console.log(event.key, stageOfGame)
         if (stageOfGame === "start") {
             checkForm();
         } else if (stageOfGame == "round1") {
@@ -131,21 +147,6 @@ document.addEventListener("keydown", function(event) {
         }
     }
 })
-
-// Checks if the page is in fullscreen and if escape button is pressed, it updates the fullscreen button
-document.addEventListener("fullscreenchange", function() {
-    if(!(window.fullScreen) || (window.innerWidth == screen.width && window.innerHeight == screen.height)) {
-        // Fullscreen activated
-        $("#exitfullScreen").removeClass("none");
-        $("#fullScreen").addClass("none");
-    } else {
-        // Fullscreen deactivated
-        $("#exitfullScreen").addClass("none");
-        $("#fullScreen").removeClass("none");
-        fullscreenToggle = false;
-    }
-})
-
 
 const autoResetGameCheckbox = document.querySelector("#autoResetGame");
 autoResetGameCheckbox.checked = (localStorage.getItem("autoReset") === "true");
