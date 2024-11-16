@@ -8,8 +8,26 @@ body{
 }
 
 
-.gradient-background {
+body.light .gradient-background {
     background: linear-gradient(300deg, #A9B388, #d7d7c1);
+    background-size: 180% 180%;
+    animation: gradient-animation 18s ease infinite;
+  }
+  
+  @keyframes gradient-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+
+  body.dark .gradient-background {
+    background: linear-gradient(300deg, #6F7A59, #B5B089);
     background-size: 180% 180%;
     animation: gradient-animation 18s ease infinite;
   }
@@ -32,21 +50,39 @@ body{
     left: 0;
     right: 0;
     height: 6vh;
-    background-color: #5F6F52;
     z-index: 100;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
+body.light .footer{
+    background-color: #5F6F52;
+}
+
+body.dark .footer{
+    background-color: #3B4536;
+}
+
+body.dark .footer p{
+    color: #d7d7c1;
+}
+
 .header{
     width: 100%;
     height: 12vh;
-    background-color:  #5F6F52;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 3;
+}
+
+body.light .header{
+    background-color: #5F6F52;
+}
+
+body.dark .header{
+    background-color: #3B4536;
 }
 
 .headText{
@@ -101,6 +137,11 @@ body{
     font-weight: 550;
     text-shadow: #475e34 2px 2px;
     z-index: 2;
+}
+
+body.dark .navbar > button{
+    background-color:#3B4536;
+    text-shadow: none;
 }
 
 .trees{
@@ -233,6 +274,11 @@ body{
     animation: moveBranch 5s;
 }
 
+.branch1:hover {
+    transform: rotate(2deg);
+    transition: transform 0.3s ease;
+}
+
 @keyframes moveSecret1{
     15%{right: 0;}
     85%{right: 0px;}
@@ -279,5 +325,11 @@ body{
     left: 2%;
 }
 
-
+.mode{
+    position: fixed;
+    bottom: 0;
+    left: 1%;
+    height: 6vh;
+    z-index: 1000;
+}
 

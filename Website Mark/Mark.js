@@ -1,22 +1,29 @@
-<<<<<<< Updated upstream
 const year = new Date().getFullYear();
-document.querySelector(".headText > h2").textContent = `Terry's page`
-document.querySelector(".footer > p").textContent = `© ${year} Terry's Page | Designed by Terry`
-=======
+var light = true;
+var soundOn = false;
+document.querySelector(".headText > h2").textContent = `Mark's page`
+document.querySelector(".footer > p").textContent = `© ${year} Mark's Page | Designed by Mark`
+
 var audio = new Audio('./marksources/Sounds/birds.mp3');
 var sound = $(".sound")
 sound.on("click", function(){
-    if (sound.hasClass("soundOff")){
+    if (!soundOn){
         audio.play();
-        sound.attr("src", "./marksources/soundOn.svg")
-        sound.addClass("soundOn")
-        sound.removeClass("soundOff")
+        if(light){
+            sound.attr("src", "./marksources/soundOnLight.svg")
+        } else{
+            sound.attr("src", "./marksources/soundOnDark.svg")
+        }
+        soundOn = true;
     } else {
         audio.pause();
         audio.currentTime = 0;
-        sound.attr("src", "./marksources/soundOff.svg")
-        sound.removeClass("soundOn")
-        sound.addClass("soundOff")
+        if(light){
+            sound.attr("src", "./marksources/soundOffLight.svg")
+        }else{
+            sound.attr("src", "./marksources/soundOffDark.svg")
+        }
+        soundOn = false;
     }
 })
 
@@ -35,6 +42,50 @@ branch1.on("click", function(){
         branch1.removeClass("moveBranch")
         secret1.removeClass("moveSecret1")
         secret1.addClass("found")
-    }, 8000)
+    }, 5000)
 })
->>>>>>> Stashed changes
+
+var owlAudio = new Audio('./marksources/Sounds/owl.mp3');
+$(".mode").click(function(){
+    if ($(".mode").hasClass("day")){
+        light = false;
+        $(".mode").attr("src", "./marksources/night.png")
+        $(".mode").css("height", "5vh")
+        $(".mode").css("bottom", ".5vh")
+        $(".secret1").css("background-color", "#8A6A52")
+        $(".mode").addClass("night")
+        $(".mode").removeClass("day")
+        $("body").addClass("dark")
+        $("body").removeClass("light")
+        audio.pause();
+        audio.currentTime = 0;
+        owlAudio.currentTime = 0;
+        if (soundOn){
+            owlAudio.play();
+            sound.attr("src", "./marksources/soundOnDark.svg")
+        }else{
+            sound.attr("src", "./marksources/soundOffDark.svg")
+        }
+
+    } else{
+        light = true;
+        $(".mode").attr("src", "./marksources/day.png")
+        $(".mode").css("height", "6vh")
+        $(".mode").css("bottom", 0)
+        $(".mode").addClass("day")
+        $(".mode").removeClass("night")
+        $("body").addClass("light")
+        $("body").removeClass("dark")
+        audio.currentTime = 0;
+        owlAudio.pause();
+        owlAudio.currentTime = 0;
+        if (soundOn){
+            audio.play();
+            sound.attr("src", "./marksources/soundOnLight.svg")
+        } else{
+            sound.attr("src", "./marksources/soundOffLight.svg")
+        }
+
+    }
+
+})
