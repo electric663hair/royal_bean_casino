@@ -49,6 +49,7 @@ var owlAudio = new Audio('./marksources/Sounds/owl.mp3');
 $(".mode").click(function(){
     if ($(".mode").hasClass("day")){
         light = false;
+        $(".fox").css("opacity", 0.7)
         $(".mode").attr("src", "./marksources/night.png")
         $(".mode").css("height", "5vh")
         $(".mode").css("bottom", ".5vh")
@@ -69,6 +70,7 @@ $(".mode").click(function(){
 
     } else{
         light = true;
+        $(".fox").css("opacity", 1)
         $(".mode").attr("src", "./marksources/day.png")
         $(".mode").css("height", "6vh")
         $(".mode").css("bottom", 0)
