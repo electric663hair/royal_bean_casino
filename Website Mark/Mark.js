@@ -76,6 +76,7 @@ $(".mode").click(function(){
         $(".mode").css("bottom", 0)
         $(".mode").addClass("day")
         $(".mode").removeClass("night")
+        $(".secret1").css("background-color", "#B99470")
         $("body").addClass("light")
         $("body").removeClass("dark")
         audio.currentTime = 0;
