@@ -117,46 +117,151 @@ body{
 .tree1{
     height: 230px;
     opacity: 0.8;
+    animation: tree1 45s infinite;
 }
 
 .tree2{
     height: 150px;
     opacity: 0.5;
+    animation: tree2 45s infinite;
 }
 
 .tree3{
     height: 280px;
+    animation: tree3 45s infinite;
 }
 
 .tree4{
     height: 240px;
     opacity: 0.7;
     padding-right: 50px;
+    animation: tree4 45s infinite;
 }
 
 .tree5{
     height: 190px;
     opacity: 0.6;
     padding-left: 20px;
+    animation: tree5 45s infinite;
+}
+
+@keyframes tree1{
+    0%{height: 230px; opacity: 0.7;}
+    25%{height: 200px; opacity: 0.6;}
+    50%{height: 150px; opacity: 0.4;}
+    75%{height: 320px; opacity: 1;}
+    100%{height: 230px; opacity: 0.7;}
+}
+
+@keyframes tree2{
+    0%{height: 150px; opacity: 0.4;}
+    25%{height: 190px; opacity: 0.55;}
+    50%{height: 240px; opacity: 0.75;}
+    75%{height: 180px; opacity: 0.55;}
+    100%{height: 150px; opacity: 0.4;}
+}
+
+@keyframes tree3{
+    0%{height: 280px; opacity: 0.85;}
+    25%{height: 240px; opacity: 0.8;}
+    50%{height: 200px; opacity: 0.6;}
+    75%{height: 250px; opacity: 0.8;}
+    100%{height: 280px; opacity: 0.85;}
+}
+
+@keyframes tree4{
+    0%{height: 280px; opacity: 0.85;}
+    25%{height: 270px; opacity: 0.8;}
+    50%{height: 250px; opacity: 0.75;}
+    75%{height: 140px; opacity: 0.4;}
+    100%{height: 280px; opacity: 0.85;}
+}
+
+@keyframes tree5{
+    0%{height: 190px; opacity: 0.55;}
+    25%{height: 240px; opacity: 0.7;}
+    50%{height: 260px; opacity: 0.8;}
+    75%{height: 210px; opacity: 0.65;}
+    100%{height: 190px; opacity: 0.55;}   
 }
 
 .branch1{
     position: fixed;
-    right: 0;
+    right: -30px;
     top: 22%;
-    width: 35%;
+    width: 38%;
     opacity: 0.4;
+    animation: branch1 5s infinite;
+}
+
+.secret1{
+    z-index: 100;
+    height: 200px;
+    width: 400px;
+    background-color: #B99470;
+    position: fixed;
+    top: 22%;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: -430px;
+    border: solid black 2px;
+}
+
+.secret1 h4{
+    font-weight: bold;
+    font-size: 30px;
+    padding: 0;
+    margin: 0;
+    margin-bottom: 20px;
+}
+
+.text1{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.moveSecret1{
+    animation: moveSecret1 5s;
+}
+
+.moveBranch{
+    animation: moveBranch 5s;
+}
+
+@keyframes moveSecret1{
+    15%{right: 0;}
+    85%{right: 0px;}
+    100%{right: -430px;}
+}
+
+@keyframes moveBranch{
+    15%{right: 390px;}
+    85%{right: 390px;}
+    100%{right: -32px;}
 }
 
 .branch2{
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
     position: fixed;
-    left: 0;
+    left: -30px;
     top: 22%;
-    width: 35%;
+    width: 38%;
     opacity: .4;
     z-index: 0;
+}
+
+
+@keyframes branch1{
+    9%{transform: rotate(0deg);}
+    10.5%{transform: rotate(2deg);}
+    11.5%{transform: rotate(0deg);}
+    100%{}
 }
 
 .fox{
@@ -165,4 +270,14 @@ body{
     height: 120px;
     right: 16%;
 }
+
+.sound{
+    height: 50px;
+    width: 50px;
+    position: fixed;
+    top: 15%;
+    left: 2%;
+}
+
+
 
