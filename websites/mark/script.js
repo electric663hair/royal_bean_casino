@@ -10,8 +10,8 @@ $('#a').on('input', function() {
     owlAudio.volume = $(this).val();
 });
 
-var owlAudio = new Audio('./marksources/Sounds/owl.mp3');
-var audio = new Audio('./marksources/Sounds/birds.mp3');
+var owlAudio = new Audio('./../../websites/mark/resources/Sounds/owl.mp3');
+var audio = new Audio('./../../websites/mark/resources/Sounds/birds.mp3');
 audio.volume = 0.6;
 owlAudio.volume = 0.6;
 
@@ -19,13 +19,13 @@ var sound = $(".sound")
 sound.on("click", function(){
     if (!soundOn){
         if(light){
-            sound.attr("src", "./marksources/soundOnLight.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOnLight.svg")
             audio.currentTime = 0;
             owlAudio.pause();
             owlAudio.currentTime = 0;
             audio.play();
         } else{
-            sound.attr("src", "./marksources/soundOnDark.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOnDark.svg")
             audio.currentTime = 0;
             audio.pause();
             owlAudio.currentTime = 0;
@@ -34,13 +34,13 @@ sound.on("click", function(){
         soundOn = true;
     } else {
         if(light){
-            sound.attr("src", "./marksources/soundOffLight.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOffLight.svg")
             audio.currentTime = 0;
             audio.pause();
             owlAudio.currentTime = 0;
             owlAudio.pause();
         }else{
-            sound.attr("src", "./marksources/soundOffDark.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOffDark.svg")
             audio.currentTime = 0;
             audio.pause();
             owlAudio.currentTime = 0;
@@ -78,8 +78,8 @@ $(".mode").click(function(){
         light = false;
         $(".fox").fadeOut()
         $(".owl").fadeIn()
-        $(".mode").attr("src", "./marksources/night.png")
-        $(".close").attr("src", "./marksources/closeDark.svg")
+        $(".mode").attr("src", "./../../websites/mark/resources/night.png")
+        $(".close").attr("src", "./../../websites/mark/resources/closeDark.svg")
         $(".mode").css("height", "5vh")
         $(".mode").css("bottom", ".5vh")
         $(".secret1").css("background-color", "#8A6A52")
@@ -92,17 +92,17 @@ $(".mode").click(function(){
         owlAudio.currentTime = 0;
         if (soundOn){
             owlAudio.play();
-            sound.attr("src", "./marksources/soundOnDark.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOnDark.svg")
         }else{
-            sound.attr("src", "./marksources/soundOffDark.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOffDark.svg")
         }
 
     } else{
         light = true;
         $(".owl").fadeOut();
         $(".fox").fadeIn();
-        $(".mode").attr("src", "./marksources/day.png")
-        $(".close").attr("src", "./marksources/closeLight.svg")
+        $(".mode").attr("src", "./../../websites/mark/resources/day.png")
+        $(".close").attr("src", "./../../websites/mark/resources/closeLight.svg")
         $(".mode").css("height", "6vh")
         $(".mode").css("bottom", 0)
         $(".mode").addClass("day")
@@ -115,9 +115,9 @@ $(".mode").click(function(){
         owlAudio.currentTime = 0;
         if (soundOn){
             audio.play();
-            sound.attr("src", "./marksources/soundOnLight.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOnLight.svg")
         } else{
-            sound.attr("src", "./marksources/soundOffLight.svg")
+            sound.attr("src", "./../../websites/mark/resources/soundOffLight.svg")
         }
 
     }
