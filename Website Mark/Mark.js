@@ -76,7 +76,8 @@ branch1.on("click", function(){
 $(".mode").click(function(){
     if ($(".mode").hasClass("day")){
         light = false;
-        $(".fox").css("opacity", 0.7)
+        $(".fox").fadeOut()
+        $(".owl").fadeIn()
         $(".mode").attr("src", "./marksources/night.png")
         $(".close").attr("src", "./marksources/closeDark.svg")
         $(".mode").css("height", "5vh")
@@ -98,7 +99,8 @@ $(".mode").click(function(){
 
     } else{
         light = true;
-        $(".fox").css("opacity", 1)
+        $(".owl").fadeOut();
+        $(".fox").fadeIn();
         $(".mode").attr("src", "./marksources/day.png")
         $(".close").attr("src", "./marksources/closeLight.svg")
         $(".mode").css("height", "6vh")
@@ -125,6 +127,7 @@ function setting(){
     if(!settings){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
+        $(".fox").css("bottom", "-2vh")
         $(".trees").css("position", "absolute")
         $(".trees").css("bottom", 0)
         $(".cog").addClass("spinOut")

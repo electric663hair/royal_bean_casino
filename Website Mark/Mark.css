@@ -8,6 +8,9 @@ body{
     transition: all .75s;
 }
 
+.none{
+    display: none;
+}
 
 body.light .gradient-background {
     background: linear-gradient(300deg, #A9B388, #d7d7c1);
@@ -312,9 +315,16 @@ body.dark .navbar > button{
 
 .fox{
     position: absolute;
-    bottom: -2vh;
+    bottom: 4vh;
     height: 120px;
     right: 16%;
+}
+
+.owl{
+    position: absolute;
+    top: 16.2%;
+    left: 19%;
+    height: 130px;
 }
 
 .sound{
