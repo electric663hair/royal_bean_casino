@@ -5,6 +5,7 @@ body{
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: -1;
+    transition: all .75s;
 }
 
 
@@ -47,8 +48,7 @@ body.light .gradient-background {
 .footer{
     position: fixed;
     bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100%;
     height: 6vh;
     z-index: 100;
     display: flex;
@@ -227,7 +227,7 @@ body.dark .navbar > button{
 }
 
 .branch1{
-    position: fixed;
+    position: absolute;
     right: -30px;
     top: 22%;
     width: 38%;
@@ -294,7 +294,7 @@ body.dark .navbar > button{
 .branch2{
     -webkit-transform: scaleX(-1);
     transform: scaleX(-1);
-    position: fixed;
+    position: absolute;
     left: -30px;
     top: 22%;
     width: 38%;
@@ -311,8 +311,8 @@ body.dark .navbar > button{
 }
 
 .fox{
-    position: fixed;
-    bottom: 4vh;
+    position: absolute;
+    bottom: -2vh;
     height: 120px;
     right: 16%;
 }
@@ -320,16 +320,106 @@ body.dark .navbar > button{
 .sound{
     height: 50px;
     width: 50px;
-    position: fixed;
+    position: absolute;
     top: 15%;
     left: 2%;
 }
 
-.mode{
-    position: fixed;
+.cog{
+    position: absolute;
     bottom: 0;
     left: 1%;
     height: 6vh;
     z-index: 1000;
+    opacity: 0.8;
+}
+
+.spinOut{
+    animation: spinOut .75s linear;
+}
+
+@keyframes spinOut{
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(60deg); }
+    50%  { transform: rotate(140deg); }
+    75%  { transform: rotate(180deg); }
+    100% { transform: rotate(320deg); }
+}
+
+.spinIn{
+    animation: spinIn .75s linear;
+}
+
+@keyframes spinIn{
+    0%   { transform: rotate(0deg); }
+    25%  { transform: rotate(-20deg); }
+    50%  { transform: rotate(-140deg); }
+    75%  { transform: rotate(-180deg); }
+    100% { transform: rotate(-320deg); }
+}
+
+.settings{
+    position: absolute;
+    bottom: 0;
+    height: 100vh;
+    top: 0;
+    left: -20%;
+    z-index: 9999;
+    width: 20vw;
+    background-color: aliceblue;
+}
+
+.settings > h5{
+    margin-left: 15px;
+    font-size: 30px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.darkLightMode{
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 150px;
+}
+
+.audio{
+    margin-left: 15px;
+    margin-right: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.audio input{
+    accent-color:#5F6F52 ;
+}
+
+.mode.day{
+    margin-top: 2px;
+    width: 80px;
+    height: auto !important;
+}
+
+.mode.night{
+    width: 80px !important;
+    height: auto !important;
+}
+
+.save{
+    position: absolute;
+    bottom: 1%;
+    left: 3%;
+}
+
+.save > button{
+    background-color: rgb(34, 32, 32);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
 }
 
