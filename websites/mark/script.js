@@ -1,8 +1,8 @@
 const year = new Date().getFullYear();
 var soundOn = false;
 var light = true;
-document.querySelector(".headText > h2").textContent = `Mark's page`
-document.querySelector(".footer > p").textContent = `© ${year} Mark's Page | Designed by Mark`
+document.querySelector(".headText > h2").textContent = `Terry's page`
+document.querySelector(".footer > p").textContent = `© ${year} Terry's Page | Designed by Terry`
 
 $('#a').on('input', function() {
     $('#x').text($(this).val() * 100 + '%');
