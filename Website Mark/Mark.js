@@ -78,6 +78,7 @@ $(".mode").click(function(){
         light = false;
         $(".fox").css("opacity", 0.7)
         $(".mode").attr("src", "./marksources/night.png")
+        $(".close").attr("src", "./marksources/closeDark.svg")
         $(".mode").css("height", "5vh")
         $(".mode").css("bottom", ".5vh")
         $(".secret1").css("background-color", "#8A6A52")
@@ -99,6 +100,7 @@ $(".mode").click(function(){
         light = true;
         $(".fox").css("opacity", 1)
         $(".mode").attr("src", "./marksources/day.png")
+        $(".close").attr("src", "./marksources/closeLight.svg")
         $(".mode").css("height", "6vh")
         $(".mode").css("bottom", 0)
         $(".mode").addClass("day")
@@ -119,8 +121,7 @@ $(".mode").click(function(){
     }
 })
 
-var settings = false;
-$(".cog").on("click", function(){
+function setting(){
     if(!settings){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
@@ -147,4 +148,13 @@ $(".cog").on("click", function(){
             settings = false;
         }, 750)
     }
+}
+
+var settings = false;
+$(".cog").on("click", function(){
+    setting();
+});
+
+$(".close").on("click", function(){
+    setting();
 });
