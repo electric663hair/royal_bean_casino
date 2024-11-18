@@ -707,17 +707,17 @@ function round2() {
 
 function play() {
 
-    let testHand = [
-        ["14H", "Hearts", 14],
-        ["13S", "Spades", 13],
-        ["12S", "Spades", 12],
-        ["11S", "Spades", 11],
-        ["10S", "Spades", 10]
-    ];
+    // let testHand = [
+    //     ["14H", "Hearts", 14],
+    //     ["13S", "Spades", 13],
+    //     ["12S", "Spades", 12],
+    //     ["11S", "Spades", 11],
+    //     ["10S", "Spades", 10]
+    // ];
 
-    let { winningHand, multiplier  } = detectHand(testHand)
+    // let { winningHand, multiplier  } = detectHand(testHand)
 
-    alert(winningHand)
+    // alert(winningHand)
     
 
     stageOfGame = "round1";
