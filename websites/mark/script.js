@@ -29,7 +29,17 @@ $(`.cursor4`).click(function(){
 
 
 $(".cursors > img").on("click", function(){
-    $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg), auto`)
+    if (cursor == 1){
+        $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 5 0, auto`)
+    }  else if (cursor == 2){
+        $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 10 10, auto`)
+    }  else if (cursor == 3){
+        $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 9 0, auto`)
+    }  else if (cursor == 4){
+        $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 12.5 12.5, auto`)
+    }
+
+
 })
 
 $(".noCursor").on("click", function(){
