@@ -5,8 +5,18 @@ const text = document.getElementById("text")
 const hitButton = document.getElementById("hit")
 const standButton = document.getElementById("stand")
 const balanceText = document.getElementById("balanceText")
+const playerDiv = document.getElementById("playerCards")
+const dealerDiv = document.getElementById("dealerCards")
+
+let currentPromiseResolver = null;
 
 async function checkForm(){
+    
+    let playerImgElements = playerDiv.querySelectorAll("img")
+    let dealerImgElements = dealerDiv.querySelectorAll("img")
+    
+    playerImgElements.forEach(img => img.remove())
+    dealerImgElements.forEach(img => img.remove())
 
     betAmount = document.getElementById("betInput").value;
     if (betAmount <= balance && betAmount > 0 && betAmount) {
@@ -14,17 +24,22 @@ async function checkForm(){
         balanceText.innerHTML = `Balance: ${balance}`
         playerHand = [], dealerHand = []
         let returnValue = await play();
+        if (returnValue === "tie") {
+            text.innerHTML = "Push";
+            balance += betAmount;
+        }
         if (returnValue) {
             text.innerHTML = "You won"
             balance += betAmount * 2
         } else if (!returnValue) {
             text.innerHTML = "You lost"
-        } else if (returnValue == "tie") {
-            text.innerHTML = "Push"
-            balance += betAmount
         }
         betButton.classList.remove("none")
         balanceText.innerHTML = `Balance: ${balance}`
+
+        standButton.classList.add("none")
+        hitButton.classList.add("none")
+        betButton.classList.remove("none")
     } else {
         form.reportValidity();
         console.error("The desired value is not allowed")
@@ -64,74 +79,76 @@ function drawCard(hand, containerId) {
 }
 
 function sum(hand, textId) {
+
     let sum = 0, ace = false, amount = 0
 
     for (let i = 0; i < hand.length; i++) {
         let aa = hand[i].integer
 
-        if (aa == 1) {ace = true}
-
-        if (aa > 10) {
+        if (aa == 1) {
+            ace = true
+            amount = aa
+        } else if (aa > 10) {
             amount = 10
         } else {
             amount = aa
         }
         sum += amount
-        if (sum <= 11 && ace) {
-            sum += 10
-        }
+
+    }
+    if (sum <= 11 && ace) {
+        sum += 10
     }
     document.getElementById(textId).innerHTML = `${textId}: ${sum}`
     return sum
 }
 
+// Global variables to track hand sums
+let playerHandSum = 0;
+let dealerHandSum = 0;
+
+document.getElementById("hit").addEventListener("click", function () {
+    if (playerHandSum < 21) {
+        drawCard(playerHand, "playerCards");
+        playerHandSum = sum(playerHand, "playerSum");
+        if (playerHandSum > 21) {
+            currentPromiseResolver(false);
+        }
+    }
+});
+
+document.getElementById("stand").addEventListener("click", function () {
+    hitButton.classList.add("none");
+    while (dealerHandSum < 17) {
+        drawCard(dealerHand, "dealerCards");
+        dealerHandSum = sum(dealerHand, "dealerSum");
+    }
+    if (dealerHandSum > 21 || playerHandSum > dealerHandSum) {
+        currentPromiseResolver(true);
+    } else if (dealerHandSum > playerHandSum) {
+        currentPromiseResolver(false);
+    } else if (dealerHandSum == playerHandSum) {
+        currentPromiseResolver("tie");
+    }
+    hitButton.classList.add("none");
+    standButton.classList.add("none");
+});
+
 function play() {
-    return new Promise ((aaaaaaa) => {
-        hitButton.classList.remove("none")
-        standButton.classList.remove("none")
+    return new Promise((resolve) => {
+        currentPromiseResolver = resolve;
+        hitButton.classList.remove("none");
+        standButton.classList.remove("none");
 
-        deck = refreshDeck()
+        deck = refreshDeck();
         drawCard(dealerHand, "dealerCards");
         drawCard(dealerHand, "dealerCards");
 
         drawCard(playerHand, "playerCards");
         drawCard(playerHand, "playerCards");
 
-        let playerHandSum = sum(playerHand, "playerSum")
-        let dealerHandSum = sum(dealerHand, "dealerSum")
-
-        document.getElementById("hit").addEventListener("click", function() {
-            if (playerHandSum < 21) {
-
-                drawCard(playerHand, "playerCards");
-                playerHandSum = sum(playerHand, "playerSum")
-                     if (playerHandSum == 21) {
-                    aaaaaaa(true)
-
-                } else if (playerHandSum > 21) {
-                    aaaaaaa(false)
-                }
-            }
-        })
-        document.getElementById("stand").addEventListener("click", function() {
-            document.getElementById("hit").classList.add("none")
-            while (dealerHandSum < 17) {
-                drawCard(dealerHand, "dealerCards")
-                dealerHandSum = sum(dealerHand, "dealerSum")
-            }
-            if (dealerHandSum > 21 || playerHandSum > dealerHandSum) {
-                aaaaaaa(true)
-                hitButton.classList.add("none")
-                standButton.classList.add("none")
-            } else if (dealerHandSum > playerHandSum) {
-                aaaaaaa(false)
-                hitButton.classList.add("none")
-                standButton.classList.add("none")
-            } else if (dealerHandSum == playerHandSum) {
-                aaaaaaa("tie")
-                hitButton.classList.add("none")
-                standButton.classList.add("none")
-            }
-        })
-    })
+        // Update global variables for hand sums
+        playerHandSum = sum(playerHand, "playerSum");
+        dealerHandSum = sum(dealerHand, "dealerSum");
+    });
 }
