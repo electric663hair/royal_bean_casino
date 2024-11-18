@@ -550,7 +550,6 @@ function identify(IdentifyCard) {
 
     return { suit, integer };
 }
-
 function refreshDeck() {
     deck = [];
     for (let i = 2; i < 15; i++) {
