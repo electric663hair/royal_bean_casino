@@ -8,6 +8,10 @@ body{
     transition: all .75s;
 }
 
+body, *{
+    cursor: url("./resources/cursor1.svg"), auto;
+}
+
 .none{
     display: none;
 }
@@ -367,8 +371,9 @@ body.dark .navbar > button{
     height: 100vh;
     top: 0;
     left: -20%;
-    z-index: 9999;
+    z-index: 9998;
     width: 20vw;
+    pointer-events: auto;
 }
 
 body.light .settings{
@@ -478,3 +483,16 @@ body.dark .settings{
     border-radius: 10px;
     border: solid black 3px;
 }
+
+/* .cursor{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    z-index: 9999;
+    background-color: black;
+    pointer-events: none;
+  } */
+
+  

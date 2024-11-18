@@ -3,7 +3,39 @@ var soundOn = false;
 var light = true;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
-$("*").css("cursor", "url('./resources/cursor1.svg'), auto");
+// const cursor = document.querySelector(".cursor");
+// const settingsOffset = window.innerWidth/5
+// document.addEventListener("mousemove", e => {
+//     if (settingsCursor){
+//         cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10 - settingsOffset) + "px")
+//     } else{
+//         cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px")
+//     }
+ 
+// })
+var cursor = 3;
+$(`.cursor1`).click(function(){
+    cursor = 1;
+})  
+$(`.cursor2`).click(function(){
+    cursor = 2;
+})  
+$(`.cursor3`).click(function(){
+    cursor = 3;
+})  
+$(`.cursor4`).click(function(){
+    cursor = 4;
+})  
+
+
+$(".cursors > img").on("click", function(){
+    $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg), auto`)
+})
+
+$(".noCursor").on("click", function(){
+    $("body, *").css("cursor", `auto`)
+})
+
 
 
 $('#a').on('input', function() {
@@ -125,6 +157,8 @@ $(".mode").click(function(){
     }
 })
 
+var settingsCursor = false;
+
 function setting(){
     if(!settings){
         $("body").css("position", "relative")
@@ -133,6 +167,7 @@ function setting(){
         $(".trees").css("position", "absolute")
         $(".trees").css("bottom", 0)
         $(".cog").addClass("spinOut")
+        settingsCursor = true;
         setTimeout(function(){
             $(".cog").removeClass("spinOut")
         }, 750)
@@ -143,6 +178,7 @@ function setting(){
         $("body").css("left", "0")
         $("body").css("right", "0")
         $(".cog").addClass("spinIn")
+        settingsCursor = false;
         setTimeout(function(){
             $(".cog").removeClass("spinIn")
         }, 750)
