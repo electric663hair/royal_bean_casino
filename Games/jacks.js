@@ -552,7 +552,7 @@ function identify(IdentifyCard) {
 }
 function refreshDeck() {
     deck = [];
-    for (let i = 1; i < 14; i++) {
+    for (let i = 2; i < 15; i++) {
         deck.push(i + "S", i + "C", i + "D", i + "H");
     }
     return deck;
@@ -635,9 +635,15 @@ function continueFunction(input) {
 
 function displayCards(Handddd) {
     for (let i = 0; i < 5; i++)  {
-        let cardElement = document.getElementById(`card${i+1}`)
-        cardElement.src = `../resources/cards_png/${Handddd[i][0]}.png`;
-        cardElement.alt = `The card is ${Handddd[i][1]} ${Handddd[i][2]}`;
+        if (Handddd[i][2] != 14) {
+            let cardElement = document.getElementById(`card${i+1}`)
+            cardElement.src = `../resources/cards_png/${Handddd[i][0]}.png`;
+            cardElement.alt = `The card is ${Handddd[i][2]} of ${Handddd[i][1]}`;
+        } else if (Handddd[i][2] == 14) {
+            let cardElement = document.getElementById(`card${i+1}`)
+            cardElement.src = `../resources/cards_png/1${Handddd[i][1][0]}.png`;
+            cardElement.alt = `The card is ${Handddd[i][2]} of ${Handddd[i][1]}`;
+        }
     }
 }
 
@@ -700,6 +706,20 @@ function round2() {
 }
 
 function play() {
+
+    let testHand = [
+        ["14H", "Hearts", 14],
+        ["13S", "Spades", 13],
+        ["12S", "Spades", 12],
+        ["11S", "Spades", 11],
+        ["10S", "Spades", 10]
+    ];
+
+    let { winningHand, multiplier  } = detectHand(testHand)
+
+    alert(winningHand)
+    
+
     stageOfGame = "round1";
     if (localStorage.getItem("50")) {
     //     $("body > *").css("display", "none");
