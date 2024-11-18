@@ -514,6 +514,18 @@ images.forEach((image) => {
 });
 
 function play() {
+    // let testHand = [
+    //     ["14S", "Spades", 14],
+    //     ["13S", "Spades", 13],
+    //     ["12S", "Spades", 12],
+    //     ["11S", "Spades", 11],
+    //     ["10S", "Spades", 10]
+    // ];
+
+    // let { winningHand, multiplier  } = detectHand(testHand)
+
+    // alert(winningHand)
+    
     if (localStorage.getItem("50")) {
     //     $("body > *").css("display", "none");
     //     $("body > *.cheatText").css("display", "block");
