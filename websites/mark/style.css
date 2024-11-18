@@ -344,27 +344,21 @@ body.dark .navbar > button{
 }
 
 .spinOut{
-    animation: spinOut .75s linear;
+    animation: spinOut .65s linear;
 }
 
 @keyframes spinOut{
     0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(60deg); }
-    50%  { transform: rotate(180deg); }
-    75%  { transform: rotate(360deg); }
-    100% { transform: rotate(520deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .spinIn{
-    animation: spinIn .75s linear;
+    animation: spinIn .65s linear;
 }
 
 @keyframes spinIn{
-    0%   { transform: rotate(0deg); }
-    25%  { transform: rotate(-60deg); }
-    50%  { transform: rotate(-180deg); }
-    75%  { transform: rotate(-360deg); }
-    100% { transform: rotate(-520deg); }
+    0%   { transform: rotate(-0deg); }
+    100% { transform: rotate(-360deg); }
 }
 
 .settings{
@@ -400,7 +394,7 @@ body.dark .settings{
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 150px;
+    height: 100px;
 }
 
 .audio{
@@ -458,4 +452,29 @@ body.dark .settings{
     padding-left: 1%;
     height: 30px;
     width: 30px;
+}
+
+.cursorSettings{
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+.cursors > img{
+    height: 35px;
+    border-left: solid 3px black;
+    padding:10px;
+}
+
+.cursors > img.cursor1{
+    border: none;
+}
+
+.cursors{
+    background-color: #B99470;
+    display: flex;
+    border-radius: 10px;
+    border: solid black 3px;
 }

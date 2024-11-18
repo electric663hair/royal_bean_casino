@@ -3,6 +3,9 @@ var soundOn = false;
 var light = true;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
+$("*").css("cursor", "url('./resources/cursor1.svg'), auto");
+
+
 $('#a').on('input', function() {
     $('#x').text($(this).val() * 100 + '%');
     audio.volume = $(this).val();

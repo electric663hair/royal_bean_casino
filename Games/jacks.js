@@ -117,8 +117,8 @@ function toggleFullscreen() {
 }
 
 // Evenlisteners for fullscreen
-document.getElementById("fullScreen").addEventListener("click", openFullscreen);
-document.getElementById("exitfullScreen").addEventListener("click", closeFullscreen);
+$("#fullScreen").on("click", openFullscreen);
+$("#exitfullScreen").on("click", closeFullscreen);
 
 document.addEventListener("keydown", function(event) {
     if (event.key.toLowerCase() === "f") {
