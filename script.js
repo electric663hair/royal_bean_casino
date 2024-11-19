@@ -8,6 +8,20 @@ function pageOpened() {
 }
 // document.querySelector("body").addEventListener("onHashChange", alert("change hash"));
 
+const hamburgerBtn = document.querySelector(".hamburger");
+const navBtnsList = document.querySelector(".nav");
+const loginBtns = document.querySelector(".login-buttons");
+hamburgerBtn.addEventListener("click", function() {
+    navBtnsList.classList.toggle("noDisplay");
+    loginBtns.classList.toggle("noDisplay");
+})
+addEventListener("resize", function() {
+    if (window.screen.width > 577) {
+        navBtnsList.classList.remove("noDisplay");
+        loginBtns.classList.remove("noDisplay");
+    }
+})
+
 function showSection(section) {
     // Hide all sections
     var sections = document.querySelectorAll(".section");

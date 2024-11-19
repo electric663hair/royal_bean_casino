@@ -147,8 +147,22 @@ body::-webkit-scrollbar {
         order: 1;
     }
 
+    .hamburger, .hamburger > img {
+        position: fixed;
+        top: 20px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+    }
+
 }
 
+@media (min-width:576px) {
+    .hamburger {
+        display: none;
+    }
+
+}
 
 @media (min-width:577px) and (max-width:992px){
 
@@ -204,14 +218,6 @@ body::-webkit-scrollbar {
 }
 
 @media (max-width:991px){
-
-    .hamburger, .hamburger > img {
-        position: fixed;
-        top: 5px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-    }
     
     .nav-link{
         font-size: 20px;
@@ -301,10 +307,6 @@ body::-webkit-scrollbar {
         font-family: Crimson Pro;
         margin-top: 50px;
         font-size:300%;
-    }
-    
-    .hamburger {
-        display: none;
     }
 
 }
@@ -718,3 +720,15 @@ footer{
     color: white;
 }
 
+.noDisplay {
+    display: none;
+}
+
+/* @media(min-width:577px) {
+    .nav {
+        display: flex;
+    }
+    .login-buttons {
+        display: flex;
+    }
+} */
