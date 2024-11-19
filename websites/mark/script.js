@@ -1,7 +1,20 @@
 const year = new Date().getFullYear();
 var soundOn = false;
 var light = true;
+var owlAudio = new Audio('./../../websites/mark/resources/Sounds/owl.mp3');
+var audio = new Audio('./../../websites/mark/resources/Sounds/birds.mp3');
+var sound = $(".sound")
+audio.volume = 0.6;
+owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
+
+var loadMode = localStorage.getItem("mode")
+if(loadMode == "dark"){
+    dark();
+} else{
+    lightMode();
+}
+
 
 cursor = parseInt(localStorage.getItem("cursor"));
 setCursor();
@@ -53,12 +66,7 @@ $('#a').on('input', function() {
     owlAudio.volume = $(this).val();
 });
 
-var owlAudio = new Audio('./../../websites/mark/resources/Sounds/owl.mp3');
-var audio = new Audio('./../../websites/mark/resources/Sounds/birds.mp3');
-audio.volume = 0.6;
-owlAudio.volume = 0.6;
 
-var sound = $(".sound")
 sound.on("click", function(){
     if (!soundOn){
         if(light){
@@ -122,53 +130,61 @@ branch1.on("click", function(){
     }
 })
 
+function dark(){
+    light = false;
+    localStorage.setItem("mode", dark);
+    $(".fox").fadeOut()
+    $(".owl").fadeIn()
+    $(".mode").attr("src", "./../../websites/mark/resources/night.png")
+    $(".close").attr("src", "./../../websites/mark/resources/closeDark.svg")
+    $(".mode").css("height", "5vh")
+    $(".mode").css("bottom", ".5vh")
+    $(".secret1").css("background-color", "#8A6A52")
+    $(".mode").addClass("night")
+    $(".mode").removeClass("day")
+    $("body").addClass("dark")
+    $("body").removeClass("light")
+    audio.pause();
+    audio.currentTime = 0;
+    owlAudio.currentTime = 0;
+    if (soundOn){
+        owlAudio.play();
+        sound.attr("src", "./../../websites/mark/resources/soundOnDark.svg")
+    }else{
+        sound.attr("src", "./../../websites/mark/resources/soundOffDark.svg")
+    }
+}
+
+function lightMode(){
+    light = true;
+    localStorage.setItem("mode", light);
+    $(".owl").fadeOut();
+    $(".fox").fadeIn();
+    $(".mode").attr("src", "./../../websites/mark/resources/day.png")
+    $(".close").attr("src", "./../../websites/mark/resources/closeLight.svg")
+    $(".mode").css("height", "6vh")
+    $(".mode").css("bottom", 0)
+    $(".mode").addClass("day")
+    $(".mode").removeClass("night")
+    $(".secret1").css("background-color", "#B99470")
+    $("body").addClass("light")
+    $("body").removeClass("dark")
+    audio.currentTime = 0;
+    owlAudio.pause();
+    owlAudio.currentTime = 0;
+    if (soundOn){
+        audio.play();
+        sound.attr("src", "./../../websites/mark/resources/soundOnLight.svg")
+    } else{
+        sound.attr("src", "./../../websites/mark/resources/soundOffLight.svg")
+    }
+}
+
 $(".mode").click(function(){
     if ($(".mode").hasClass("day")){
-        light = false;
-        $(".fox").fadeOut()
-        $(".owl").fadeIn()
-        $(".mode").attr("src", "./../../websites/mark/resources/night.png")
-        $(".close").attr("src", "./../../websites/mark/resources/closeDark.svg")
-        $(".mode").css("height", "5vh")
-        $(".mode").css("bottom", ".5vh")
-        $(".secret1").css("background-color", "#8A6A52")
-        $(".mode").addClass("night")
-        $(".mode").removeClass("day")
-        $("body").addClass("dark")
-        $("body").removeClass("light")
-        audio.pause();
-        audio.currentTime = 0;
-        owlAudio.currentTime = 0;
-        if (soundOn){
-            owlAudio.play();
-            sound.attr("src", "./../../websites/mark/resources/soundOnDark.svg")
-        }else{
-            sound.attr("src", "./../../websites/mark/resources/soundOffDark.svg")
-        }
-
+        dark();
     } else{
-        light = true;
-        $(".owl").fadeOut();
-        $(".fox").fadeIn();
-        $(".mode").attr("src", "./../../websites/mark/resources/day.png")
-        $(".close").attr("src", "./../../websites/mark/resources/closeLight.svg")
-        $(".mode").css("height", "6vh")
-        $(".mode").css("bottom", 0)
-        $(".mode").addClass("day")
-        $(".mode").removeClass("night")
-        $(".secret1").css("background-color", "#B99470")
-        $("body").addClass("light")
-        $("body").removeClass("dark")
-        audio.currentTime = 0;
-        owlAudio.pause();
-        owlAudio.currentTime = 0;
-        if (soundOn){
-            audio.play();
-            sound.attr("src", "./../../websites/mark/resources/soundOnLight.svg")
-        } else{
-            sound.attr("src", "./../../websites/mark/resources/soundOffLight.svg")
-        }
-
+        lightMode();
     }
 })
 
