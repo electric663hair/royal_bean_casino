@@ -6,6 +6,7 @@ function pageOpened() {
         window.location.hash = "home";
     }
 }
+// document.querySelector("body").addEventListener("onHashChange", alert("change hash"));
 
 function showSection(section) {
     // Hide all sections
