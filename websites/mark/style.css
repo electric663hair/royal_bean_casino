@@ -13,7 +13,7 @@ body, *{
 }
 
 .none{
-    display: none;
+    display: none !important;
 }
 
 body.light .gradient-background {
@@ -439,6 +439,10 @@ body.dark .settings{
     padding: 10px;
 }
 
+.save > button:hover{
+    background-color: rgb(58, 55, 55);
+}
+
 .close{
     height: 40px;
     width: 40px;
@@ -460,17 +464,30 @@ body.dark .settings{
 }
 
 .cursorSettings{
+    height: 180px;
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .cursors > img{
     height: 35px;
     border-left: solid 3px black;
     padding:10px;
+}
+
+.cursors > img.cursor4:hover{
+    border-radius: 0 10px 10px 0;
+}
+
+.cursors > img.cursor1:hover{
+    border-radius:  10px 0 0 10px;
+}
+
+.cursors > img:hover{
+    background-color: #b9a470;
 }
 
 .cursors > img.cursor1{
@@ -484,15 +501,42 @@ body.dark .settings{
     border: solid black 3px;
 }
 
-/* .cursor{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    z-index: 9999;
-    background-color: black;
-    pointer-events: none;
-  } */
+.noCursor{
+    background-color: #B99470;
+    border: solid black 3px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
 
-  
+.noCursor:hover{
+    background-color: #b9a470;
+}
+
+.settings p{
+    font-size: 20px;
+}
+
+.secretScore{
+    position: absolute;
+    left: 2%;
+    top: 0;
+    z-index: 9900;
+    display: flex;
+    align-items: center;
+    width: 25vw;
+    justify-content: space-between;
+}
+
+.secretScore p{
+    font-size: 3.9vh;
+    color:#e5e5d0;
+}
+
+.stars{
+    display: flex;
+}
+
+.stars > img{
+    height: 6vh;
+}

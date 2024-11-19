@@ -3,16 +3,9 @@ var soundOn = false;
 var light = true;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
-// const cursor = document.querySelector(".cursor");
-// const settingsOffset = window.innerWidth/5
-// document.addEventListener("mousemove", e => {
-//     if (settingsCursor){
-//         cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10 - settingsOffset) + "px")
-//     } else{
-//         cursor.setAttribute("style", "top: " + (e.pageY - 10) + "px; left: " + (e.pageX - 10) + "px")
-//     }
- 
-// })
+cursor = parseInt(localStorage.getItem("cursor"));
+setCursor();
+
 var cursor = 3;
 $(`.cursor1`).click(function(){
     cursor = 1;
@@ -27,8 +20,7 @@ $(`.cursor4`).click(function(){
     cursor = 4;
 })  
 
-
-$(".cursors > img").on("click", function(){
+function setCursor(){
     if (cursor == 1){
         $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 5 0, auto`)
     }  else if (cursor == 2){
@@ -38,8 +30,15 @@ $(".cursors > img").on("click", function(){
     }  else if (cursor == 4){
         $("body, *").css("cursor", `url(./resources/cursor${cursor}.svg) 12.5 12.5, auto`)
     }
+}
 
+$(".save").click(function(){
+    alert("Preferences saved!")
+    localStorage.setItem("cursor", cursor);
+})
 
+$(".cursors > img").on("click", function(){
+    setCursor();
 })
 
 $(".noCursor").on("click", function(){
@@ -100,18 +99,24 @@ var animating = false;
 branch1.on("click", function(){
     if (!animating){
         animating = true;
-        if (secret1.hasClass("found")){
+        if (secret1.hasClass("found1")){
             $(".secret1 h4").text("Already found!")
             $(".secret1 p").css("display", "none")
             $(".secret1 p").css("margin", 0)
         } 
         branch1.addClass("moveBranch")
         secret1.addClass("moveSecret1")
-    
+        $(".secretScore").removeClass("none")
+        
         setTimeout(function(){
             branch1.removeClass("moveBranch")
             secret1.removeClass("moveSecret1")
-            secret1.addClass("found")
+            secret1.addClass("found1")
+            $(".star1").fadeOut(100)
+            setTimeout(function(){
+                $(".star1").attr("src", "./resources/fullStar.svg")
+            },100)
+            $(".star1").fadeIn(100)
             animating = false;
         }, 5000)
     }
