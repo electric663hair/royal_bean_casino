@@ -53,11 +53,13 @@ body.light .gradient-background {
   }
 
 .footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 6vh;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -126,14 +128,15 @@ body.dark .header{
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 17vh;
+    padding-bottom: 23vh;
     position: absolute;
     z-index: 1;
-    bottom: 6vh;
+    top: 12vh;
+    bottom: 0;
 }
 
 .navbar{
-    z-index: 2;
+    z-index: 6;
     width: 50%;
     display: flex;
     justify-content: space-between;
@@ -148,7 +151,7 @@ body.dark .header{
     font-size: 25px;
     font-weight: 550;
     text-shadow: #475e34 2px 2px;
-    z-index: 2;
+    z-index: 6;
     transition: all 2s;
 }
 
@@ -166,7 +169,7 @@ body.dark .header{
 }
 
 .buttonHover{
-    animation: hoverButton 0.3s ease-out forwards;
+    animation: hoverButton 0.1s ease-out forwards;
 }
 
 @keyframes hoverButton{
@@ -175,7 +178,7 @@ body.dark .header{
 }
 
 .buttonNotHover{
-    animation: hoverNotButton 0.3s ease-out forwards;
+    animation: hoverNotButton 0.1s ease-out forwards;
 }
 
 @keyframes hoverNotButton{
@@ -191,7 +194,7 @@ body.dark .navbar button{
 
 .trees{
     position: absolute;
-    bottom: 0;
+    bottom: 6vh;
     left: 0;
     right: 0;
     z-index: 5;
@@ -599,13 +602,13 @@ body.dark .settings{
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(7vw, -7vh);
+        transform: translate(5vw, -5vh);
     }
     50% {
-        transform: translate(-12vw, 12vh);
+        transform: translate(-10vw, 10vh);
     }
     75% {
-        transform: translate(15vw, -6vh);
+        transform: translate(8vw, -5vh);
     }
     100% {
         transform: translate(0, 0);
@@ -617,13 +620,13 @@ body.dark .settings{
         transform: translate(0, 0);
     }
     25% {
-        transform: translate(-7vw, 7vh);
+        transform: translate(-5vw, 5vh);
     }
     50% {
-        transform: translate(12vw, -12vh);
+        transform: translate(10vw, -10vh);
     }
     75% {
-        transform: translate(-10vw, 6vh);
+        transform: translate(-8vw, 5vh);
     }
     100% {
         transform: translate(0, 0);

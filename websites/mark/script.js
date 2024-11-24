@@ -33,6 +33,14 @@ for (let i = 0; i < glowBlob.length; i++) {
     });
 }
 
+function openProjects(){
+    $(".main").fadeOut(150)
+    setTimeout(() => {
+        window.location.href='./subpages/projects.html'  
+    }, 1000);
+}
+
+
 var loadMode = localStorage.getItem("mode")
 if(loadMode == "dark"){
     dark();
@@ -282,7 +290,9 @@ $('.button').on("mouseleave", function() {
         button.addClass("animating")
         setTimeout(function(){
             button.removeClass("animating")         
-        }, 40)
+        }, 60)
     }
 })
+
+
 
