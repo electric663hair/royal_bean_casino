@@ -10,7 +10,7 @@ owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
 
-for (let i = 0; i < 40; i++) {
+for (let i = 0; i < 20; i++) {
     $(".main").append("<div class='glow none'></div>")
 }
 
@@ -21,13 +21,14 @@ for (let i = 0; i < glowBlob.length; i++) {
     const randomLeft = Math.random() * 100 + "%";
     const randomSize = Math.random() * 10 + 8;
     const randomTime = Math.random() * 5 + 4;
+    const randomNum = Math.floor(Math.random()*2 + 1)
     $(glowBlob[i]).css({
         top: randomTop,
         left: randomLeft,
         zIndex: 0,
         height: randomSize + "px",
         width: randomSize + "px",
-        animation: `glow ${randomTime}s infinite linear`,
+        animation: `glowPulse ${randomTime}s infinite linear, move${randomNum} ${randomTime + 5}s infinite linear`,
         opacity: (randomSize - 7)/10
     });
 }
@@ -236,6 +237,7 @@ function setting(){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
         $(".cog").addClass("spinOut")
+        $(".main").css("bottom", "-94vh")
         settingsCursor = true;
         setTimeout(function(){
             $(".cog").removeClass("spinOut")
@@ -264,7 +266,7 @@ $(".close").on("click", function(){
     setting();
 });
 
-$('.button').on("mouseover", function() {
+$('.button').hover(function() {
     if($(this).children("button").hasClass("buttonNotHover") && !$(this).children("button").hasClass("animating")){
         $(this).children("button").removeClass("buttonNotHover")
     }
@@ -280,7 +282,7 @@ $('.button').on("mouseleave", function() {
         button.addClass("animating")
         setTimeout(function(){
             button.removeClass("animating")         
-        }, 150)
+        }, 40)
     }
 })
 
