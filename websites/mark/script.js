@@ -4,15 +4,48 @@ var light = true;
 var owlAudio = new Audio('./../../websites/mark/resources/Sounds/owl.mp3');
 var audio = new Audio('./../../websites/mark/resources/Sounds/birds.mp3');
 var sound = $(".sound")
+var randomPosition;
 audio.volume = 0.6;
 owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
+
+
+for (let i = 0; i < 40; i++) {
+    $(".main").append("<div class='glow none'></div>")
+}
+
+const glowBlob = $(".glow");
+
+for (let i = 0; i < glowBlob.length; i++) {
+    const randomTop = Math.random() * 100 + 3 + "%";
+    const randomLeft = Math.random() * 100 + "%";
+    const randomSize = Math.random() * 10 + 8;
+    const randomTime = Math.random() * 5 + 4;
+    $(glowBlob[i]).css({
+        top: randomTop,
+        left: randomLeft,
+        zIndex: 0,
+        height: randomSize + "px",
+        width: randomSize + "px",
+        animation: `glow ${randomTime}s infinite linear`,
+        opacity: (randomSize - 7)/10
+    });
+}
 
 var loadMode = localStorage.getItem("mode")
 if(loadMode == "dark"){
     dark();
 } else{
     lightMode();
+}
+
+var setLoudness = localStorage.getItem("setLoudness")
+var loudness = localStorage.getItem("sound")
+if (loudness){
+    audio.volume = loudness;
+    owlAudio.volume = loudness;
+    $("#a").val(setLoudness)
+    $('#x').text(setLoudness * 100 + '%');
 }
 
 
@@ -48,6 +81,7 @@ function setCursor(){
 $(".save").click(function(){
     alert("Preferences saved!")
     localStorage.setItem("cursor", cursor);
+    localStorage.setItem("sound", $("#a").val())
 })
 
 $(".cursors > img").on("click", function(){
@@ -64,6 +98,7 @@ $('#a').on('input', function() {
     $('#x').text($(this).val() * 100 + '%');
     audio.volume = $(this).val();
     owlAudio.volume = $(this).val();
+    localStorage.setItem("setLoudness", $(this).val())
 });
 
 
@@ -119,21 +154,26 @@ branch1.on("click", function(){
         setTimeout(function(){
             branch1.removeClass("moveBranch")
             secret1.removeClass("moveSecret1")
+            if(!secret1.hasClass("found1")){
+                $(".star1").fadeOut(100)
+                setTimeout(function(){
+                    $(".star1").attr("src", "./resources/fullStar.svg")
+                },100)
+                $(".star1").fadeIn(100)
+            }
             secret1.addClass("found1")
-            $(".star1").fadeOut(100)
-            setTimeout(function(){
-                $(".star1").attr("src", "./resources/fullStar.svg")
-            },100)
-            $(".star1").fadeIn(100)
             animating = false;
-        }, 5000)
+        }, 4900)
     }
 })
 
 function dark(){
     light = false;
-    localStorage.setItem("mode", dark);
+    localStorage.setItem("mode", "dark");
+    $(".glow").removeClass("none")
+    $(".glow").fadeIn()
     $(".fox").fadeOut()
+    $(".owl").removeClass("none")
     $(".owl").fadeIn()
     $(".mode").attr("src", "./../../websites/mark/resources/night.png")
     $(".close").attr("src", "./../../websites/mark/resources/closeDark.svg")
@@ -157,7 +197,8 @@ function dark(){
 
 function lightMode(){
     light = true;
-    localStorage.setItem("mode", light);
+    localStorage.setItem("mode", "light");
+    $(".glow").fadeOut()
     $(".owl").fadeOut();
     $(".fox").fadeIn();
     $(".mode").attr("src", "./../../websites/mark/resources/day.png")
@@ -194,9 +235,6 @@ function setting(){
     if(!settings){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
-        $(".fox").css("bottom", "-2vh")
-        $(".trees").css("position", "absolute")
-        $(".trees").css("bottom", 0)
         $(".cog").addClass("spinOut")
         settingsCursor = true;
         setTimeout(function(){
@@ -213,12 +251,7 @@ function setting(){
         setTimeout(function(){
             $(".cog").removeClass("spinIn")
         }, 750)
-        
-        setTimeout(function(){
-            $(".trees").css("position", "fixed")
-            $(".trees").css("bottom", "6vh")
-            settings = false;
-        }, 750)
+        settings = false;
     }
 }
 
@@ -230,3 +263,24 @@ $(".cog").on("click", function(){
 $(".close").on("click", function(){
     setting();
 });
+
+$('.button').on("mouseover", function() {
+    if($(this).children("button").hasClass("buttonNotHover") && !$(this).children("button").hasClass("animating")){
+        $(this).children("button").removeClass("buttonNotHover")
+    }
+    $(this).children("button").addClass("buttonHover")
+});
+
+$('.button').on("mouseleave", function() {
+    const button = $(this).children("button");
+
+    if(button.hasClass("buttonHover") && !$(this).children("button").hasClass("animating")){
+        button.removeClass("buttonHover")
+        button.addClass("buttonNotHover")
+        button.addClass("animating")
+        setTimeout(function(){
+            button.removeClass("animating")         
+        }, 150)
+    }
+})
+

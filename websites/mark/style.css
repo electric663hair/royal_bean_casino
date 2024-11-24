@@ -81,7 +81,7 @@ body.dark .footer p{
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
+    z-index: 9999;
 }
 
 body.light .header{
@@ -125,6 +125,7 @@ body.dark .header{
     align-items: center;
     justify-content: center;
     padding-bottom: 17vh;
+    position: absolute;
 }
 
 .navbar{
@@ -134,29 +135,56 @@ body.dark .header{
     justify-content: space-between;
 }
 
-.navbar > button{
+.navbar button{
     background-color:  #5F6F52;
-    height: 110px;
-    width:  220px;
+    height: 100%;
+    width:  100%;
     border-radius: 5px;
     color: #FEFAE0;
     font-size: 25px;
     font-weight: 550;
     text-shadow: #475e34 2px 2px;
     z-index: 2;
+    transition: all 2s;
 }
 
-body.dark .navbar > button{
+.navbar div{
+    background-color: black;
+    border-radius: 5px;
+    height: 110px;
+    width: 220px;
+}
+
+.buttonHover{
+    animation: hoverButton 0.3s ease-out forwards;
+}
+
+@keyframes hoverButton{
+    0%{position: relative; bottom: 0px; right: 0px;}
+    100%{position: relative; bottom: 25px; right: 25px;}
+}
+
+.buttonNotHover{
+    animation: hoverNotButton 0.3s ease-out forwards;
+}
+
+@keyframes hoverNotButton{
+    0%{position: relative; bottom: 20px; right: 20px;}
+    100%{position: relative; bottom: 0px; right: 0px;}
+}
+
+
+body.dark .navbar button{
     background-color:#3B4536;
     text-shadow: none;
 }
 
 .trees{
-    position: fixed;
-    bottom: 6vh;
+    position: absolute;
+    bottom: 0;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -236,10 +264,11 @@ body.dark .navbar > button{
 .branch1{
     position: absolute;
     right: -30px;
-    top: 22%;
+    top: 12%;
     width: 38%;
     opacity: 0.4;
     animation: branch1 5s infinite;
+    z-index: 5;
 }
 
 .secret1{
@@ -303,10 +332,10 @@ body.dark .navbar > button{
     transform: scaleX(-1);
     position: absolute;
     left: -30px;
-    top: 22%;
+    top: 12%;
     width: 38%;
     opacity: .4;
-    z-index: 0;
+    z-index: 5;
 }
 
 
@@ -319,14 +348,14 @@ body.dark .navbar > button{
 
 .fox{
     position: absolute;
-    bottom: 4vh;
+    bottom: -2.1%;
     height: 120px;
     right: 16%;
 }
 
 .owl{
     position: absolute;
-    top: 16.2%;
+    top: 5.5%;
     left: 19%;
     height: 130px;
 }
@@ -335,16 +364,18 @@ body.dark .navbar > button{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 15%;
+    top: 5%;
     right: 2%;
+    z-index: 100;
 }
 
 .cog{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 2%;
+    z-index: 100;
 }
 
 .spinOut{
@@ -539,4 +570,22 @@ body.dark .settings{
 
 .stars > img{
     height: 6vh;
+}
+
+.glow{
+    background-color: rgb(221, 221, 120);
+    position: absolute;
+    border-radius: 50%;
+}
+
+@keyframes glow {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(2); /* Scale up proportionally */
+    }
+    100% {
+        transform: scale(1); /* Return to original size */
+    }
 }
