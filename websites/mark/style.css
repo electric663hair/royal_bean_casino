@@ -1,7 +1,10 @@
+html{
+    background-color:  #A9B388;
+}
+
 body{
     margin: 0;
     padding: 0;
-    background-color:  #A9B388;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: -1;

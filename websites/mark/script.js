@@ -9,6 +9,19 @@ audio.volume = 0.6;
 owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
+function openProjects(){
+    $(".main").fadeOut(150)
+    setTimeout(() => {
+        window.location.href='./subpages/Projects/projects.html'  
+    }, 1000);
+}
+
+function openAbout(){
+    $(".main").fadeOut(150)
+    setTimeout(() => {
+        window.location.href='./subpages/About/about.html'  
+    }, 1000);
+}
 
 for (let i = 0; i < 20; i++) {
     $(".main").append("<div class='glow none'></div>")
@@ -31,13 +44,6 @@ for (let i = 0; i < glowBlob.length; i++) {
         animation: `glowPulse ${randomTime}s infinite linear, move${randomNum} ${randomTime + 5}s infinite linear`,
         opacity: (randomSize - 7)/10
     });
-}
-
-function openProjects(){
-    $(".main").fadeOut(150)
-    setTimeout(() => {
-        window.location.href='./subpages/projects.html'  
-    }, 1000);
 }
 
 
