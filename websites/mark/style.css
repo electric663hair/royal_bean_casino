@@ -19,6 +19,7 @@ body, *{
     display: none !important;
 }
 
+
 body.light .gradient-background {
     background: linear-gradient(300deg, #A9B388, #d7d7c1);
     background-size: 180% 180%;
@@ -82,7 +83,7 @@ body.dark .footer p{
 
 .header{
     position: absolute;
-    top: -12vh;
+    top: 0;
     width: 100%;
     height: 12vh;
     display: flex;
@@ -126,15 +127,13 @@ body.dark .header{
 }
 
 .main{
-    height: 65vh;
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 23vh;
     position: absolute;
     z-index: 1;
-    top: 12vh;
     bottom: 0;
 }
 
@@ -285,7 +284,7 @@ body.dark .navbar button{
 .branch1{
     position: absolute;
     right: -30px;
-    top: 12%;
+    top: 25%;
     width: 38%;
     opacity: 0.4;
     animation: branch1 5s infinite;
@@ -353,7 +352,7 @@ body.dark .navbar button{
     transform: scaleX(-1);
     position: absolute;
     left: -30px;
-    top: 12%;
+    top: 25%;
     width: 38%;
     opacity: .4;
     z-index: 5;
@@ -369,24 +368,24 @@ body.dark .navbar button{
 
 .fox{
     position: absolute;
-    bottom: -2.1%;
+    bottom: 4%;
     height: 120px;
     right: 16%;
 }
 
 .owl{
     position: absolute;
-    top: 5.5%;
+    top: 19.5%;
     left: 19%;
     height: 130px;
-    z-index: 2;
+    z-index: 7;
 }
 
 .sound{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 5%;
+    top: 17%;
     right: 2%;
     z-index: 100;
 }
@@ -395,7 +394,7 @@ body.dark .navbar button{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 5%;
+    top: 17%;
     left: 2%;
     z-index: 100;
 }

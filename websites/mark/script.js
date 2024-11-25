@@ -10,10 +10,13 @@ owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
 function openProjects(){
-    $(".main").fadeOut(150)
-    setTimeout(() => {
-        window.location.href='./subpages/Projects/projects.html'  
-    }, 1000);
+    $(".main.home").slideUp();
+    $(".glow").addClass("none")
+    setTimeout(function(){
+        $(".main.home").addClass("none")
+        $(".main.projects").removeClass("none")
+    }, 350);
+    $(".main.projects").slideDown()
 }
 
 function openAbout(){
@@ -251,7 +254,7 @@ function setting(){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
         $(".cog").addClass("spinOut")
-        $(".main").css("bottom", "-94vh")
+        $(".main").css("bottom", "-100vh")
         settingsCursor = true;
         setTimeout(function(){
             $(".cog").removeClass("spinOut")
