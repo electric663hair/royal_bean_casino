@@ -9,8 +9,7 @@
 
 <body class="light">
 
-    <div class="main gradient-background home">
-
+    <subpage class="gradient-background active" id="home">
         <div class="header">
             <div class="secretScore none">
                 <p>Secrets found: </p>
@@ -31,7 +30,7 @@
 
         <div class="navbar">
             <div class="button"><button onclick="window.location.href='./../../index.html#about'">Go back</button></div>
-            <div class="button"><button onclick="openProjects()">My projects</button></div>
+            <div class="button"><button onclick="goToPage('projects')">My projects</button></div>
             <div class="button"><button onclick="openAbout()">About me</button></div>
         </div>
 
@@ -58,7 +57,7 @@
         <div class="footer">
             <p>© <span></span> Mark's Page | Designed by Mark</p>
         </div>
-    </div>
+    </subpage>
 
     <div class="settings">
         <img src="./../../websites/mark/resources/closeLight.svg" class="close">
@@ -90,12 +89,13 @@
         </div>
     </div>
 
-    <div class="main projects none">
+    <subpage class="notActive" id="projects">
         <h1>maichvge</h1>
         <h1>maichvge</h1>
         <h1>maichvge</h1>
         <h1>maichvge</h1>
-    </div>
+        <button onclick="goToPage('home')">Go back</button>
+    </subpage>
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

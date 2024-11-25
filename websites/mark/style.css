@@ -126,7 +126,7 @@ body.dark .header{
     font-weight: 400;
 }
 
-.main{
+subpage {
     height: 100vh;
     width: 100%;
     display: flex;
@@ -645,3 +645,6 @@ body.dark .settings{
         opacity: 0.5;
     }
 }
+
+subpage.notActive {display:none};
+subpage.active {display:flex};

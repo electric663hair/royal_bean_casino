@@ -303,5 +303,27 @@ $('.button').on("mouseleave", function() {
     }
 })
 
+function checkForHas() {
+    let hashVar = window.location.hash;
+    console.log(hashVar);
 
+    if (!hashVar)
+        goToPage("home");
+    else
+        goToPage(hashVar.slice(1));
+}
 
+function goToPage(page) {
+    if (page) window.location.hash = page;
+    const subpages = document.querySelectorAll("subpage");
+    subpages.forEach((subpage) => {
+        subpage.classList.remove("active");
+        subpage.classList.add("notActive")
+        if (subpage.id === page) {
+            subpage.classList.add("active");
+            subpage.classList.remove("notActive");
+        };
+    });
+};
+
+window.onhashchange = checkForHas;
