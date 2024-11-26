@@ -9,25 +9,46 @@ audio.volume = 0.6;
 owlAudio.volume = 0.6;
 document.querySelector(".footer > p > span").textContent = `${year}`
 
-function openProjects(){
-    $(".main.home").slideUp();
-    $(".glow").addClass("none")
-    setTimeout(function(){
-        $(".main.home").addClass("none")
-        $(".main.projects").removeClass("none")
-    }, 350);
-    $(".main.projects").slideDown()
+
+if (!sessionStorage.getItem("isTabOpen")) {
+    window.location.hash = "home";
+} else {
+    const daPage = localStorage.getItem("page")
+    goToPage(daPage, false)
 }
 
-function openAbout(){
-    $(".main").fadeOut(150)
-    setTimeout(() => {
-        window.location.href='./subpages/About/about.html'  
-    }, 1000);
-}
+sessionStorage.setItem("isTabOpen", "true");
+
+
+function goToPage(page, reload) {
+    if (page) window.location.hash = page;
+    localStorage.setItem("page", page)
+    if (reload){
+        $("subpage.active").slideUp()
+    }
+    setTimeout(function(){
+        const subpages = document.querySelectorAll("subpage");
+        subpages.forEach((subpage) => {
+            subpage.classList.remove("active");
+            subpage.classList.add("notActive")
+            if (subpage.id === page) {
+                subpage.classList.add("active");
+                subpage.classList.remove("notActive");
+            };
+        });
+    }, 300);
+    setTimeout(function(){
+        if (reload){
+            $("subpage.active").slideDown()
+        }
+    }, 500)
+
+};
+
+window.onhashchange = checkForHas;
 
 for (let i = 0; i < 20; i++) {
-    $(".main").append("<div class='glow none'></div>")
+    $("#home").append("<div class='glow none'></div>")
 }
 
 const glowBlob = $(".glow");
@@ -254,7 +275,7 @@ function setting(){
         $("body").css("position", "relative")
         $("body").css("left", "20%")
         $(".cog").addClass("spinOut")
-        $(".main").css("bottom", "-100vh")
+        $("subpage").css("bottom", "-100vh")
         settingsCursor = true;
         setTimeout(function(){
             $(".cog").removeClass("spinOut")
@@ -312,18 +333,3 @@ function checkForHas() {
     else
         goToPage(hashVar.slice(1));
 }
-
-function goToPage(page) {
-    if (page) window.location.hash = page;
-    const subpages = document.querySelectorAll("subpage");
-    subpages.forEach((subpage) => {
-        subpage.classList.remove("active");
-        subpage.classList.add("notActive")
-        if (subpage.id === page) {
-            subpage.classList.add("active");
-            subpage.classList.remove("notActive");
-        };
-    });
-};
-
-window.onhashchange = checkForHas;
