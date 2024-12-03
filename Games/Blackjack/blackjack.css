@@ -32,22 +32,21 @@
 }
 
 #playerCards {
-    background-color: bisque;
-    width: 100%;
-    height: 50%;
+    flex: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #dealerCards {
-    background-color: rgb(174, 160, 142);
-    width: 100%;
-    height: 50%;
+    flex: 1;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 10px;
     align-items: center;
+    width: 100%;
 }
 
 .image {
@@ -56,4 +55,15 @@
     transition: none;
     padding: 5px;
     border-radius: 12px;
+}
+
+.hands {
+    background-color: rgb(53, 86, 62);
+    width: 100%;
+    height: calc(100vh - 100px);
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    flex-direction: column;
 }
