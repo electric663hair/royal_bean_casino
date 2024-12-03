@@ -8,6 +8,8 @@ const balanceText = document.getElementById("balanceText")
 const playerDiv = document.getElementById("playerCards")
 const dealerDiv = document.getElementById("dealerCards")
 
+let playerImgElements = playerDiv.querySelectorAll("img")
+let dealerImgElements = dealerDiv.querySelectorAll("img")
 
 let currentPromiseResolver = null;
 
@@ -26,8 +28,7 @@ async function checkForm(){
     playerHandSum = 0;
     dealerHandSum = 0;
 
-    let playerImgElements = playerDiv.querySelectorAll("img")
-    let dealerImgElements = dealerDiv.querySelectorAll("img")
+
     
     playerImgElements.forEach(img => img.remove())
     dealerImgElements.forEach(img => img.remove())
@@ -66,7 +67,7 @@ betButton.addEventListener("click", function() {
 });
 
 function identify(IdentifyCard) {
-    return parseInt(IdentifyCard.slice(0, -1));
+    return parseInt(IdentifyCard);
 }
 
 function refreshDeck() {
@@ -77,37 +78,68 @@ function refreshDeck() {
     return deck;
 }
 
-function drawCard(hand, containerId) {
+function drawCard(hand, containerId, isHidden) {
     let index = Math.floor(Math.random() * deck.length)
     let card = deck[index]
     deck.splice(index, 1)
     let integer = identify(card)
-    hand.push({ card, integer })
+    hand.push([ card, integer, isHidden ])
 
-    const img = document.createElement("img");
-    img.src = `../../resources/cards_png/${card}.png`;
-    img.classList.add("image");
-
-    document.getElementById(containerId).appendChild(img);
+    displayCards(hand, containerId)
+    
 }
 
-function sum(hand, textId) {
+function displayCards(hand, containerId) {
+
+    playerImgElements.forEach(img => img.remove())
+    dealerImgElements.forEach(img => img.remove())
+
+    for (let i = 1; i < hand.length; i++) {
+        const img = document.createElement("img");
+        if (hand[i][2]) {
+            img.src = `../../resources/cards_png/blue_back.png`;
+        } else {
+            img.src = `../../resources/cards_png/${hand[i][0]}.png`;
+        }
+        img.classList.add("image");
+
+        document.getElementById(containerId).appendChild(img);
+    }
+}
+
+function sum(hand, textId, addFirstCard) {
 
     let sum = 0, ace = false, amount = 0
+    if (addFirstCard) {
+        for (let i = 0; i < hand.length; i++) {
+            let aa = hand[i][1]
 
-    for (let i = 0; i < hand.length; i++) {
-        let aa = hand[i].integer
+            if (aa == 1) {
+                ace = true
+                amount = aa
+            } else if (aa > 10) {
+                amount = 10
+            } else {
+                amount = aa
+            }
+            sum += amount
 
-        if (aa == 1) {
-            ace = true
-            amount = aa
-        } else if (aa > 10) {
-            amount = 10
-        } else {
-            amount = aa
         }
-        sum += amount
+    } else if (!addFirstCard) {
+        for (let i = 1; i < hand.length; i++) {
+            let aa = hand[i][1]
 
+            if (aa == 1) {
+                ace = true
+                amount = aa
+            } else if (aa > 10) {
+                amount = 10
+            } else {
+                amount = aa
+            }
+            sum += amount
+
+        }
     }
     if (sum <= 11 && ace) {
         sum += 10
@@ -122,8 +154,8 @@ let dealerHandSum = 0;
 
 document.getElementById("hit").addEventListener("click", function () {
     if (playerHandSum < 21) {
-        drawCard(playerHand, "playerCards");
-        playerHandSum = sum(playerHand, "playerSum");
+        drawCard(playerHand, "playerCards"), false;
+        playerHandSum = sum(playerHand, "playerSum", true);
         if (playerHandSum > 21) {
             currentPromiseResolver(false);
         }
@@ -134,7 +166,7 @@ document.getElementById("stand").addEventListener("click", function () {
     hitButton.classList.add("none");
     while (dealerHandSum < 17) {
         drawCard(dealerHand, "dealerCards");
-        dealerHandSum = sum(dealerHand, "dealerSum");
+        dealerHandSum = sum(dealerHand, "dealerSum", true);
     }
     if (dealerHandSum > 21 || playerHandSum > dealerHandSum) {
         currentPromiseResolver("won");
@@ -146,25 +178,26 @@ document.getElementById("stand").addEventListener("click", function () {
     hitButton.classList.add("none");
     standButton.classList.add("none");
 
-    resetGame()
+    
     
 });
 
 function play() {
+    resetGame()
     return new Promise((resolve) => {
         currentPromiseResolver = resolve;
         hitButton.classList.remove("none");
         standButton.classList.remove("none");
 
         deck = refreshDeck();
-        drawCard(dealerHand, "dealerCards");
-        drawCard(dealerHand, "dealerCards");
 
-        drawCard(playerHand, "playerCards");
-        drawCard(playerHand, "playerCards");
+        drawCard(playerHand, "playerCards", false);
+        drawCard(playerHand, "playerCards", false);
 
-        // Update global variables for hand sums
-        playerHandSum = sum(playerHand, "playerSum");
-        dealerHandSum = sum(dealerHand, "dealerSum");
+        drawCard(dealerHand, "dealerCards", true);
+        drawCard(dealerHand, "dealerCards", false);
+
+        playerHandSum = sum(playerHand, "playerSum", true);
+        dealerHandSum = sum(dealerHand, "dealerSum", false);
     });
 }
