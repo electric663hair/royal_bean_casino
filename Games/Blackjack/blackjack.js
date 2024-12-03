@@ -18,7 +18,8 @@ async function checkForm(){
     playerImgElements.forEach(img => img.remove())
     dealerImgElements.forEach(img => img.remove())
 
-    betAmount = document.getElementById("betInput").value;
+    betAmount = parseInt(document.getElementById("betInput").value, 10);
+
     if (betAmount <= balance && betAmount > 0 && betAmount) {
         balance -= betAmount
         balanceText.innerHTML = `Balance: ${balance}`
@@ -28,10 +29,10 @@ async function checkForm(){
             text.innerHTML = "Push";
             balance += betAmount;
         }
-        if (returnValue) {
+        if (returnValue == "win") {
             text.innerHTML = "You won"
             balance += betAmount * 2
-        } else if (!returnValue) {
+        } else if (returnValue == "lost") {
             text.innerHTML = "You lost"
         }
         betButton.classList.remove("none")
@@ -124,9 +125,9 @@ document.getElementById("stand").addEventListener("click", function () {
         dealerHandSum = sum(dealerHand, "dealerSum");
     }
     if (dealerHandSum > 21 || playerHandSum > dealerHandSum) {
-        currentPromiseResolver(true);
+        currentPromiseResolver("won");
     } else if (dealerHandSum > playerHandSum) {
-        currentPromiseResolver(false);
+        currentPromiseResolver("lost");
     } else if (dealerHandSum == playerHandSum) {
         currentPromiseResolver("tie");
     }
