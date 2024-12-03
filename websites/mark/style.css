@@ -1,7 +1,10 @@
+html{
+    background-color:  #A9B388;
+}
+
 body{
     margin: 0;
     padding: 0;
-    background-color:  #A9B388;
     overflow-x: hidden;
     overflow-y: hidden;
     z-index: -1;
@@ -13,8 +16,9 @@ body, *{
 }
 
 .none{
-    display: none;
+    display: none !important;
 }
+
 
 body.light .gradient-background {
     background: linear-gradient(300deg, #A9B388, #d7d7c1);
@@ -53,11 +57,13 @@ body.light .gradient-background {
   }
 
 .footer{
-    position: fixed;
+    position: absolute;
     bottom: 0;
+    left: 0;
+    right: 0;
     width: 100%;
     height: 6vh;
-    z-index: 100;
+    z-index: 9999;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -76,12 +82,14 @@ body.dark .footer p{
 }
 
 .header{
+    position: absolute;
+    top: 0;
     width: 100%;
     height: 12vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
+    z-index: 9999;
 }
 
 body.light .header{
@@ -118,45 +126,80 @@ body.dark .header{
     font-weight: 400;
 }
 
-.main{
-    height: 65vh;
+subpage {
+    height: 100vh;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 17vh;
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
 }
 
 .navbar{
-    z-index: 2;
+    z-index: 6;
     width: 50%;
     display: flex;
     justify-content: space-between;
 }
 
-.navbar > button{
+.navbar button{
     background-color:  #5F6F52;
-    height: 110px;
-    width:  220px;
+    height: 100%;
+    width:  100%;
     border-radius: 5px;
     color: #FEFAE0;
     font-size: 25px;
     font-weight: 550;
     text-shadow: #475e34 2px 2px;
-    z-index: 2;
+    z-index: 6;
+    transition: all 2s;
 }
 
-body.dark .navbar > button{
+.navbar button:hover{
+    position: relative;
+    bottom: 15px;
+    right: 15px;
+}
+
+.navbar div{
+    background-color: black;
+    border-radius: 5px;
+    height: 110px;
+    width: 220px;
+}
+
+.buttonHover{
+    animation: hoverButton 0.1s ease-out forwards;
+}
+
+@keyframes hoverButton{
+    0%{position: relative; bottom: 0px; right: 0px;}
+    100%{position: relative; bottom: 15px; right: 10px;}
+}
+
+.buttonNotHover{
+    animation: hoverNotButton 0.1s ease-out forwards;
+}
+
+@keyframes hoverNotButton{
+    0%{position: relative; bottom: 15px; right: 10px;}
+    100%{position: relative; bottom: 0px; right: 0px;}
+}
+
+
+body.dark .navbar button{
     background-color:#3B4536;
     text-shadow: none;
 }
 
 .trees{
-    position: fixed;
+    position: absolute;
     bottom: 6vh;
     left: 0;
     right: 0;
-    z-index: 2;
+    z-index: 5;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
@@ -166,17 +209,20 @@ body.dark .navbar > button{
     height: 230px;
     opacity: 0.8;
     animation: tree1 45s infinite;
+    z-index: 2;
 }
 
 .tree2{
     height: 150px;
     opacity: 0.5;
     animation: tree2 45s infinite;
+    z-index: 2;
 }
 
 .tree3{
     height: 280px;
     animation: tree3 45s infinite;
+    z-index: 2;
 }
 
 .tree4{
@@ -184,6 +230,7 @@ body.dark .navbar > button{
     opacity: 0.7;
     padding-right: 50px;
     animation: tree4 45s infinite;
+    z-index: 2;
 }
 
 .tree5{
@@ -191,6 +238,7 @@ body.dark .navbar > button{
     opacity: 0.6;
     padding-left: 20px;
     animation: tree5 45s infinite;
+    z-index: 2;
 }
 
 @keyframes tree1{
@@ -236,10 +284,11 @@ body.dark .navbar > button{
 .branch1{
     position: absolute;
     right: -30px;
-    top: 22%;
+    top: 25%;
     width: 38%;
     opacity: 0.4;
     animation: branch1 5s infinite;
+    z-index: 5;
 }
 
 .secret1{
@@ -303,10 +352,10 @@ body.dark .navbar > button{
     transform: scaleX(-1);
     position: absolute;
     left: -30px;
-    top: 22%;
+    top: 25%;
     width: 38%;
     opacity: .4;
-    z-index: 0;
+    z-index: 5;
 }
 
 
@@ -319,32 +368,35 @@ body.dark .navbar > button{
 
 .fox{
     position: absolute;
-    bottom: 4vh;
+    bottom: 4%;
     height: 120px;
     right: 16%;
 }
 
 .owl{
     position: absolute;
-    top: 16.2%;
+    top: 19.5%;
     left: 19%;
     height: 130px;
+    z-index: 7;
 }
 
 .sound{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 15%;
+    top: 17%;
     right: 2%;
+    z-index: 100;
 }
 
 .cog{
     height: 50px;
     width: 50px;
     position: absolute;
-    top: 15%;
+    top: 17%;
     left: 2%;
+    z-index: 100;
 }
 
 .spinOut{
@@ -439,6 +491,10 @@ body.dark .settings{
     padding: 10px;
 }
 
+.save > button:hover{
+    background-color: rgb(58, 55, 55);
+}
+
 .close{
     height: 40px;
     width: 40px;
@@ -460,17 +516,30 @@ body.dark .settings{
 }
 
 .cursorSettings{
+    height: 180px;
     margin-left: 15px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .cursors > img{
     height: 35px;
     border-left: solid 3px black;
     padding:10px;
+}
+
+.cursors > img.cursor4:hover{
+    border-radius: 0 10px 10px 0;
+}
+
+.cursors > img.cursor1:hover{
+    border-radius:  10px 0 0 10px;
+}
+
+.cursors > img:hover{
+    background-color: #b9a470;
 }
 
 .cursors > img.cursor1{
@@ -484,15 +553,92 @@ body.dark .settings{
     border: solid black 3px;
 }
 
-/* .cursor{
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    border: 2px solid #fff;
-    border-radius: 50%;
-    z-index: 9999;
-    background-color: black;
-    pointer-events: none;
-  } */
+.noCursor{
+    background-color: #B99470;
+    border: solid black 3px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 15px;
+}
 
-  
+.noCursor:hover{
+    background-color: #b9a470;
+}
+
+.settings p{
+    font-size: 20px;
+}
+
+.secretScore{
+    position: absolute;
+    left: 2%;
+    top: 0;
+    z-index: 9900;
+    display: flex;
+    align-items: center;
+    width: 25vw;
+    justify-content: space-between;
+}
+
+.secretScore p{
+    font-size: 3.9vh;
+    color:#e5e5d0;
+}
+
+.stars{
+    display: flex;
+}
+
+.stars > img{
+    height: 6vh;
+}
+
+.glow{
+    background-color: rgb(224, 224, 139);
+    position: absolute;
+    border-radius: 50%;
+}
+
+@keyframes move1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(5vw, -5vh);
+    }
+    50% {
+        transform: translate(-10vw, 10vh);
+    }
+    75% {
+        transform: translate(8vw, -5vh);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes move2 {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translate(-5vw, 5vh) scale(1.3);
+        opacity:0.55;
+    }
+    50% {
+        transform: translate(10vw, -10vh) scale(1.6);
+        opacity: 0.7;
+    }
+    75% {
+        transform: translate(-8vw, 5vh) scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.4;
+    }
+}
+
+ subpage.notActive {display:none};
+ subpage.active {display:flex}; 

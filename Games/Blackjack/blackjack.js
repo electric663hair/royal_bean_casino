@@ -8,19 +8,32 @@ const balanceText = document.getElementById("balanceText")
 const playerDiv = document.getElementById("playerCards")
 const dealerDiv = document.getElementById("dealerCards")
 
+
 let currentPromiseResolver = null;
 
+function resetGame() {
+    playerHand = [];
+    dealerHand = [];
+    playerHandSum = 0;
+    dealerHandSum = 0;
+    playerDiv.innerHTML = '';
+    dealerDiv.innerHTML = '';
+    text.innerHTML = '';
+}
+
+
 async function checkForm(){
-    
+    playerHandSum = 0;
+    dealerHandSum = 0;
+
     let playerImgElements = playerDiv.querySelectorAll("img")
     let dealerImgElements = dealerDiv.querySelectorAll("img")
     
     playerImgElements.forEach(img => img.remove())
     dealerImgElements.forEach(img => img.remove())
 
-    betAmount = parseInt(document.getElementById("betInput").value, 10);
-
-    if (betAmount <= balance && betAmount > 0 && betAmount) {
+    betAmount = parseFloat(document.getElementById("betInput").value);
+    if (!isNaN(betAmount) && betAmount <= balance && betAmount > 0) {
         balance -= betAmount
         balanceText.innerHTML = `Balance: ${balance}`
         playerHand = [], dealerHand = []
@@ -42,7 +55,6 @@ async function checkForm(){
         hitButton.classList.add("none")
         betButton.classList.remove("none")
     } else {
-        form.reportValidity();
         console.error("The desired value is not allowed")
     }
 }
@@ -133,6 +145,9 @@ document.getElementById("stand").addEventListener("click", function () {
     }
     hitButton.classList.add("none");
     standButton.classList.add("none");
+
+    resetGame()
+    
 });
 
 function play() {
