@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../Blackjack/blackjack.css">
 </head>
 <body>
-
+    <h1 id="text" class="none"></h1>
     <div class="cards">
         <div class="hands">
             <h1 id="dealerText">Dealer Hand</h1>
@@ -27,30 +27,17 @@
     
 
     <div class="control">
-        <div>
-            <input type="text" name="placeholder" id="betInput">
-            <button id="start">
-                Bet
-            </button>
-        </div>
-        <div>
-            <button id="hit">
-                Hit
-            </button>
-            <button id="stand">
-                Stand
-            </button>
-        </div>
-        <div>
-            <h1 id="playerSum"></h1>
-            <h1 id="dealerSum"></h1>
-        </div>
-        <div>
-            <h1 id="text"></h1>
-        </div>
-        <div>
-            <h1 id="balanceText"></h1>
-        </div>
+        <input type="text" name="placeholder" id="betInput">
+        <button id="start">
+            Bet
+        </button>
+        <button id="hit" class="none">
+            Hit
+        </button>
+        <button id="stand" class="none">
+            Stand
+        </button>
+        <h1 id="balanceText">Balance: 10000</h1>
     </div>
 ``    
     

@@ -1,6 +1,9 @@
 * {
     margin: 0px;
     padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 600;
+    color: white;
 }
 
 .none {
@@ -19,17 +22,50 @@
     bottom: 0px;
     position: absolute;
     height: 100px;
-    background-color:#B22222;
+    background-color:#8d1e1e;
     display: flex;
     gap: 15px;
     justify-content: center;
     align-items: center;
 }
 
-.control button {
-    width: 100px;
-    height: 50px;
+.control > * {
+    width: 250px;
 }
+
+button {  
+    border-radius: 10px;
+    border: none;
+
+
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    color: white;
+
+    transition: all, 0.5s;
+    padding: 10px;
+    font-size: 20px;
+
+}
+
+input {  
+    border-radius: 10px;
+    border: none;
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(10px);
+    color: white;
+    transition: all, 0.5s;
+    padding: 10px;
+    font-size: 20px;
+}
+
+button:hover {  
+    background-color:rgba(255, 255, 255, 0);
+    color: white;
+}
+
 
 #playerCards {
     flex: 1;
@@ -57,13 +93,43 @@
     border-radius: 12px;
 }
 
+#dealerText {
+    color: white;
+    font-size: 50px;
+}
+
+#playerText {
+    color: white;
+    font-size: 50px;
+}
+
 .hands {
     background-color: rgb(53, 86, 62);
     width: 100%;
     height: calc(100vh - 100px);
     display: flex;
     justify-content: center;
-    gap: 10px;
     align-items: center;
     flex-direction: column;
+}
+
+#text {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 100px;
+    color: white;
+    z-index: 9999;
+    pointer-events: none;
+    text-shadow: 2px 2px 5px black;
+    background-color: black;
+    opacity: 70%;
+    width: 1000px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: none;
 }
