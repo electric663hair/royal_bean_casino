@@ -105,14 +105,14 @@ body::-webkit-scrollbar {
 
     .about1{
         display: grid;
-        grid-template-rows: 450px 10fr !important;
+        grid-template-rows: 450px 2fr;
         background-color: #f6f6cf;
         color: #0e2f20;
     }
     
     .about2{
         display: grid;
-        grid-template-rows: 450px 10fr !important;
+        grid-template-rows: 450px 2fr;
         background-color: #0e2f20;
         color: #f6f6cf;
     }
