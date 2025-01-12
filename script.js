@@ -1,12 +1,6 @@
 document.querySelector("#copyright").innerHTML = "©" + new Date().getFullYear() + " Royal Bean Studios, Inc";
 
-function pageOpened() {
-    var hash = window.location.hash;
-    if (hash === "" || hash === "#") {
-        window.location.hash = "home";
-    }
-}
-// document.querySelector("body").addEventListener("onHashChange", alert("change hash"));
+if (!window.location.hash) window.location.hash = "home";
 
 const hamburgerBtn = document.querySelector(".hamburger");
 const navBtnsList = document.querySelector(".nav");
