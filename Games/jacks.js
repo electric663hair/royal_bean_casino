@@ -273,7 +273,7 @@ function toggleSoundIcon() {
         soundIcon.src = "../resources/soundoff.svg"
     }
 }
-function soundToggle() 
+function soundToggle() {
     game.balance += 10000;
     saveBalance(game.balance)
     soundToggleSound.play();
