@@ -275,6 +275,7 @@ function toggleSoundIcon() {
 }
 function soundToggle() {
     game.balance += 10000;
+    alert("test")
     saveBalance(game.balance)
     soundToggleSound.play();
     soundToggleVar = !soundToggleVar;
