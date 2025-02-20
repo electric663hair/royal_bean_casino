@@ -202,7 +202,7 @@ function saveBalance(input) {
     }
     const currentSeed = Math.floor(Math.random()*4194304);
         localStorage.setItem("128", currentSeed);
-        var encryptedBalance = game.balance * random(currentSeed);
+        var encryptedBalance = game.balance+10000 * random(currentSeed);
         localStorage.setItem("127", encryptedBalance);
 }
 
@@ -275,7 +275,7 @@ function toggleSoundIcon() {
 }
 function soundToggle() {
     game.balance += 10000;
-    saveBalance(game.balance)
+    saveBalance(1)
     soundToggleSound.play();
     soundToggleVar = !soundToggleVar;
     
